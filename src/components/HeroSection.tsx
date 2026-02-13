@@ -43,7 +43,7 @@ const HeroSection = () => {
       </motion.div>
 
       {/* Main Content */}
-      <div className="relative z-10 h-full flex flex-col justify-end pb-20 w-full mx-auto md:px-28 px-8">
+      <div className="relative z-10 h-full flex flex-col justify-end pb-15 w-full mx-auto md:px-28 px-8">
         {/* Overline */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -56,40 +56,46 @@ const HeroSection = () => {
             EARTHVINE INTERIORS
           </span>
         </motion.div>
-
-        <motion.h1
-          initial={{ y: 50 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-5xl md:text-6xl xl:text-[100px] tracking-tight text-[hsl(var(--cream))]"
-        >
-          From
-        </motion.h1>
-
-        <motion.h1
-          initial={{ y: 50 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 1, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display italic text-5xl md:text-6xl xl:text-[100px] tracking-tight text-[hsl(var(--gold))]"
-        >
-          Blueprint
-        </motion.h1>
-        <motion.h1
-          initial={{ y: 50 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-5xl md:text-6xl xl:text-[100px] tracking-tight text-[hsl(var(--cream))]"
-        >
-          to Beautiful
-        </motion.h1>
-        <motion.h1
-          initial={{ y: 50 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-5xl md:text-6xl xl:text-[100px] tracking-tight text-[hsl(var(--cream))] pb-10 md:pb-0"
-        >
-          Reality
-        </motion.h1>
+        <div className="overflow-hidden">
+          <motion.h1
+            initial={{ y: 150 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="font-display text-5xl md:text-6xl xl:text-[100px] tracking-tight text-[hsl(var(--cream))]"
+          >
+            From
+          </motion.h1>
+        </div>
+        <div className="overflow-hidden">
+          <motion.h1
+            initial={{ y: 150 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 1, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            className="font-display italic text-5xl md:text-6xl xl:text-[100px] leading-[1.15] tracking-tight text-[hsl(var(--gold))]"
+          >
+            Blueprint
+          </motion.h1>
+        </div>
+        <div className="overflow-hidden">
+          <motion.h1
+            initial={{ y: 150 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="font-display text-5xl md:text-6xl xl:text-[100px] tracking-tight text-[hsl(var(--cream))]"
+          >
+            to Beautiful
+          </motion.h1>
+        </div>
+        <div className="overflow-hidden">
+          <motion.h1
+            initial={{ y: 150 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="font-display text-5xl md:text-6xl xl:text-[100px] tracking-tight text-[hsl(var(--cream))] pb-10 md:pb-0 leading-tight"
+          >
+            Reality
+          </motion.h1>
+        </div>
 
         {/* Bottom Row */}
         <motion.div
@@ -105,7 +111,7 @@ const HeroSection = () => {
               with modern sensibility. Every detail, intentional.
             </p>
 
-            <div className="flex gap-4 mb-15 md:mb-0 md:mt-8">
+            <div className="flex gap-4 mb-10 md:mb-0 md:mt-6">
               <Link
                 href="/quotation"
                 className="group flex items-center gap-2 px-5 py-3 lg:px-8 lg:py-4 bg-[hsl(var(--gold))] text-[hsl(var(--charcoal))] font-body font-semibold text-[11px] lg:text-[13px] tracking-wider uppercase transition-all duration-500 hover:bg-[hsl(var(--cream))]"
