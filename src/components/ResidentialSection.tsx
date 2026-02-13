@@ -14,7 +14,7 @@ const ResidentialSection = () => {
   return (
     <section
       ref={ref}
-      className="py-16 sm:py-28 lg:py-40 bg-[hsl(var(--background))] overflow-hidden"
+      className="section-padding bg-[hsl(var(--background))] overflow-hidden"
     >
       <div className="max-w-350 mx-auto px-5 sm:px-8">
         {/* Section header */}

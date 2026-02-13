@@ -11,7 +11,7 @@ const TerraceSection = () => {
 
   return (
     <section ref={ref} className="relative overflow-hidden bg-black">
-      <div className="relative min-h-[90vh] md:min-h-screen flex items-center">
+      <div className="relative min-h-[70vh] md:min-h-screen flex items-end sm:items-center">
         {/* Background */}
         <motion.div
           initial={{ scale: 1.1 }}
@@ -53,7 +53,7 @@ const TerraceSection = () => {
               </div>
 
               {/* Heading */}
-              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-8xl text-[hsl(var(--cream))] leading-[0.9]">
+              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-8xl text-[hsl(var(--cream))] leading-[1.1]">
                 Terrace
                 <br />
                 <span className="italic text-[hsl(var(--gold))]">
@@ -62,7 +62,7 @@ const TerraceSection = () => {
               </h2>
 
               {/* Paragraph (hidden on small mobile if needed) */}
-              <p className="mt-6 sm:mt-8 text-[hsl(var(--cream)/0.6)] text-base sm:text-lg max-w-lg leading-relaxed">
+              <p className="mt-6 sm:mt-8 text-[hsl(var(--cream)/0.6)] text-sm sm:text-lg max-w-lg leading-relaxed">
                 Transform your terrace into a breathtaking retreat — where
                 nature meets luxury design, and every sunset becomes an
                 experience.
@@ -89,18 +89,6 @@ const TerraceSection = () => {
                   </span>
                 ))}
               </motion.div>
-            </motion.div>
-
-            {/* Right Large Number */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              transition={{ duration: 1, delay: 0.6 }}
-              className="lg:col-span-5 hidden lg:flex items-end justify-end"
-            >
-              <span className="font-display text-[160px] xl:text-[200px] text-[hsl(var(--cream)/0.05)] leading-none font-bold select-none">
-                03
-              </span>
             </motion.div>
           </div>
         </div>
