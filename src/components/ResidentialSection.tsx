@@ -14,11 +14,11 @@ const ResidentialSection = () => {
   return (
     <section
       ref={ref}
-      className="py-16 sm:py-28 lg:py-40 bg-background overflow-hidden"
+      className="py-16 sm:py-28 lg:py-40 bg-[hsl(var(--background))] overflow-hidden"
     >
-      <div className="max-w-[1400px] mx-auto px-5 sm:px-8">
-        {/* Section header — asymmetric */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 mb-12 sm:mb-20">
+      <div className="max-w-350 mx-auto px-5 sm:px-8">
+        {/* Section header */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 mb-12 sm:mb-15">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -26,39 +26,42 @@ const ResidentialSection = () => {
             className="lg:col-span-5"
           >
             <div className="flex items-center gap-4 mb-4">
-              <div className="w-8 h-px bg-secondary" />
-              <span className="text-secondary font-body text-[11px] tracking-[0.4em] uppercase font-medium">
+              <div className="w-8 h-px bg-[hsl(var(--secondary))]" />
+              <span className="text-[hsl(var(--secondary))] font-body text-[11px] tracking-[0.4em] uppercase font-medium">
                 Residential
               </span>
             </div>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground leading-[0.9]">
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[hsl(var(--foreground))] leading-[1.1] ">
               Living
               <br />
-              <span className="italic text-secondary">Redefined</span>
+              <span className="italic text-[hsl(var(--secondary))]">
+                Redefined
+              </span>
             </h2>
           </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.3 }}
             className="lg:col-span-4 lg:col-start-8 flex items-end"
           >
-            <p className="text-muted-foreground font-body text-base leading-relaxed">
+            <p className="text-[hsl(var(--muted-foreground))] font-body text-base leading-relaxed">
               Crafting homes that reflect your personality — from cozy bedrooms
               to stunning kitchens. Each space, a masterpiece.
             </p>
           </motion.div>
         </div>
 
-        {/* Asymmetric image grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+        {/* Image grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-15 gap-6 lg:gap-8">
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.2 }}
-            className="lg:col-span-7 group relative overflow-hidden cursor-pointer"
+            className="lg:col-span-8 group relative overflow-hidden cursor-pointer"
           >
-            <div className="aspect-[4/5] lg:aspect-[3/4] overflow-hidden relative">
+            <div className="aspect-4/5 lg:aspect-3/4 overflow-hidden relative">
               <Image
                 src={res1}
                 alt="Modern Bedroom Suite"
@@ -66,15 +69,15 @@ const ResidentialSection = () => {
                 className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
               />
             </div>
-            {/* Overlay info */}
-            <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-charcoal/90 via-charcoal/40 to-transparent">
-              <span className="text-gold text-[10px] font-body tracking-[0.3em] uppercase">
+
+            <div className="absolute bottom-0 left-0 right-0 p-8 bg-linear-to-t from-[hsl(var(--charcoal)/0.9)] via-[hsl(var(--charcoal)/0.4)] to-transparent">
+              <span className="text-[hsl(var(--gold))] text-[10px] font-body tracking-[0.3em] uppercase">
                 Bedroom
               </span>
-              <h3 className="font-display text-2xl md:text-3xl text-cream mt-2">
+              <h3 className="font-display text-2xl md:text-3xl text-[hsl(var(--cream))] mt-2">
                 Modern Bedroom Suite
               </h3>
-              <p className="text-cream/50 text-sm font-body mt-1">
+              <p className="text-[hsl(var(--cream)/0.5)] text-sm font-body mt-1">
                 Mumbai, India
               </p>
             </div>
@@ -84,31 +87,33 @@ const ResidentialSection = () => {
             initial={{ opacity: 0, y: 60 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.45 }}
-            className="lg:col-span-5 lg:mt-20 group relative overflow-hidden cursor-pointer"
+            className="lg:col-span-7 lg:mt-45 group relative overflow-hidden cursor-pointer"
           >
-            <div className="aspect-[4/5] overflow-hidden relative">
+            <div className="aspect-4/5 overflow-hidden relative">
               <Image
                 src={res2}
                 alt="Gourmet Kitchen Design"
                 fill
+                objectFit="cover"
                 className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
               />
             </div>
-            <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-charcoal/90 via-charcoal/40 to-transparent">
-              <span className="text-gold text-[10px] font-body tracking-[0.3em] uppercase">
+
+            <div className="absolute bottom-0 left-0 right-0 p-8 bg-linear-to-t from-[hsl(var(--charcoal)/0.9)] via-[hsl(var(--charcoal)/0.4)] to-transparent">
+              <span className="text-[hsl(var(--gold))] text-[10px] font-body tracking-[0.3em] uppercase">
                 Kitchen
               </span>
-              <h3 className="font-display text-2xl md:text-3xl text-cream mt-2">
+              <h3 className="font-display text-2xl md:text-3xl text-[hsl(var(--cream))] mt-2">
                 Gourmet Kitchen Design
               </h3>
-              <p className="text-cream/50 text-sm font-body mt-1">
+              <p className="text-[hsl(var(--cream)/0.5)] text-sm font-body mt-1">
                 Pune, India
               </p>
             </div>
           </motion.div>
         </div>
 
-        {/* View all link */}
+        {/* View all */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
@@ -117,7 +122,7 @@ const ResidentialSection = () => {
         >
           <Link
             href="/services"
-            className="group flex items-center gap-3 text-foreground font-body text-[13px] tracking-[0.15em] uppercase hover:text-secondary transition-colors duration-300"
+            className="group flex items-center gap-3 text-[hsl(var(--foreground))] font-body text-[13px] tracking-[0.15em] uppercase hover:text-[hsl(var(--secondary))] transition-colors duration-300"
           >
             View All Projects
             <svg
