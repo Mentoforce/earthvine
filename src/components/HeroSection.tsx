@@ -24,7 +24,7 @@ const HeroSection = () => {
         />
 
         {/* Overlays using CSS variables */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/60" />
         <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-black/80" />
       </motion.div>
 
@@ -43,43 +43,53 @@ const HeroSection = () => {
       </motion.div>
 
       {/* Main Content */}
-      <div className="relative z-10 h-full flex flex-col justify-end pb-20 lg:pb-28 max-w-[1400px] mx-auto px-8">
+      <div className="relative z-10 h-full flex flex-col justify-end pb-20 w-full mx-auto md:px-28 px-8">
         {/* Overline */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex items-center gap-4 mb-6"
+          className="flex items-center gap-4"
         >
           <div className="w-12 h-px bg-[hsl(var(--gold))]" />
           <span className="font-body text-[11px] tracking-[0.4em] uppercase font-medium text-[hsl(var(--gold))]">
-            Interior Design Studio
+            EARTHVINE INTERIORS
           </span>
         </motion.div>
 
-        {/* Headline Line 1 */}
-        <div className="overflow-hidden">
-          <motion.h1
-            initial={{ y: 120 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-[120px] xl:text-[140px] leading-[0.85] tracking-tight text-[hsl(var(--cream))]"
-          >
-            We Shape
-          </motion.h1>
-        </div>
+        <motion.h1
+          initial={{ y: 50 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="font-display text-5xl md:text-6xl xl:text-[100px] tracking-tight text-[hsl(var(--cream))]"
+        >
+          From
+        </motion.h1>
 
-        {/* Headline Line 2 */}
-        <div className="overflow-hidden">
-          <motion.h1
-            initial={{ y: 120 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 1, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display italic text-6xl sm:text-7xl md:text-8xl lg:text-[120px] xl:text-[140px] leading-[0.85] tracking-tight text-[hsl(var(--gold))]"
-          >
-            Emotions
-          </motion.h1>
-        </div>
+        <motion.h1
+          initial={{ y: 50 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 1, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          className="font-display italic text-5xl md:text-6xl xl:text-[100px] tracking-tight text-[hsl(var(--gold))]"
+        >
+          Blueprint
+        </motion.h1>
+        <motion.h1
+          initial={{ y: 50 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="font-display text-5xl md:text-6xl xl:text-[100px] tracking-tight text-[hsl(var(--cream))]"
+        >
+          to Beautiful
+        </motion.h1>
+        <motion.h1
+          initial={{ y: 50 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="font-display text-5xl md:text-6xl xl:text-[100px] tracking-tight text-[hsl(var(--cream))] pb-10 md:pb-0"
+        >
+          Reality
+        </motion.h1>
 
         {/* Bottom Row */}
         <motion.div
@@ -90,15 +100,15 @@ const HeroSection = () => {
         >
           {/* Description + Buttons */}
           <div className="max-w-md">
-            <p className="font-body text-base leading-relaxed text-[hsl(var(--cream)/0.6)]">
+            <p className="hidden md:block font-body text-base leading-relaxed text-[hsl(var(--cream)/0.6)]">
               We craft spaces that tell your story — blending timeless elegance
               with modern sensibility. Every detail, intentional.
             </p>
 
-            <div className="flex gap-4 mt-8">
+            <div className="flex gap-4 mb-15 md:mb-0 md:mt-8">
               <Link
                 href="/quotation"
-                className="group flex items-center gap-3 px-8 py-4 bg-[hsl(var(--gold))] text-[hsl(var(--charcoal))] font-body font-bold text-[13px] tracking-wider uppercase transition-all duration-500 hover:bg-[hsl(var(--cream))]"
+                className="group flex items-center gap-2 px-5 py-3 lg:px-8 lg:py-4 bg-[hsl(var(--gold))] text-[hsl(var(--charcoal))] font-body font-semibold text-[11px] lg:text-[13px] tracking-wider uppercase transition-all duration-500 hover:bg-[hsl(var(--cream))]"
               >
                 Get Quotation
                 <svg
@@ -118,7 +128,7 @@ const HeroSection = () => {
 
               <Link
                 href="/services"
-                className="px-8 py-4 border border-[hsl(var(--cream)/0.2)] text-[hsl(var(--cream))] font-body text-[13px] tracking-wider uppercase transition-all duration-500 hover:border-[hsl(var(--gold))] hover:text-[hsl(var(--gold))]"
+                className="px-5 py-3 lg:px-8 lg:py-4 border border-[hsl(var(--cream)/0.2)] text-[hsl(var(--cream))] font-body text-[11px] lg:text-[13px] tracking-wider uppercase transition-all duration-500 hover:border-[hsl(var(--gold))] hover:text-[hsl(var(--gold))]"
               >
                 Our Work
               </Link>
