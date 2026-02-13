@@ -37,12 +37,12 @@ const Navbar = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         scrolled
-          ? "bg-white/60 backdrop-blur-2xl shadow-[0_8px_40px_rgba(0,0,0,0.12)] border-b border-white/30 py-3"
-          : "bg-white/40 backdrop-blur-3xl border-b border-white/20 py-5"
+          ? "bg-white/55 backdrop-blur-3xl shadow-[0_20px_60px_rgba(12,36,72,0.15)] border-b border-white/40 py-3"
+          : "bg-white/45 backdrop-blur-3xl  py-3"
       }`}
     >
       {/* Gold accent line */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-transparent via-gold to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-gold to-transparent" />
 
       <nav className="w-full mx-auto px-8 flex items-center justify-between">
         {/* Logo */}

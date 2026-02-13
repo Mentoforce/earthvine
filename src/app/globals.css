@@ -114,11 +114,16 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-playfair);
 }
 
-.font-display{
+.font-display {
   font-family: var(--font-playfair);
 }
 
@@ -144,7 +149,7 @@ h1, h2, h3, h4, h5, h6 {
   background: hsl(0 0% 18% / 0.7);
   backdrop-filter: blur(var(--glass-blur));
   border: 1px solid hsl(38 36% 60% / 0.15);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .text-gradient-gold {
