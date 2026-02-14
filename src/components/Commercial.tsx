@@ -6,6 +6,7 @@ import Image from "next/image";
 
 import com1 from "../../public/commercial/commercial1.jpg";
 import com2 from "../../public/commercial/commercial2.jpg";
+import Link from "next/link";
 
 const projects = [
   {
@@ -118,6 +119,32 @@ const CommercialSection = () => {
             </motion.div>
           ))}
         </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.8 }}
+          className="mt-12 flex justify-end"
+        >
+          <Link
+            href="/services"
+            className="group flex items-center gap-3 text-[hsl(var(--background))] font-body text-[13px] tracking-[0.15em] uppercase hover:text-[hsl(var(--secondary))] transition-colors duration-300"
+          >
+            View All Projects
+            <svg
+              className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
