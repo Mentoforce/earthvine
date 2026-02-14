@@ -2,6 +2,8 @@ import CommercialSection from "@/components/Commercial";
 import HeroSection from "@/components/HeroSection";
 import TerraceSection from "@/components/Terrace";
 import ResidentialSection from "@/components/ResidentialSection";
+import CTASection from "@/components/CTA";
+import ServicesPreview from "@/components/Services";
 
 export default function Home() {
   return (
@@ -10,6 +12,8 @@ export default function Home() {
       <ResidentialSection />
       <CommercialSection />
       <TerraceSection />
+      <ServicesPreview />
+      <CTASection />
     </>
   );
 }

@@ -7,7 +7,7 @@ import heroImg from "../../public/hero-living.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative h-screen overflow-hidden bg-black text-[hsl(var(--cream))]">
+    <section className="relative h-[85vh] sm:h-screen overflow-hidden bg-black text-[hsl(var(--cream))]">
       {/* Background Image */}
       <motion.div
         initial={{ scale: 1.2 }}
@@ -43,7 +43,7 @@ const HeroSection = () => {
       </motion.div>
 
       {/* Main Content */}
-      <div className="relative z-10 h-full flex flex-col justify-end pb-15 w-full mx-auto md:px-28 px-8">
+      <div className="relative z-10 h-full flex flex-col justify-end sm:pb-15 pb-5 w-full mx-auto md:px-28 px-8">
         {/* Overline */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -51,7 +51,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="flex items-center gap-4"
         >
-          <div className="w-12 h-px bg-[hsl(var(--gold))]" />
+          <div className="w-12 h-px bg-[hsl(var(--gold))] hidden sm:inline-block" />
           <span className="font-body text-[11px] tracking-[0.4em] uppercase font-medium text-[hsl(var(--gold))]">
             EARTHVINE INTERIORS
           </span>
@@ -61,7 +61,7 @@ const HeroSection = () => {
             initial={{ y: 150 }}
             animate={{ y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-5xl md:text-6xl xl:text-[100px] tracking-tight text-[hsl(var(--cream))]"
+            className="font-display text-5xl md:text-7xl tracking-tight text-[hsl(var(--cream))]"
           >
             From
           </motion.h1>
@@ -71,7 +71,7 @@ const HeroSection = () => {
             initial={{ y: 150 }}
             animate={{ y: 0 }}
             transition={{ duration: 1, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display italic text-5xl md:text-6xl xl:text-[100px] leading-[1.15] tracking-tight text-[hsl(var(--gold))]"
+            className="font-display italic text-5xl md:text-7xl leading-[1.15] tracking-tight text-[hsl(var(--gold))]"
           >
             Blueprint
           </motion.h1>
@@ -81,7 +81,7 @@ const HeroSection = () => {
             initial={{ y: 150 }}
             animate={{ y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-5xl md:text-6xl xl:text-[100px] tracking-tight text-[hsl(var(--cream))]"
+            className="font-display text-5xl md:text-7xl tracking-tight text-[hsl(var(--cream))]"
           >
             to Beautiful
           </motion.h1>
@@ -91,7 +91,7 @@ const HeroSection = () => {
             initial={{ y: 150 }}
             animate={{ y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-5xl md:text-6xl xl:text-[100px] tracking-tight text-[hsl(var(--cream))] pb-10 md:pb-0 leading-tight"
+            className="font-display text-5xl md:text-7xl tracking-tight text-[hsl(var(--cream))] pb-10 md:pb-0 leading-tight"
           >
             Reality
           </motion.h1>
@@ -102,7 +102,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="mt-10 flex flex-col lg:flex-row lg:items-end justify-between gap-10"
+          className="sm:mt-10 flex flex-col lg:flex-row lg:items-end justify-between gap-10"
         >
           {/* Description + Buttons */}
           <div className="max-w-md">
@@ -142,7 +142,7 @@ const HeroSection = () => {
           </div>
 
           {/* Stats */}
-          <div className="flex gap-12">
+          <div className="sm:flex gap-12 hidden">
             {[
               { num: "150+", label: "Projects" },
               { num: "12+", label: "Years" },
