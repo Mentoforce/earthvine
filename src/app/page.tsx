@@ -13,9 +13,8 @@ export default function Home() {
       <ResidentialSection />
       <CommercialSection />
       <TerraceSection />
-      <ServicesPreview />
-
       <WalkthroughSection />
+      <ServicesPreview />
       <CTASection />
     </>
   );
