@@ -92,7 +92,7 @@ const ServiceRow = ({ service, index }: any) => {
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className={`lg:col-span-6 ${isEven ? "lg:order-1" : "lg:order-2"}`}
+          className={`lg:col-span-7 ${isEven ? "lg:order-1" : "lg:order-2"}`}
         >
           <div className="relative w-full aspect-4/3 overflow-hidden border border-[hsl(var(--border))]">
             <Image
