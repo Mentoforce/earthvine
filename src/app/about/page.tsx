@@ -3,9 +3,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-
 import aboutHero from "../../../public/about/hero.jpg";
 import aboutTeam from "../../../public/about/photo.jpg";
 

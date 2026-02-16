@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Toaster } from "@/components/ui/Toaster";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -40,6 +41,7 @@ export default function RootLayout({
       <body className="antialiased bg-[hsl(var(--background))] text-[hsl(var(--foreground))]">
         <Navbar />
         {children}
+        <Toaster />
         <Footer />
       </body>
     </html>

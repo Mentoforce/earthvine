@@ -61,7 +61,7 @@ const HeroSection = () => {
             initial={{ y: 150 }}
             animate={{ y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-5xl md:text-7xl tracking-tight text-[hsl(var(--cream))]"
+            className=" text-5xl md:text-7xl tracking-tight text-[hsl(var(--cream))]"
           >
             From
           </motion.h1>
@@ -71,7 +71,7 @@ const HeroSection = () => {
             initial={{ y: 150 }}
             animate={{ y: 0 }}
             transition={{ duration: 1, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display italic text-5xl md:text-7xl leading-[1.15] tracking-tight text-[hsl(var(--gold))]"
+            className=" italic text-5xl md:text-7xl leading-[1.15] tracking-tight text-[hsl(var(--gold))]"
           >
             Blueprint
           </motion.h1>
@@ -81,7 +81,7 @@ const HeroSection = () => {
             initial={{ y: 150 }}
             animate={{ y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-5xl md:text-7xl tracking-tight text-[hsl(var(--cream))]"
+            className=" text-5xl md:text-7xl tracking-tight text-[hsl(var(--cream))]"
           >
             to Beautiful
           </motion.h1>
@@ -91,7 +91,7 @@ const HeroSection = () => {
             initial={{ y: 150 }}
             animate={{ y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-5xl md:text-7xl tracking-tight text-[hsl(var(--cream))] pb-10 md:pb-0 leading-tight"
+            className=" text-5xl md:text-7xl tracking-tight text-[hsl(var(--cream))] pb-10 md:pb-0 leading-tight"
           >
             Reality
           </motion.h1>
