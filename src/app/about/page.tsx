@@ -87,7 +87,7 @@ export default function About() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={storyInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: 0.4 }}
-              className="absolute -bottom-6 -right-4 glass-strong backdrop-blur-md rounded-2xl p-6 shadow-lg"
+              className="absolute -bottom-6 -right-4 glass-strong backdrop-blur-md p-6 shadow-lg"
             >
               <p className="font-display text-4xl sm:text-5xl text-[hsl(var(--gold))]">
                 150+
@@ -103,7 +103,7 @@ export default function About() {
             initial={{ opacity: 0, x: 40 }}
             animate={storyInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-6 lg:col-start-7 flex flex-col justify-center"
+            className="lg:col-span-5 lg:col-start-7 flex flex-col justify-center"
           >
             <div className="flex items-center gap-4 mb-4">
               <div className="w-8 h-px bg-[hsl(var(--gold))]" />
@@ -178,7 +178,7 @@ export default function About() {
                 initial={{ opacity: 0, y: 50 }}
                 animate={valuesInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.2 + i * 0.15 }}
-                className="glass-dark rounded-3xl sm:p-10 p-8 hover-lift group"
+                className="glass-dark sm:p-10 p-8 hover-lift group"
               >
                 <span className="font-display text-6xl sm:text-7xl text-[hsl(var(--gold)/0.2)] group-hover:text-[hsl(var(--gold)/0.4)] transition-colors duration-500">
                   0{i + 1}
@@ -236,7 +236,7 @@ export default function About() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={processInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.2 + i * 0.12 }}
-                className="relative glass rounded-3xl p-8 hover-lift group text-left"
+                className="relative glass  p-8 hover-lift group text-left"
               >
                 <div className="w-12 h-12 rounded-full border border-[hsl(var(--secondary)/0.3)] flex items-center justify-center mb-6 group-hover:border-[hsl(var(--secondary))] group-hover:bg-[hsl(var(--secondary)/0.1)] transition-all duration-500">
                   <span className="font-body text-sm text-[hsl(var(--secondary))] font-semibold">
