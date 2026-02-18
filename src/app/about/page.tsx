@@ -540,7 +540,7 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-[hsl(var(--cream))] text-[hsl(var(--charcoal))]">
-      {/* ================= HERO ================= */}
+      {/* ====== HERO ====== */}
       <section className="relative section-padding flex items-end min-h-[75vh] sm:min-h-[85vh] overflow-hidden">
         <motion.div
           initial={{ scale: 1.1 }}
@@ -586,7 +586,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ================= STORY ================= */}
+      {/* ====== STORY ===== */}
       <section ref={storyRef} className="section-padding ">
         <div className="max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-12 gap-12">
           {/* IMAGE */}
