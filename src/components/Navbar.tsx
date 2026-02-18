@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import logo from "../../public/logo.png";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import logo from "../../public/logo.png";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -14,7 +14,7 @@ const navLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
-const Navbar = () => {
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
@@ -25,7 +25,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileOpen(false);
   }, [pathname]);
@@ -35,65 +34,73 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 py-3 ${
         scrolled
-          ? "bg-white/55 backdrop-blur-3xl shadow-[0_20px_60px_rgba(12,36,72,0.15)] border-b border-white/40 py-3"
-          : "bg-white/45 backdrop-blur-3xl  py-3"
+          ? "bg-[hsl(var(--charcoal))] shadow-[0_4px_40px_rgba(0,0,0,0.4)]"
+          : "bg-[hsl(var(--charcoal)/0.9)] backdrop-blur-xl"
       }`}
     >
-      {/* Gold accent line */}
-      <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-gold to-transparent" />
+      {/* Gold Accent Line */}
+      {scrolled && (
+        <div className="absolute bottom-0 left-0 right-0 h-px  bg-[hsl(var(--gold)/0.5)]" />
+      )}
 
-      <nav className="w-full mx-auto px-8 flex items-center justify-between">
+      <nav className="max-w-350 mx-auto px-5 sm:px-8 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-4 group">
           <div className="relative">
             <Image
               src={logo}
               alt="Earthvine Interiors"
-              height={54}
-              width={54}
-              className="object-contain transition-transform duration-500 group-hover:scale-110"
+              width={50}
+              height={50}
+              priority
+              className="object-contain brightness-150 transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gold/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-[hsl(var(--gold)/0.2)] rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </div>
 
-          <div className="hidden sm:block">
-            <span className="font-display text-xl font-semibold text-cream tracking-wider">
+          <div className="block">
+            <span className="font-display text-lg uppercase sm:text-xl font-semibold text-[hsl(var(--cream))] tracking-wider">
               Earthvine
             </span>
-            <span className="block text-[10px] text-gold tracking-[0.35em] uppercase font-body font-medium">
+            <span className="block text-[8px] sm:text-[10px] text-[hsl(var(--gold))] tracking-[0.35em] uppercase font-body font-medium">
               Interiors
             </span>
           </div>
         </Link>
 
-        {/* Desktop Nav */}
+        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-10">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`relative font-body text-[13px] tracking-[0.15em] uppercase transition-colors duration-300 ${
-                pathname === link.href
-                  ? "text-gold font-semibold"
-                  : "text-cream/70 hover:text-cream"
-              }`}
-            >
-              {link.label}
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
 
-              {pathname === link.href && (
-                <motion.div
-                  layoutId="nav-underline"
-                  className="absolute -bottom-2 left-0 right-0 h-1 bg-gold rounded-full"
-                />
-              )}
-            </Link>
-          ))}
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`relative font-display text-[13px] tracking-[0.15em] uppercase transition-colors duration-300 ${
+                  isActive
+                    ? "text-[hsl(var(--gold))] font-semibold"
+                    : "text-[hsl(var(--cream)/0.7)] hover:text-[hsl(var(--cream))]"
+                }`}
+              >
+                {link.label}
 
+                {isActive && (
+                  <motion.div
+                    layoutId="nav-underline"
+                    className="absolute -bottom-2 left-0 right-0 h-0.5 bg-[hsl(var(--gold))] rounded-full"
+                  />
+                )}
+              </Link>
+            );
+          })}
+
+          {/* CTA Button */}
           <Link
             href="/quotation"
-            className="ml-6 px-7 py-3 bg-gold text-charcoal font-body text-[13px] font-bold tracking-wider uppercase hover:bg-cream hover:shadow-[0_0_30px_rgba(186,159,119,0.5)] transition-all duration-500 border border-gold"
+            className=" px-7 py-3 bg-[hsl(var(--gold))] text-[hsl(var(--charcoal))] rounded-lg font-display text-[13px] font-bold tracking-wider uppercase transition-all duration-500 border border-[hsl(var(--gold))] hover:bg-[hsl(var(--cream))] hover:shadow-[0_0_10px_rgba(186,159,119,0.2)]"
           >
             Get Quotation
           </Link>
@@ -107,15 +114,15 @@ const Navbar = () => {
         >
           <motion.span
             animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-            className="block w-7 h-0.5 bg-gold"
+            className="block w-7 h-0.5 bg-[hsl(var(--gold))]"
           />
           <motion.span
             animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="block w-7 h-0.5 bg-gold"
+            className="block w-7 h-0.5 bg-[hsl(var(--gold))]"
           />
           <motion.span
             animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-            className="block w-7 h-0.5 bg-gold"
+            className="block w-7 h-0.5 bg-[hsl(var(--gold))]"
           />
         </button>
       </nav>
@@ -127,26 +134,31 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-charcoal border-t border-gold/20"
+            transition={{ duration: 0.4 }}
+            className="md:hidden bg-[hsl(var(--charcoal))] border-t border-[hsl(var(--gold)/0.2)]"
           >
             <div className="px-8 py-8 flex flex-col gap-5">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`font-body text-sm tracking-[0.15em] uppercase py-2 border-b border-cream/5 ${
-                    pathname === link.href
-                      ? "text-gold font-semibold"
-                      : "text-cream/70"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`font-display text-sm tracking-[0.15em] uppercase py-2 border-b border-[hsl(var(--cream)/0.05)] transition-colors ${
+                      isActive
+                        ? "text-[hsl(var(--gold))] font-semibold"
+                        : "text-[hsl(var(--cream)/0.7)] hover:text-[hsl(var(--cream))]"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
 
               <Link
                 href="/quotation"
-                className="mt-4 px-6 py-3 bg-gold text-charcoal font-body text-sm font-bold tracking-wider uppercase text-center"
+                className="mt-4 px-6 py-3 bg-[hsl(var(--gold))] rounded-lg text-[hsl(var(--charcoal))] font-display text-sm font-bold tracking-wider uppercase text-center transition-all duration-500 hover:bg-[hsl(var(--cream))]"
               >
                 Get Quotation
               </Link>
@@ -156,6 +168,4 @@ const Navbar = () => {
       </AnimatePresence>
     </motion.header>
   );
-};
-
-export default Navbar;
+}
