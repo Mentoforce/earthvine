@@ -555,11 +555,13 @@ export default function About() {
             priority
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/50" />
-          <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-black/20" />
+          {/* <div className="absolute inset-0 bg-black/50" /> */}
+          <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/20 to-transparent sm:hidden" />
+
+          <div className="absolute inset-0 bg-linear-to-r from-black/85 to-transparent" />
         </motion.div>
 
-        <div className="relative z-10 max-w-7xl pl-15 h-full flex flex-col justify-end">
+        <div className="relative z-10 max-w-7xl sm:pl-15 h-full flex flex-col justify-end">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -601,7 +603,7 @@ export default function About() {
                 src={aboutTeam}
                 alt="Design materials and process"
                 fill
-                className="w-full h-full object-cover"
+                className="w-full h-full rounded-lg object-cover"
               />
             </div>
 
@@ -609,7 +611,7 @@ export default function About() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={storyInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: 0.4 }}
-              className="absolute -bottom-6 -right-4 glass-strong backdrop-blur-md  p-6 shadow-lg"
+              className="absolute -bottom-6 -right-4 glass-strong rounded-lg backdrop-blur-md  p-6 shadow-lg"
             >
               <p className="font-display text-4xl sm:text-5xl text-[hsl(var(--gold))]">
                 150+
@@ -629,7 +631,7 @@ export default function About() {
           >
             <div className="flex items-center gap-4 mb-4">
               <div className="w-8 h-px bg-[hsl(var(--gold))]" />
-              <span className="text-[hsl(var(--gold))] text-[11px] tracking-[0.4em] uppercase">
+              <span className="text-[hsl(var(--secondary))] font-body text-[11px] tracking-[0.4em] uppercase font-medium">
                 Our Story
               </span>
             </div>
@@ -700,7 +702,7 @@ export default function About() {
                 initial={{ opacity: 0, y: 50 }}
                 animate={valuesInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.2 + i * 0.15 }}
-                className="glass-dark rounded-3xl sm:p-10 p-8 hover-lift group"
+                className="glass-dark rounded-lg sm:p-10 p-8 hover-lift group"
               >
                 <span className="font-display text-6xl sm:text-7xl text-[hsl(var(--gold)/0.2)] group-hover:text-[hsl(var(--gold)/0.4)] transition-colors duration-500">
                   0{i + 1}
@@ -759,7 +761,7 @@ export default function About() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={processInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.2 + i * 0.12 }}
-                className="relative glass rounded-3xl p-8 hover-lift group text-left"
+                className="relative glass rounded-lg p-8 hover-lift group text-left"
               >
                 <div className="w-12 h-12 rounded-full border border-[hsl(var(--secondary)/0.3)] flex items-center justify-center mb-6 group-hover:border-[hsl(var(--secondary))] group-hover:bg-[hsl(var(--secondary)/0.1)] transition-all duration-500">
                   <span className="font-body text-sm text-[hsl(var(--secondary))] font-semibold">

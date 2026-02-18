@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback, useEffect } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import Image from "next/image";
 import beforeImg from "../../public/walkthrough/pic1.jpg";
 import afterImg from "../../public/walkthrough/pic2.jpg";
@@ -59,7 +59,7 @@ export const WalkthroughSection1 = () => {
 
   return (
     <section className="py-20 md:py-28 bg-[hsl(var(--cream))]">
-      <div className="max-w-350 mx-auto px-6 md:px-10">
+      <div className="max-w-350 px-6 md:px-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -72,7 +72,7 @@ export const WalkthroughSection1 = () => {
             <div className="w-8 h-px bg-[hsl(var(--gold))]" />
 
             <span className="text-[hsl(var(--gold))] text-[11px] tracking-[0.4em] uppercase font-medium">
-              Commercial
+              Walkthrough
             </span>
             <div className="w-8 h-px bg-[hsl(var(--gold))]" />
           </div>
@@ -166,6 +166,8 @@ const WalkthroughSection = () => {
   const isDragging = useRef(false);
   const isPaused = useRef(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
 
   /* ===============================
     AUTO CAROUSEL LOGIC
@@ -235,15 +237,15 @@ const WalkthroughSection = () => {
   };
 
   return (
-    <section className="section-padding bg-[hsl(var(--background))]">
-      <div className="max-w-350 mx-auto md:px-10">
+    <section className="section-padding bg-[hsl(var(--background))] overflow-hidden">
+      <div className="max-w-350 mx-auto px-5 sm:px-8">
         {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <div className="flex items-center gap-4 justify-center mb-4">
             <div className="w-8 h-px bg-[hsl(var(--gold))]" />
@@ -259,12 +261,11 @@ const WalkthroughSection = () => {
             <span className="italic text-[hsl(var(--gold))]">After</span>
           </h2>
 
-          <p className="mt-6 font-body text-base md:text-lg max-w-2xl mx-auto text-[hsl(var(--charcoal)/0.6)] leading-relaxed">
+          <p className="mt-4 font-body text-base max-w-2xl mx-auto text-[hsl(var(--charcoal)/0.6)] leading-relaxed">
             Drag the slider to reveal the transformation. A refined balance
             between vision and execution.
           </p>
         </motion.div>
-
         {/* CAROUSEL */}
         <div
           className="relative"
@@ -279,7 +280,7 @@ const WalkthroughSection = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -80 }}
                 transition={{ duration: 0.6 }}
-                className="relative w-full max-w-5xl mx-auto h-70 sm:h-90 md:h-130 rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.25)] select-none"
+                className="relative rounded-lg w-full h-70 sm:h-90 md:h-130 overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.25)] select-none"
                 ref={containerRef}
                 onMouseDown={startDrag}
                 onMouseUp={stopDrag}

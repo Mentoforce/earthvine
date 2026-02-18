@@ -134,11 +134,13 @@ export default function Quotation() {
             priority
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/60" />
-          <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-black/20" />
+          {/* <div className="absolute inset-0 bg-black/60" /> */}
+          <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/20 to-transparent sm:hidden" />
+
+          <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/10 to-transparent" />
         </motion.div>
 
-        <div className="relative z-10 max-w-7xl pl-15 h-full flex flex-col justify-end">
+        <div className="relative z-10 max-w-7xl sm:pl-15 h-full flex flex-col justify-end">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -341,7 +343,7 @@ export default function Quotation() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-4 bg-[hsl(var(--gold))] text-[hsl(var(--charcoal))] font-display font-bold text-[13px] tracking-wider uppercase hover:shadow-2xl transition-all duration-500 disabled:opacity-50"
+              className="w-full py-4 bg-[hsl(var(--gold))] rounded-lg text-[hsl(var(--charcoal))] font-display font-bold text-[13px] tracking-wider uppercase hover:shadow-2xl transition-all duration-500 disabled:opacity-50"
             >
               {loading ? "Submitting..." : "Submit Quotation Request"}
             </button>

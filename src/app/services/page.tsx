@@ -94,12 +94,12 @@ const ServiceRow = ({ service, index }: any) => {
           transition={{ duration: 0.8 }}
           className={`lg:col-span-7 ${isEven ? "lg:order-1" : "lg:order-2"}`}
         >
-          <div className="relative w-full aspect-4/3 overflow-hidden border border-[hsl(var(--border))]">
+          <div className="relative w-full rounded-lg aspect-4/3 overflow-hidden border border-[hsl(var(--border))]">
             <Image
               src={service.image}
               alt={service.title}
               fill
-              className="object-cover transition-transform duration-700 ease-out hover:scale-105"
+              className="object-cover rounded-lg transition-transform duration-700 ease-out hover:scale-105"
             />
           </div>
         </motion.div>
@@ -161,11 +161,13 @@ const Services = () => {
             priority
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/60" />
-          <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-black/20" />
+          {/* <div className="absolute inset-0 bg-black/60" /> */}
+          <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/20 to-transparent sm:hidden" />
+
+          <div className="absolute inset-0 bg-linear-to-r from-black/90 via-black/30 to-transparent" />
         </motion.div>
 
-        <div className="relative z-10 max-w-7xl pl-15 h-full flex flex-col justify-end">
+        <div className="relative z-10 max-w-7xl sm:pl-15 h-full flex flex-col justify-end">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -232,7 +234,7 @@ const Services = () => {
                 initial={{ opacity: 0, y: 40 }}
                 animate={gridInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-                className="group glass rounded-2xl p-8 hover-lift bg-[hsl(var(--charcoal))] text-[hsl(var(--cream))]"
+                className="group glass rounded-lg p-8 hover-lift bg-[hsl(var(--charcoal))] text-[hsl(var(--cream))]"
               >
                 <span className="font-display text-5xl text-[hsl(var(--gold)/0.3)] group-hover:text-[hsl(var(--gold)/0.6)]">
                   0{index + 4}

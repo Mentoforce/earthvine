@@ -24,12 +24,14 @@ const HeroSection = () => {
         />
 
         {/* Overlays using CSS variables */}
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-black/80" />
+        {/* <div className="absolute inset-0 bg-black/60" /> */}
+        <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/20 to-transparent sm:hidden" />
+
+        <div className="absolute inset-0 bg-linear-to-r from-black/85 via-black/50 to-black/10" />
       </motion.div>
 
       {/* Vertical Side Text */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
@@ -40,7 +42,7 @@ const HeroSection = () => {
           Scroll to explore
         </span>
         <div className="w-px h-16 bg-[hsl(var(--gold)/0.4)]" />
-      </motion.div>
+      </motion.div> */}
 
       {/* Main Content */}
       <div className="relative z-10 h-full flex flex-col justify-end sm:pb-15 pb-5 w-full mx-auto md:px-28 px-8">
@@ -61,12 +63,12 @@ const HeroSection = () => {
             initial={{ y: 150 }}
             animate={{ y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className=" text-5xl md:text-7xl tracking-tight text-[hsl(var(--cream))]"
+            className=" text-5xl md:text-7xl leading-[1.2] tracking-normal text-[hsl(var(--cream))]"
           >
-            From
+            From Blueprint to
           </motion.h1>
         </div>
-        <div className="overflow-hidden">
+        {/* <div className="overflow-hidden">
           <motion.h1
             initial={{ y: 150 }}
             animate={{ y: 0 }}
@@ -75,18 +77,18 @@ const HeroSection = () => {
           >
             Blueprint
           </motion.h1>
-        </div>
+        </div> */}
         <div className="overflow-hidden">
           <motion.h1
             initial={{ y: 150 }}
             animate={{ y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className=" text-5xl md:text-7xl tracking-tight text-[hsl(var(--cream))]"
+            className=" text-5xl md:text-7xl tracking-tight text-[hsl(var(--gold))] italic leading-[1.2]"
           >
-            to Beautiful
+            Beautiful Reality
           </motion.h1>
         </div>
-        <div className="overflow-hidden">
+        {/* <div className="overflow-hidden">
           <motion.h1
             initial={{ y: 150 }}
             animate={{ y: 0 }}
@@ -95,18 +97,18 @@ const HeroSection = () => {
           >
             Reality
           </motion.h1>
-        </div>
+        </div> */}
 
         {/* Bottom Row */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="sm:mt-10 flex flex-col lg:flex-row lg:items-end justify-between gap-10"
+          className="mt-10 flex flex-col lg:flex-row lg:items-end justify-between gap-10"
         >
           {/* Description + Buttons */}
           <div className="max-w-md">
-            <p className="hidden md:block font-body text-base leading-relaxed text-[hsl(var(--cream)/0.6)]">
+            <p className="hidden md:block mb-10 font-body text-base leading-relaxed tracking-wide text-[hsl(var(--cream)/0.6)]">
               We craft spaces that tell your story — blending timeless elegance
               with modern sensibility. Every detail, intentional.
             </p>
@@ -114,7 +116,7 @@ const HeroSection = () => {
             <div className="flex gap-4 mb-10 md:mb-0 md:mt-6">
               <Link
                 href="/quotation"
-                className="group flex items-center gap-2 px-5 py-3 lg:px-8 lg:py-4 bg-[hsl(var(--gold))] text-[hsl(var(--charcoal))] font-body font-semibold text-[11px] lg:text-[13px] tracking-wider uppercase transition-all duration-500 hover:bg-[hsl(var(--cream))]"
+                className="group flex items-center rounded-lg gap-2 px-6 sm:px-7 py-3 bg-[hsl(var(--gold))] text-[hsl(var(--charcoal))] font-body font-semibold text-[11px] lg:text-[13px] tracking-wider uppercase transition-all duration-500 hover:bg-[hsl(var(--cream))]"
               >
                 Get Quotation
                 <svg
@@ -134,7 +136,7 @@ const HeroSection = () => {
 
               <Link
                 href="/services"
-                className="px-5 py-3 lg:px-8 lg:py-4 border border-[hsl(var(--cream)/0.2)] text-[hsl(var(--cream))] font-body text-[11px] lg:text-[13px] tracking-wider uppercase transition-all duration-500 hover:border-[hsl(var(--gold))] hover:text-[hsl(var(--gold))]"
+                className="px-6 sm:px-7 py-3 rounded-lg border border-[hsl(var(--gold))] text-[hsl(var(--cream))] font-body text-[11px] lg:text-[13px] tracking-wider uppercase transition-all duration-500 hover:border-[hsl(var(--gold))] hover:text-[hsl(var(--gold))]"
               >
                 Our Work
               </Link>
@@ -142,29 +144,29 @@ const HeroSection = () => {
           </div>
 
           {/* Stats */}
-          <div className="sm:flex gap-12 hidden">
-            {[
-              { num: "150+", label: "Projects" },
-              { num: "12+", label: "Years" },
-              { num: "98%", label: "Satisfaction" },
-            ].map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.5 + i * 0.15, duration: 0.6 }}
-                className="text-center"
-              >
-                <p className="font-display text-4xl lg:text-4xl text-[hsl(var(--gold))]">
-                  {stat.num}
-                </p>
-                <p className=" text-[11px] mt-1 tracking-[0.2em] uppercase text-[hsl(var(--cream)/0.4)]">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
-          </div>
         </motion.div>
+        <div className="sm:flex gap-12 hidden mt-10">
+          {[
+            { num: "150+", label: "Projects" },
+            { num: "12+", label: "Years" },
+            { num: "98%", label: "Satisfaction" },
+          ].map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.5 + i * 0.15, duration: 0.6 }}
+              className="text-center"
+            >
+              <p className="font-display text-4xl lg:text-4xl text-[hsl(var(--gold))]">
+                {stat.num}
+              </p>
+              <p className=" text-[11px] mt-1 tracking-[0.2em] uppercase text-[hsl(var(--cream)/0.4)]">
+                {stat.label}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

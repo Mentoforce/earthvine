@@ -76,7 +76,7 @@ const Footer = () => {
           </div>
 
           {/* Contact */}
-          <div className="md:col-span-3 md:col-start-10">
+          <div className="md:col-span-2 md:col-start-10">
             <h4 className="text-[11px] tracking-[0.3em] uppercase text-[hsl(var(--gold))] mb-6">
               Get In Touch
             </h4>
@@ -87,7 +87,7 @@ const Footer = () => {
 
               <Link
                 href="/quotation"
-                className="mt-4 inline-block px-6 py-3 border border-[hsl(var(--gold)/0.3)] text-[hsl(var(--gold))] text-center text-[12px] tracking-widest uppercase transition-all duration-300 hover:bg-[hsl(var(--gold))] hover:text-[hsl(var(--charcoal))]"
+                className="mt-4 inline-block px-6 sm:px-7 py-3 rounded-lg border border-[hsl(var(--gold)/0.3)] text-[hsl(var(--gold))] text-center text-[12px] tracking-widest uppercase transition-all duration-300 hover:bg-[hsl(var(--gold))] hover:text-[hsl(var(--charcoal))]"
               >
                 Get Quotation
               </Link>

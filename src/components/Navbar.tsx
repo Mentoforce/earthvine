@@ -34,14 +34,16 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 py-3 ${
         scrolled
-          ? "bg-[hsl(var(--charcoal))] shadow-[0_4px_40px_rgba(0,0,0,0.4)] py-3"
-          : "bg-[hsl(var(--charcoal)/0.9)] backdrop-blur-xl py-5"
+          ? "bg-[hsl(var(--charcoal))] shadow-[0_4px_40px_rgba(0,0,0,0.4)]"
+          : "bg-[hsl(var(--charcoal)/0.9)] backdrop-blur-xl"
       }`}
     >
       {/* Gold Accent Line */}
-      <div className="absolute bottom-0 left-0 right-0 h-px  bg-[hsl(var(--gold)/0.5)]" />
+      {scrolled && (
+        <div className="absolute bottom-0 left-0 right-0 h-px  bg-[hsl(var(--gold)/0.5)]" />
+      )}
 
       <nav className="max-w-350 mx-auto px-5 sm:px-8 flex items-center justify-between">
         {/* Logo */}
@@ -98,7 +100,7 @@ export default function Navbar() {
           {/* CTA Button */}
           <Link
             href="/quotation"
-            className="ml-6 px-7 py-3 bg-[hsl(var(--gold))] text-[hsl(var(--charcoal))] font-display text-[13px] font-bold tracking-wider uppercase transition-all duration-500 border border-[hsl(var(--gold))] hover:bg-[hsl(var(--cream))] hover:shadow-[0_0_30px_rgba(186,159,119,0.5)]"
+            className=" px-7 py-3 bg-[hsl(var(--gold))] text-[hsl(var(--charcoal))] rounded-lg font-display text-[13px] font-bold tracking-wider uppercase transition-all duration-500 border border-[hsl(var(--gold))] hover:bg-[hsl(var(--cream))] hover:shadow-[0_0_10px_rgba(186,159,119,0.2)]"
           >
             Get Quotation
           </Link>
@@ -156,7 +158,7 @@ export default function Navbar() {
 
               <Link
                 href="/quotation"
-                className="mt-4 px-6 py-3 bg-[hsl(var(--gold))] text-[hsl(var(--charcoal))] font-display text-sm font-bold tracking-wider uppercase text-center transition-all duration-500 hover:bg-[hsl(var(--cream))]"
+                className="mt-4 px-6 py-3 bg-[hsl(var(--gold))] rounded-lg text-[hsl(var(--charcoal))] font-display text-sm font-bold tracking-wider uppercase text-center transition-all duration-500 hover:bg-[hsl(var(--cream))]"
               >
                 Get Quotation
               </Link>
