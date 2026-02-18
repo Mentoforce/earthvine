@@ -25,6 +25,8 @@ const HeroSection = () => {
 
         {/* Overlays using CSS variables */}
         {/* <div className="absolute inset-0 bg-black/60" /> */}
+        <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/20 to-transparent sm:hidden" />
+
         <div className="absolute inset-0 bg-linear-to-r from-black/85 via-black/50 to-black/10" />
       </motion.div>
 
@@ -102,7 +104,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="sm:mt-10 flex flex-col lg:flex-row lg:items-end justify-between gap-10"
+          className="mt-10 flex flex-col lg:flex-row lg:items-end justify-between gap-10"
         >
           {/* Description + Buttons */}
           <div className="max-w-md">
@@ -114,7 +116,7 @@ const HeroSection = () => {
             <div className="flex gap-4 mb-10 md:mb-0 md:mt-6">
               <Link
                 href="/quotation"
-                className="group flex items-center gap-2 px-5 py-3 lg:px-8 lg:py-4 bg-[hsl(var(--gold))] text-[hsl(var(--charcoal))] font-body font-semibold text-[11px] lg:text-[13px] tracking-wider uppercase transition-all duration-500 hover:bg-[hsl(var(--cream))]"
+                className="group flex items-center rounded-lg gap-2 px-6 sm:px-7 py-3 bg-[hsl(var(--gold))] text-[hsl(var(--charcoal))] font-body font-semibold text-[11px] lg:text-[13px] tracking-wider uppercase transition-all duration-500 hover:bg-[hsl(var(--cream))]"
               >
                 Get Quotation
                 <svg
@@ -134,7 +136,7 @@ const HeroSection = () => {
 
               <Link
                 href="/services"
-                className="px-5 py-3 lg:px-8 lg:py-4 border border-[hsl(var(--gold))] text-[hsl(var(--cream))] font-body text-[11px] lg:text-[13px] tracking-wider uppercase transition-all duration-500 hover:border-[hsl(var(--gold))] hover:text-[hsl(var(--gold))]"
+                className="px-6 sm:px-7 py-3 rounded-lg border border-[hsl(var(--gold))] text-[hsl(var(--cream))] font-body text-[11px] lg:text-[13px] tracking-wider uppercase transition-all duration-500 hover:border-[hsl(var(--gold))] hover:text-[hsl(var(--gold))]"
               >
                 Our Work
               </Link>

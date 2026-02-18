@@ -55,6 +55,32 @@ const ServicesPreview = () => {
               <span className="italic text-[hsl(var(--gold))]">Services</span>
             </h2>
           </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="lg:col-start-10 lg:col-span-3 my-auto hidden lg:flex justify-center"
+          >
+            <Link
+              href="/services"
+              className="px-6 sm:px-7 py-3 rounded-lg border border-[hsl(var(--foreground))] text-[hsl(var(--foreground))] text-[12px] sm:text-[13px] tracking-[0.15em] uppercase transition-all duration-500 hover:bg-[hsl(var(--foreground))] hover:text-[hsl(var(--background))] group flex items-center gap-3"
+            >
+              View All Services
+              <svg
+                className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </Link>
+          </motion.div>
         </div>
 
         {/* Service List */}
@@ -109,13 +135,26 @@ const ServicesPreview = () => {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className="mt-14 flex justify-center"
+          className="mt-14 lg:hidden flex justify-center"
         >
           <Link
             href="/services"
-            className="px-8 sm:px-10 py-3.5 sm:py-4 border border-[hsl(var(--foreground))] text-[hsl(var(--foreground))] text-[12px] sm:text-[13px] tracking-[0.15em] uppercase transition-all duration-500 hover:bg-[hsl(var(--foreground))] hover:text-[hsl(var(--background))]"
+            className="px-6 sm:px-7 py-3 rounded-lg border border-[hsl(var(--foreground))] text-[hsl(var(--foreground))] text-[12px] sm:text-[13px] tracking-[0.15em] uppercase transition-all duration-500 hover:bg-[hsl(var(--foreground))] hover:text-[hsl(var(--background))] group flex items-center gap-3"
           >
             View All Services
+            <svg
+              className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
           </Link>
         </motion.div>
       </div>

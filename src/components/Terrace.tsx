@@ -28,10 +28,12 @@ const TerraceSection = () => {
           />
 
           {/* Dark overlay */}
-          <div className="absolute inset-0 bg-black/60" />
+          {/* <div className="absolute inset-0 bg-black/60" /> */}
 
           {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-linear-to-r from-black/50 via-black/10 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/20 to-transparent sm:hidden" />
+
+          <div className="absolute inset-0 bg-linear-to-r from-black/85 to-black/10" />
         </motion.div>
 
         {/* Content */}
@@ -62,7 +64,7 @@ const TerraceSection = () => {
               </h2>
 
               {/* Paragraph (hidden on small mobile if needed) */}
-              <p className="mt-6 sm:mt-8 text-[hsl(var(--cream)/0.6)] text-sm sm:text-lg max-w-lg leading-relaxed">
+              <p className="mt-6 sm:mt-8 text-[hsl(var(--cream)/0.6)] text-sm sm:text-base max-w-lg leading-relaxed">
                 Transform your terrace into a breathtaking retreat — where
                 nature meets luxury design, and every sunset becomes an
                 experience.
@@ -83,7 +85,7 @@ const TerraceSection = () => {
                 ].map((item) => (
                   <span
                     key={item}
-                    className="px-4 py-2 sm:px-6 sm:py-2.5 border border-[hsl(var(--cream)/0.2)] text-[hsl(var(--cream))] text-[11px] sm:text-[12px] tracking-widest uppercase transition-all duration-300 hover:border-[hsl(var(--gold))] hover:text-[hsl(var(--gold))] cursor-default"
+                    className="px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg border border-[hsl(var(--cream)/0.2)] text-[hsl(var(--cream))] text-[11px] sm:text-[12px] tracking-widest uppercase transition-all duration-300 hover:border-[hsl(var(--gold))] hover:text-[hsl(var(--gold))] cursor-default"
                   >
                     {item}
                   </span>

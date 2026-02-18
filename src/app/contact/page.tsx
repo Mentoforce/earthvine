@@ -76,11 +76,13 @@ const Contact = () => {
             className="object-cover"
           />
 
-          <div className="absolute inset-0 bg-black/60" />
-          <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-black/20" />
+          {/* <div className="absolute inset-0 bg-black/60" /> */}
+          <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/20 to-transparent sm:hidden" />
+
+          <div className="absolute inset-0 bg-linear-to-r from-black/70 to-transparent" />
         </motion.div>
 
-        <div className="relative z-10 max-w-7xl pl-15 h-full flex flex-col justify-end">
+        <div className="relative z-10 max-w-7xl sm:pl-15 h-full flex flex-col justify-end">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -156,7 +158,7 @@ const Contact = () => {
                 return (
                   <div
                     key={item.label}
-                    className="glass rounded-2xl p-6 hover-lift flex items-center gap-6"
+                    className="glass rounded-lg p-6 hover-lift flex items-center gap-6"
                   >
                     <Icon className="w-6 h-6 text-[hsl(var(--gold))]" />
 
@@ -180,7 +182,7 @@ const Contact = () => {
             animate={formInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
             onSubmit={handleSubmit}
-            className="lg:col-span-6 lg:col-start-7 glass rounded-3xl p-8 sm:p-10 space-y-6"
+            className="lg:col-span-6 lg:col-start-7 glass rounded-lg p-8 sm:p-10 space-y-6"
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {[
@@ -200,7 +202,7 @@ const Contact = () => {
                     onChange={(e) =>
                       setForm((p) => ({ ...p, [f.key]: e.target.value }))
                     }
-                    className="w-full bg-[hsl(var(--background))] border border-[hsl(var(--border))] rounded-xl px-4 py-3.5 font-body text-sm focus:outline-none focus:ring-2 focus:ring-[hsl(var(--primary)/0.5)] transition-all"
+                    className="w-full bg-[hsl(var(--background))] border border-[hsl(var(--border))] rounded-lg px-4 py-3.5 font-body text-sm focus:outline-none focus:ring-2 focus:ring-[hsl(var(--primary)/0.5)] transition-all"
                   />
                 </div>
               ))}
@@ -217,14 +219,14 @@ const Contact = () => {
                   setForm((p) => ({ ...p, message: e.target.value }))
                 }
                 rows={5}
-                className="w-full bg-[hsl(var(--background))] border border-[hsl(var(--border))] rounded-xl px-4 py-3.5 font-body text-sm focus:outline-none focus:ring-2 focus:ring-[hsl(var(--primary)/0.5)] transition-all resize-none"
+                className="w-full bg-[hsl(var(--background))] border border-[hsl(var(--border))] rounded-lg px-4 py-3.5 font-body text-sm focus:outline-none focus:ring-2 focus:ring-[hsl(var(--primary)/0.5)] transition-all resize-none"
               />
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-4 bg-[hsl(var(--gold))] text-[hsl(var(--charcoal))] font-display font-bold text-[13px] tracking-wider uppercase hover:shadow-xl transition-all duration-500 disabled:opacity-50"
+              className="w-full py-4 rounded-lg bg-[hsl(var(--gold))] text-[hsl(var(--charcoal))] font-display font-bold text-[13px] tracking-wider uppercase hover:shadow-xl transition-all duration-500 disabled:opacity-50"
             >
               {loading ? "Sending..." : "Send Message"}
             </button>
