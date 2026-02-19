@@ -150,7 +150,7 @@ const ResidentialSection = () => {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.8 }}
-          className="mt-12 flex lg:hidden justify-end"
+          className="mt-12 flex lg:hidden justify-center"
         >
           <Link
             href="/services"

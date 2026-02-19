@@ -12,7 +12,8 @@ const Contact = () => {
   const { toast } = useToast();
   const formRef = useRef(null);
   const formInView = useInView(formRef, { once: true, margin: "-100px" });
-
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -21,9 +22,25 @@ const Contact = () => {
     message: "",
   });
 
-  const [loading, setLoading] = useState(false);
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric", // Must be 'numeric' or '2-digit'
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true,
+    timeZone: "Asia/Kolkata",
+  };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const currentDate = new Date();
+  const formatter = new Intl.DateTimeFormat("en-IN", options);
+  const istFormatted = formatter.format(currentDate);
+
+  const scriptURL =
+    "https://script.google.com/macros/s/AKfycbzXkPmfSywVrL_IBqcLSfqMOMKo2l5DYRI65EobSHYv9ACg410qz-cXqjFiYmEXgnKrCg/exec";
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (
@@ -37,26 +54,46 @@ const Contact = () => {
         variant: "destructive",
       });
       return;
+    } else {
+      setLoading(true);
+      // --------- SEND WITH CAPITALIZED FIELD NAMES ---------
+      const formPayload = new FormData();
+      formPayload.append("Name", form.name);
+      formPayload.append("Email", form.email);
+      formPayload.append("Phone", form.phone);
+      formPayload.append("Subject", form.subject);
+      formPayload.append("Message", form.message);
+      formPayload.append("Timestamp", istFormatted);
+      try {
+        const response = await fetch(scriptURL, {
+          method: "POST",
+          body: formPayload,
+        });
+
+        setSubmitted(true);
+        setTimeout(() => {
+          setLoading(false);
+          toast({
+            title: "Message sent!",
+            description: "We'll get back to you within 24 hours.",
+          });
+
+          setForm({
+            name: "",
+            email: "",
+            phone: "",
+            subject: "",
+            message: "",
+          });
+          setSubmitted(false);
+        }, 1000);
+      } catch (error) {
+        console.error("Error!", error);
+      }
     }
-
-    setLoading(true);
-
-    setTimeout(() => {
-      setLoading(false);
-      toast({
-        title: "Message sent!",
-        description: "We'll get back to you within 24 hours.",
-      });
-
-      setForm({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-      });
-    }, 1000);
   };
+
+  // Corrected options object using the required literal types
 
   return (
     <div className="min-h-screen bg-[hsl(var(--cream))] text-[hsl(var(--charcoal))]">
@@ -198,6 +235,7 @@ const Contact = () => {
 
                   <input
                     type={f.type}
+                    name={f.key}
                     value={form[f.key as keyof typeof form]}
                     onChange={(e) =>
                       setForm((p) => ({ ...p, [f.key]: e.target.value }))

@@ -110,7 +110,7 @@ const CommercialSection = () => {
               className="group rounded-lg relative overflow-hidden cursor-pointer hover-lift"
             >
               {/* Image */}
-              <div className=" overflow-hidden">
+              <div className="overflow-hidden">
                 <Image
                   src={project.img}
                   alt={project.title}
@@ -119,7 +119,7 @@ const CommercialSection = () => {
               </div>
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-linear-to-t from-[hsl(var(--charcoal))] via-[hsl(var(--charcoal)/0.6)] to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[hsl(var(--charcoal)/0.85)] via-[hsl(var(--charcoal)/0.6)] to-transparent" />
 
               {/* Content */}
               <div className="absolute bottom-0 left-0 right-0 p-8">
@@ -150,7 +150,7 @@ const CommercialSection = () => {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.8 }}
-          className="mt-12 lg:hidden flex justify-end"
+          className="mt-12 lg:hidden flex justify-center"
         >
           <Link
             href="/services"
