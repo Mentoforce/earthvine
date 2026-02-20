@@ -7,7 +7,7 @@ import heroImg from "../../public/hero-living.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative h-[85vh] sm:h-screen overflow-hidden bg-black text-[hsl(var(--cream))]">
+    <section className="relative h-[75vh] sm:h-screen overflow-hidden bg-black text-[hsl(var(--cream))]">
       {/* Background Image */}
       <motion.div
         initial={{ scale: 1.2 }}
@@ -63,7 +63,7 @@ const HeroSection = () => {
             initial={{ y: 150 }}
             animate={{ y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className=" text-5xl md:text-7xl leading-[1.2] tracking-normal text-[hsl(var(--cream))]"
+            className=" text-4xl md:text-7xl leading-[1.2] tracking-normal text-[hsl(var(--cream))]"
           >
             From Blueprint to
           </motion.h1>

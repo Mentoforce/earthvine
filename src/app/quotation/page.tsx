@@ -169,187 +169,467 @@ export default function Quotation() {
       {/* ================= FORM ================= */}
       <section
         ref={formRef}
-        className="section-padding bg-background overflow-hidden"
+        className="relative section-padding overflow-hidden"
       >
-        <div className="max-w-225 mx-auto">
-          <motion.form
-            initial={{ opacity: 0, y: 40 }}
-            animate={formInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            onSubmit={handleSubmit}
-            className="space-y-12"
-          >
-            {/* Personal Details */}
-            <div>
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-8 h-px bg-[hsl(var(--secondary))]" />
-                <span className="text-secondary font-body text-[11px] tracking-[0.4em] uppercase font-medium">
-                  Your Details
-                </span>
+        {/* ===== Coming Soon Overlay ===== */}
+        <div className="absolute inset-0 z-20 flex items-center justify-center backdrop-blur-xs border border-white/20">
+          <div className="text-center mx-3 px-6 sm:px-12 py-12 rounded-lg bg-white/60 backdrop-blur-5xl border border-white/20 shadow-2xl max-w-2xl">
+            <div className="mb-6 flex items-center justify-center gap-3">
+              <div className="w-10 h-px bg-[hsl(var(--gold))]" />
+              <p className="text-[hsl(var(--gold))] text-[11px] tracking-[0.4em] uppercase font-medium">
+                Coming Soon
+              </p>
+              <div className="w-10 h-px bg-[hsl(var(--gold))]" />
+            </div>
+
+            <h2 className="font-display text-3xl sm:text-4xl text-foreground leading-snug">
+              Precision takes time.
+            </h2>
+
+            <p className="mt-6 font-body text-muted-foreground max-w-lg mx-auto">
+              Our intelligent estimator is being crafted to perfection. Soon,
+              you’ll be able to receive a highly accurate, market-aligned
+              quotation tailored specifically for your project.
+            </p>
+
+            <div className="mt-10">
+              <div className="inline-flex items-center gap-3 text-xs tracking-[0.3em] uppercase text-[hsl(var(--charcoal)/0.6)]">
+                <span>Launching Shortly</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Blur underlying form */}
+        <div className="pointer-events-none">
+          <div className="max-w-225 mx-auto">
+            <motion.form
+              initial={{ opacity: 0, y: 40 }}
+              animate={formInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8 }}
+              onSubmit={handleSubmit}
+              className="space-y-12"
+            >
+              {/* Personal Details */}
+              <div>
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-8 h-px bg-[hsl(var(--secondary))]" />
+                  <span className="text-secondary font-body text-[11px] tracking-[0.4em] uppercase font-medium">
+                    Your Details
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {[
+                    { key: "name", label: "Full Name *", type: "text" },
+                    { key: "email", label: "Email *", type: "email" },
+                    { key: "phone", label: "Phone *", type: "tel" },
+                    { key: "city", label: "City", type: "text" },
+                  ].map((f) => (
+                    <div key={f.key}>
+                      <label className="block font-body text-xs tracking-[0.15em] uppercase text-muted-foreground mb-2">
+                        {f.label}
+                      </label>
+                      <input
+                        type={f.type}
+                        value={form[f.key as keyof typeof form] as string}
+                        onChange={(e) =>
+                          setForm((p) => ({ ...p, [f.key]: e.target.value }))
+                        }
+                        className="w-full bg-card border border-border rounded-2xl px-4 py-3.5 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[hsl(var(--secondary)/0.4)] transition-all duration-300"
+                        maxLength={f.key === "email" ? 255 : 100}
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                {[
-                  { key: "name", label: "Full Name *", type: "text" },
-                  { key: "email", label: "Email *", type: "email" },
-                  { key: "phone", label: "Phone *", type: "tel" },
-                  { key: "city", label: "City", type: "text" },
-                ].map((f) => (
-                  <div key={f.key}>
+              {/* Work Type */}
+              <div>
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-8 h-px bg-[hsl(var(--secondary))]" />
+                  <span className="text-secondary font-body text-[11px] tracking-[0.4em] uppercase font-medium">
+                    Type of Work *
+                  </span>
+                </div>
+
+                <div className="flex flex-wrap gap-3">
+                  {workTypes.map((w) => (
+                    <button
+                      key={w}
+                      type="button"
+                      onClick={() => toggleWork(w)}
+                      className={`px-5 py-2.5 rounded-full font-body text-sm transition-all duration-300 cursor-pointer ${
+                        form.selectedWorks.includes(w)
+                          ? "bg-[hsl(var(--gold))] text-primary-foreground shadow-xl"
+                          : "border border-[hsl(var(--border))] text-foreground hover:border-[hsl(var(--gold))] hover:text-secondary"
+                      }`}
+                    >
+                      {w}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Project Details */}
+              <div>
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-8 h-px bg-[hsl(var(--secondary))]" />
+                  <span className="text-secondary font-body text-[11px] tracking-[0.4em] uppercase font-medium">
+                    Project Details
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                  <div>
                     <label className="block font-body text-xs tracking-[0.15em] uppercase text-muted-foreground mb-2">
-                      {f.label}
+                      Area (sq ft)
                     </label>
                     <input
-                      type={f.type}
-                      value={form[f.key as keyof typeof form] as string}
+                      type="number"
+                      value={form.area}
                       onChange={(e) =>
-                        setForm((p) => ({ ...p, [f.key]: e.target.value }))
+                        setForm((p) => ({ ...p, area: e.target.value }))
                       }
-                      className="w-full bg-card border border-border rounded-2xl px-4 py-3.5 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[hsl(var(--secondary)/0.4)] transition-all duration-300"
-                      maxLength={f.key === "email" ? 255 : 100}
+                      className="w-full bg-card border border-border rounded-2xl px-4 py-3.5 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[hsl(var(--secondary)/0.4)]"
+                      min="0"
+                      max="100000"
                     />
                   </div>
-                ))}
-              </div>
-            </div>
 
-            {/* Work Type */}
-            <div>
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-8 h-px bg-[hsl(var(--secondary))]" />
-                <span className="text-secondary font-body text-[11px] tracking-[0.4em] uppercase font-medium">
-                  Type of Work *
-                </span>
-              </div>
+                  <div>
+                    <label className="block font-body text-xs tracking-[0.15em] uppercase text-muted-foreground mb-2">
+                      Budget Range
+                    </label>
+                    <select
+                      value={form.budget}
+                      onChange={(e) =>
+                        setForm((p) => ({ ...p, budget: e.target.value }))
+                      }
+                      className="w-full bg-card border border-border rounded-2xl px-4 py-3.5 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[hsl(var(--secondary)/0.4)]"
+                    >
+                      <option value="">Select</option>
+                      {budgetRanges.map((b) => (
+                        <option key={b} value={b}>
+                          {b}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
 
-              <div className="flex flex-wrap gap-3">
-                {workTypes.map((w) => (
-                  <button
-                    key={w}
-                    type="button"
-                    onClick={() => toggleWork(w)}
-                    className={`px-5 py-2.5 rounded-full font-body text-sm transition-all duration-300 cursor-pointer ${
-                      form.selectedWorks.includes(w)
-                        ? "bg-[hsl(var(--gold))] text-primary-foreground shadow-xl"
-                        : "border border-[hsl(var(--border))] text-foreground hover:border-[hsl(var(--gold))] hover:text-secondary"
-                    }`}
-                  >
-                    {w}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Project Details */}
-            <div>
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-8 h-px bg-[hsl(var(--secondary))]" />
-                <span className="text-secondary font-body text-[11px] tracking-[0.4em] uppercase font-medium">
-                  Project Details
-                </span>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-                <div>
-                  <label className="block font-body text-xs tracking-[0.15em] uppercase text-muted-foreground mb-2">
-                    Area (sq ft)
-                  </label>
-                  <input
-                    type="number"
-                    value={form.area}
-                    onChange={(e) =>
-                      setForm((p) => ({ ...p, area: e.target.value }))
-                    }
-                    className="w-full bg-card border border-border rounded-2xl px-4 py-3.5 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[hsl(var(--secondary)/0.4)]"
-                    min="0"
-                    max="100000"
-                  />
+                  <div>
+                    <label className="block font-body text-xs tracking-[0.15em] uppercase text-muted-foreground mb-2">
+                      Timeline
+                    </label>
+                    <input
+                      type="text"
+                      value={form.timeline}
+                      onChange={(e) =>
+                        setForm((p) => ({ ...p, timeline: e.target.value }))
+                      }
+                      placeholder="e.g. 3 months"
+                      maxLength={50}
+                      className="w-full bg-card border border-border rounded-2xl px-4 py-3.5 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[hsl(var(--secondary)/0.4)]"
+                    />
+                  </div>
                 </div>
 
-                <div>
+                <div className="mt-5">
                   <label className="block font-body text-xs tracking-[0.15em] uppercase text-muted-foreground mb-2">
-                    Budget Range
+                    Additional Details
                   </label>
-                  <select
-                    value={form.budget}
+                  <textarea
+                    value={form.details}
                     onChange={(e) =>
-                      setForm((p) => ({ ...p, budget: e.target.value }))
+                      setForm((p) => ({ ...p, details: e.target.value }))
                     }
-                    className="w-full bg-card border border-border rounded-2xl px-4 py-3.5 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[hsl(var(--secondary)/0.4)]"
-                  >
-                    <option value="">Select</option>
-                    {budgetRanges.map((b) => (
-                      <option key={b} value={b}>
-                        {b}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block font-body text-xs tracking-[0.15em] uppercase text-muted-foreground mb-2">
-                    Timeline
-                  </label>
-                  <input
-                    type="text"
-                    value={form.timeline}
-                    onChange={(e) =>
-                      setForm((p) => ({ ...p, timeline: e.target.value }))
-                    }
-                    placeholder="e.g. 3 months"
-                    maxLength={50}
-                    className="w-full bg-card border border-border rounded-2xl px-4 py-3.5 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[hsl(var(--secondary)/0.4)]"
+                    rows={4}
+                    maxLength={1000}
+                    placeholder="Describe your vision, preferences, or any specific requirements..."
+                    className="w-full bg-card border border-border rounded-2xl px-4 py-3.5 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[hsl(var(--secondary)/0.4)] resize-none"
                   />
                 </div>
               </div>
 
-              <div className="mt-5">
-                <label className="block font-body text-xs tracking-[0.15em] uppercase text-muted-foreground mb-2">
-                  Additional Details
-                </label>
-                <textarea
-                  value={form.details}
-                  onChange={(e) =>
-                    setForm((p) => ({ ...p, details: e.target.value }))
-                  }
-                  rows={4}
-                  maxLength={1000}
-                  placeholder="Describe your vision, preferences, or any specific requirements..."
-                  className="w-full bg-card border border-border rounded-2xl px-4 py-3.5 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[hsl(var(--secondary)/0.4)] resize-none"
-                />
-              </div>
-            </div>
+              {/* Estimate */}
+              {estimate && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="glass-strong rounded-3xl p-8 sm:p-10 text-center"
+                >
+                  <p className="font-body text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">
+                    Estimated Starting Price
+                  </p>
+                  <p className="font-display text-4xl sm:text-5xl text-foreground">
+                    {estimate}
+                  </p>
+                  <p className="font-body text-xs text-[hsl(var(--charcoal)/0.7)] mt-8">
+                    *This is a rough estimate. Actual pricing may vary based on
+                    materials and specifications.
+                  </p>
+                </motion.div>
+              )}
 
-            {/* Estimate */}
-            {estimate && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="glass-strong rounded-3xl p-8 sm:p-10 text-center"
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full py-4 bg-[hsl(var(--gold))] rounded-lg text-[hsl(var(--charcoal))] font-display font-bold text-[13px] tracking-wider uppercase hover:shadow-2xl transition-all duration-500 disabled:opacity-50"
               >
-                <p className="font-body text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">
-                  Estimated Starting Price
-                </p>
-                <p className="font-display text-4xl sm:text-5xl text-foreground">
-                  {estimate}
-                </p>
-                <p className="font-body text-xs text-[hsl(var(--charcoal)/0.7)] mt-8">
-                  *This is a rough estimate. Actual pricing may vary based on
-                  materials and specifications.
-                </p>
-              </motion.div>
-            )}
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full py-4 bg-[hsl(var(--gold))] rounded-lg text-[hsl(var(--charcoal))] font-display font-bold text-[13px] tracking-wider uppercase hover:shadow-2xl transition-all duration-500 disabled:opacity-50"
-            >
-              {loading ? "Submitting..." : "Submit Quotation Request"}
-            </button>
-          </motion.form>
+                {loading ? "Submitting..." : "Submit Quotation Request"}
+              </button>
+            </motion.form>
+          </div>
         </div>
       </section>
     </div>
   );
 }
+
+// "use client";
+
+// import { useState, useMemo } from "react";
+// import { motion } from "framer-motion";
+
+// type Category = "residential" | "commercial";
+// type Finish = "basic" | "mid" | "premium";
+// type Tier = "tier1" | "tier2" | "tier3";
+
+// const RATE_CARD = {
+//   residential: {
+//     "Living Room": { basic: 1200, mid: 1800, premium: 2800 },
+//     Bedroom: { basic: 1100, mid: 1700, premium: 2500 },
+//     Kitchen: { basic: 1800, mid: 2800, premium: 4500 },
+//     Bathroom: { basic: 1500, mid: 2500, premium: 4000 },
+//     "Terrace / Outdoor": { basic: 900, mid: 1500, premium: 2400 },
+//     "Complete Home": { basic: 1400, mid: 2200, premium: 3500 },
+//   },
+//   commercial: {
+//     Office: { basic: 1200, mid: 2000, premium: 3200 },
+//     Restaurant: { basic: 2500, mid: 4000, premium: 6500 },
+//     "Commercial Space": { basic: 1800, mid: 3000, premium: 5000 },
+//   },
+// };
+
+// const CITY_MULTIPLIER: Record<Tier, number> = {
+//   tier1: 1.2,
+//   tier2: 1,
+//   tier3: 0.9,
+// };
+
+// const FEATURE_PERCENTAGES: Record<string, number> = {
+//   "False Ceiling": 0.08,
+//   "Wall Paneling": 0.12,
+//   "Custom Furniture": 0.15,
+//   "Smart Lighting": 0.07,
+// };
+
+// export default function Quotation() {
+//   const [category, setCategory] = useState<Category | null>(null);
+//   const [selectedWorks, setSelectedWorks] = useState<string[]>([]);
+//   const [finish, setFinish] = useState<Finish>("mid");
+//   const [tier, setTier] = useState<Tier>("tier2");
+//   const [area, setArea] = useState<number>(0);
+//   const [features, setFeatures] = useState<string[]>([]);
+
+//   const works = category ? Object.keys(RATE_CARD[category]) : [];
+
+//   const toggleWork = (work: string) => {
+//     if (work === "Complete Home") {
+//       setSelectedWorks(["Complete Home"]);
+//       return;
+//     }
+
+//     if (selectedWorks.includes("Complete Home")) return;
+
+//     setSelectedWorks((prev) =>
+//       prev.includes(work)
+//         ? prev.filter((w) => w !== work)
+//         : [...prev, work]
+//     );
+//   };
+
+//   const toggleFeature = (feature: string) => {
+//     setFeatures((prev) =>
+//       prev.includes(feature)
+//         ? prev.filter((f) => f !== feature)
+//         : [...prev, feature]
+//     );
+//   };
+
+//   const estimate = useMemo(() => {
+//     if (!category || !area || selectedWorks.length === 0) return null;
+
+//     let total = 0;
+
+//     selectedWorks.forEach((work) => {
+//       const baseRate = RATE_CARD[category][work][finish];
+//       total += area * baseRate;
+//     });
+
+//     // Feature multiplier
+//     const featureMultiplier =
+//       1 +
+//       features.reduce(
+//         (sum, feature) => sum + FEATURE_PERCENTAGES[feature],
+//         0
+//       );
+
+//     // City multiplier
+//     const cityMultiplier = CITY_MULTIPLIER[tier];
+
+//     // Multi-room discount
+//     const complexityMultiplier =
+//       selectedWorks.length > 2 ? 0.95 : 1;
+
+//     const final =
+//       total *
+//       featureMultiplier *
+//       cityMultiplier *
+//       complexityMultiplier;
+
+//     return new Intl.NumberFormat("en-IN", {
+//       style: "currency",
+//       currency: "INR",
+//       maximumFractionDigits: 0,
+//     }).format(final);
+//   }, [category, area, selectedWorks, finish, tier, features]);
+
+//   return (
+//     <div className="p-10 max-w-6xl mx-auto space-y-10">
+
+//       {/* Category */}
+//       <div>
+//         <h2 className="font-bold mb-4">Project Type</h2>
+//         <div className="flex gap-4">
+//           <button
+//             onClick={() => {
+//               setCategory("residential");
+//               setSelectedWorks([]);
+//             }}
+//             className="px-6 py-3 border rounded-lg"
+//           >
+//             Residential
+//           </button>
+//           <button
+//             onClick={() => {
+//               setCategory("commercial");
+//               setSelectedWorks([]);
+//             }}
+//             className="px-6 py-3 border rounded-lg"
+//           >
+//             Commercial
+//           </button>
+//         </div>
+//       </div>
+
+//       {/* Work Types */}
+//       {category && (
+//         <div>
+//           <h2 className="font-bold mb-4">Select Work Type</h2>
+//           <div className="flex flex-wrap gap-3">
+//             {works.map((work) => (
+//               <button
+//                 key={work}
+//                 onClick={() => toggleWork(work)}
+//                 className={`px-4 py-2 rounded-full border ${
+//                   selectedWorks.includes(work)
+//                     ? "bg-black text-white"
+//                     : ""
+//                 }`}
+//               >
+//                 {work}
+//               </button>
+//             ))}
+//           </div>
+//         </div>
+//       )}
+
+//       {/* Finish */}
+//       {category && (
+//         <div>
+//           <h2 className="font-bold mb-4">Finish Level</h2>
+//           <select
+//             value={finish}
+//             onChange={(e) =>
+//               setFinish(e.target.value as Finish)
+//             }
+//             className="border px-4 py-2 rounded"
+//           >
+//             <option value="basic">Basic</option>
+//             <option value="mid">Mid Range</option>
+//             <option value="premium">Premium</option>
+//           </select>
+//         </div>
+//       )}
+
+//       {/* City Tier */}
+//       <div>
+//         <h2 className="font-bold mb-4">City Tier</h2>
+//         <select
+//           value={tier}
+//           onChange={(e) =>
+//             setTier(e.target.value as Tier)
+//           }
+//           className="border px-4 py-2 rounded"
+//         >
+//           <option value="tier1">Tier 1</option>
+//           <option value="tier2">Tier 2</option>
+//           <option value="tier3">Tier 3</option>
+//         </select>
+//       </div>
+
+//       {/* Area */}
+//       <div>
+//         <h2 className="font-bold mb-4">Area (sq ft)</h2>
+//         <input
+//           type="number"
+//           value={area}
+//           min={50}
+//           max={20000}
+//           onChange={(e) =>
+//             setArea(parseInt(e.target.value) || 0)
+//           }
+//           className="border px-4 py-2 rounded w-full"
+//         />
+//       </div>
+
+//       {/* Features */}
+//       <div>
+//         <h2 className="font-bold mb-4">Add Features</h2>
+//         <div className="flex flex-wrap gap-3">
+//           {Object.keys(FEATURE_PERCENTAGES).map((feature) => (
+//             <button
+//               key={feature}
+//               onClick={() => toggleFeature(feature)}
+//               className={`px-4 py-2 rounded-full border ${
+//                 features.includes(feature)
+//                   ? "bg-black text-white"
+//                   : ""
+//               }`}
+//             >
+//               {feature}
+//             </button>
+//           ))}
+//         </div>
+//       </div>
+
+//       {/* Estimate Display */}
+//       {estimate && (
+//         <motion.div
+//           initial={{ opacity: 0 }}
+//           animate={{ opacity: 1 }}
+//           className="p-10 bg-gray-100 rounded-2xl text-center"
+//         >
+//           <p className="text-sm uppercase tracking-wider mb-3">
+//             Estimated Project Cost
+//           </p>
+//           <p className="text-4xl font-bold">{estimate}</p>
+//           <p className="text-xs mt-4 text-gray-600">
+//             *Final cost may vary based on materials and design complexity.
+//           </p>
+//         </motion.div>
+//       )}
+//     </div>
+//   );
+// }
