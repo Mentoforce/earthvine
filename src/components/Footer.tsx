@@ -82,8 +82,8 @@ const Footer = () => {
             </h4>
 
             <div className="flex flex-col gap-3 text-sm text-[hsl(var(--cream)/0.4)]">
-              <span>info@earthvineinteriors.com</span>
-              <span>+91 98765 43210</span>
+              <span>Infoearthvine@gmail.com</span>
+              <span>+91 93103 33265</span>
 
               <Link
                 href="/quotation"
