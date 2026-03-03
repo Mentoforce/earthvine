@@ -6,6 +6,13 @@ import Image from "next/image";
 import beforeImg from "../../public/walkthrough/pic1.jpg";
 import afterImg from "../../public/walkthrough/pic2.jpg";
 
+// import resiBefore from "../../public/walkthrough/003p2.jpg";
+// import resiAfter from "../../public/walkthrough/003.jpg";
+// import comBefore from "../../public/walkthrough/004.jpg";
+// import comAfter from "../../public/walkthrough/004p2.jpg";
+// import terBefore from "../../public/walkthrough/001p2.jpg";
+// import terAfter from "../../public/walkthrough/001.jpg";
+
 import resiBefore from "../../public/walkthrough/pic1.jpg";
 import resiAfter from "../../public/walkthrough/pic2.jpg";
 import comBefore from "../../public/walkthrough/pic1.jpg";
@@ -15,7 +22,7 @@ import terAfter from "../../public/walkthrough/pic2.jpg";
 
 const slides = [
   {
-    title: "Residential",
+    title: "Office",
     before: resiBefore,
     after: resiAfter,
   },
@@ -169,9 +176,7 @@ const WalkthroughSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
-  /* ===============================
-    AUTO CAROUSEL LOGIC
-  =============================== */
+  /*AUTO CAROUSEL LOGIC*/
 
   const startAutoSlide = useCallback(() => {
     if (intervalRef.current) clearInterval(intervalRef.current);
@@ -206,9 +211,7 @@ const WalkthroughSection = () => {
     setSliderPos(50);
   };
 
-  /* ===============================
-    BEFORE / AFTER SLIDER LOGIC
-  =============================== */
+  /*BEFORE / AFTER SLIDER LOGIC */
 
   const handleMove = useCallback((clientX: number) => {
     if (!containerRef.current) return;
@@ -378,7 +381,7 @@ const WalkthroughSection = () => {
               onClick={prevSlide}
               className="flex sm:hidden justify-center items-center w-8 h-8 rounded-full 
                            bg-[hsl(var(--charcoal)/0.6)] text-white
-            hover:bg-[hsl(var(--charcoal)/0.8)] hover:text-[hsl(var(--cream))]             transition-all duration-500"
+            hover:bg-[hsl(var(--charcoal)/0.8)] hover:text-[hsl(var(--cream))] transition-all duration-500"
             >
               ‹
             </button>
