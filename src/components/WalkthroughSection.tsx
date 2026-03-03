@@ -6,12 +6,19 @@ import Image from "next/image";
 import beforeImg from "../../public/walkthrough/pic1.jpg";
 import afterImg from "../../public/walkthrough/pic2.jpg";
 
-import resiBefore from "../../public/walkthrough/003p2.jpg";
-import resiAfter from "../../public/walkthrough/003.jpg";
-import comBefore from "../../public/walkthrough/004.jpg";
-import comAfter from "../../public/walkthrough/004p2.jpg";
-import terBefore from "../../public/walkthrough/001p2.jpg";
-import terAfter from "../../public/walkthrough/001.jpg";
+// import resiBefore from "../../public/walkthrough/003p2.jpg";
+// import resiAfter from "../../public/walkthrough/003.jpg";
+// import comBefore from "../../public/walkthrough/004.jpg";
+// import comAfter from "../../public/walkthrough/004p2.jpg";
+// import terBefore from "../../public/walkthrough/001p2.jpg";
+// import terAfter from "../../public/walkthrough/001.jpg";
+
+import resiBefore from "../../public/walkthrough/pic1.jpg";
+import resiAfter from "../../public/walkthrough/pic2.jpg";
+import comBefore from "../../public/walkthrough/pic1.jpg";
+import comAfter from "../../public/walkthrough/pic2.jpg";
+import terBefore from "../../public/walkthrough/pic1.jpg";
+import terAfter from "../../public/walkthrough/pic2.jpg";
 
 const slides = [
   {
