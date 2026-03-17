@@ -21,5 +21,5 @@ export default async function CategoryPage({ params }: PageProps) {
   }
 
   // category itself is a service page (like terrace)
-  return <ServiceLayout {...categoryData} />;
+  return <ServiceLayout {...(categoryData as any)} />;
 }
