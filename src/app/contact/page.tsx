@@ -176,17 +176,18 @@ const Contact = () => {
               {[
                 {
                   label: "Email",
-                  value: "info@earthvineinteriors.com",
+                  value: "infoearthvine@gmail.com",
                   logo: Mail,
                 },
                 {
                   label: "Phone",
-                  value: "+91 98765 43210",
+                  value: "+91 93103 33265",
                   logo: PhoneCall,
                 },
                 {
                   label: "Office",
-                  value: "Netaji Subhash Place, New Delhi, Delhi",
+                  value:
+                    "G-24, Ground Floor, NDM-2, Netaji Subhash Place, New Delhi 110034",
                   logo: Building,
                 },
               ].map((item) => {
