@@ -248,7 +248,7 @@ export default function Navbar() {
               {/* Main Nav Item */}
 
               <div className="flex items-center gap-1 cursor-pointer">
-                {item.href ? (
+                {"href" in item && item.href ? (
                   <Link
                     href={item.href}
                     className={`font-display text-[13px] tracking-[0.15em] uppercase transition-colors
@@ -297,7 +297,7 @@ export default function Navbar() {
                     <div key={child.label} className="group/sub relative">
                       {/* Child Item */}
 
-                      {child.href ? (
+                      {"href" in child && child.href ? (
                         <Link
                           href={child.href}
                           className="
@@ -419,7 +419,7 @@ export default function Navbar() {
                     {/* Top Level */}
 
                     <div className="flex items-center justify-between">
-                      {item.href ? (
+                      {"href" in item && item.href ? (
                         <Link
                           href={item.href}
                           className={`font-display text-sm tracking-[0.15em] uppercase ${
@@ -464,7 +464,7 @@ export default function Navbar() {
                               {/* Category */}
 
                               <div className="flex items-center justify-between">
-                                {child.href ? (
+                                {"href" in child && child.href ? (
                                   <Link
                                     href={child.href}
                                     className="font-display text-[13px] tracking-[0.15em] uppercase text-[hsl(var(--cream)/0.75)]"
