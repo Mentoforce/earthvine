@@ -77,61 +77,60 @@ export const services = {
     },
   },
 
-  terrace: {
-    hero: {
-      title: "Terrace Interior Design",
-      subtitle: "Turn your terrace into a luxury outdoor living experience.",
-      image: "/services/terrace/ter3.jpg",
-    },
+  // terrace: {
+  //   hero: {
+  //     title: "Terrace Interior Design",
+  //     subtitle: "Turn your terrace into a luxury outdoor living experience.",
+  //     image: "/services/terrace/ter3.jpg",
+  //   },
 
-    intro: {
-      image: "/services/terrace/ter4.jpg",
-      heading: "Modern Terrace Transformations",
-      description:
-        "Our terrace designs combine nature, luxury and functionality to create beautiful outdoor living areas.",
-    },
+  //   intro: {
+  //     image: "/services/terrace/ter4.jpg",
+  //     heading: "Modern Terrace Transformations",
+  //     description:
+  //       "Our terrace designs combine nature, luxury and functionality to create beautiful outdoor living areas.",
+  //   },
 
-    features: {
-      title: "Terrace Design Solutions",
-      items: [
-        "Outdoor seating zones",
-        "Pergola structures",
-        "Green walls & planters",
-        "Deck flooring",
-        "Mood lighting",
-        "Entertainment spaces",
-      ],
-    },
+  //   features: {
+  //     title: "Terrace Design Solutions",
+  //     items: [
+  //       "Outdoor seating zones",
+  //       "Pergola structures",
+  //       "Green walls & planters",
+  //       "Deck flooring",
+  //       "Mood lighting",
+  //       "Entertainment spaces",
+  //     ],
+  //   },
 
-    gallery: [
-      "/services/terrace/ter1.jpg",
-      "/services/terrace/ter2.jpg",
-      "/services/terrace/ter5.jpg",
-    ],
+  //   gallery: [
+  //     "/services/terrace/ter1.jpg",
+  //     "/services/terrace/ter2.jpg",
+  //     "/services/terrace/ter5.jpg",
+  //   ],
 
-    process: {
-      title: "Our Terrace Design Workflow",
-      steps: [
-        {
-          title: "Understanding Your Space",
-          desc: "We begin by studying your lifestyle, architectural structure, and spatial requirements.",
-        },
-        {
-          title: "Design & Visualization",
-          desc: "Moodboards, materials, and immersive 3D concepts are crafted to visualize the final space.",
-        },
-        {
-          title: "Execution & Craftsmanship",
-          desc: "Our team of artisans and project managers carefully brings every detail to life.",
-        },
-      ],
-    },
+  //   process: {
+  //     title: "Our Terrace Design Workflow",
+  //     steps: [
+  //       {
+  //         title: "Understanding Your Space",
+  //         desc: "We begin by studying your lifestyle, architectural structure, and spatial requirements.",
+  //       },
+  //       {
+  //         title: "Design & Visualization",
+  //         desc: "Moodboards, materials, and immersive 3D concepts are crafted to visualize the final space.",
+  //       },
+  //       {
+  //         title: "Execution & Craftsmanship",
+  //         desc: "Our team of artisans and project managers carefully brings every detail to life.",
+  //       },
+  //     ],
+  //   },
 
-    outro: {
-      image: "/services/residential/apartment/apt3.jpg",
-      heading: "Our Designers, Your Vision",
-      description:
-        "They know how cluttered spaces are\nmanaged well and spaciousness is created with ease.\nSo, whether it’s a new house or one with ever-fading\ncharms, you’ll be better off benefiting from the expertize\nand designing mastery of professionals known as\napartment interior designers. They know how visual\nsparks are created in true sense.\n\nWhat’s more, at no stage the shape, size, dimensions\nand scale of the structure matters to designers as they\nare comfortable and experienced to handle them all with\nease. To top it all, a skilled interior designer Delhi\nalways makes it a point to seek inputs and ideas from\nhome owners so that they can deliver results and\nsolutions according to the tastes and preferences. Their\nonly focus remains on beautifying the spaces and\ninserting charms there so that inspired spaces and\nbeautiful houses can be created with a minimum fuss.\nSo, you can also hire these designing experts and\ntransform your spaces in a complete manner for sure.\nSimilarly, you should never worry about the cost\ninvolved in hiring a top interior designer Delhi as such\nexperts never cost bomb. They are affordable and\nabove all, they are competent and can offer you good\nprices and great designing solutions for sure. So,\nwhether you have bought a new apartment or want to\nbeautify the existing one, there is not as better an option\nas to get an expert designer on board and get things\ndone in an easy manner. Once these masters are\naround, you just have to sit up and see them cerate\nmagic of the visual variety. They will transform every\nconcern of the apartment fully.\nGet skilled and experienced apartment interior\ndesigners on board and elevate the visual facets of the\nstructure in a complete manner. These creative people\ndon’t cost beyond what is reasonable and they also take\ninputs from home owners. After all, they design the\ninterior in a way that suits the tastes of home owners.",
-    },
-  },
+  //   outro: {
+  //     image: "/services/residential/apartment/apt3.jpg",
+  //     heading: "Our Designers, Your Vision",
+  //     description: " ",
+  //   },
+  // },
 };

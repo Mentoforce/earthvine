@@ -21,10 +21,10 @@ export const menu = [
           },
         ],
       },
-      {
-        label: "Terrace",
-        href: "/services/terrace",
-      },
+      // {
+      //   label: "Terrace",
+      //   href: "/services/terrace",
+      // },
     ],
   },
   {

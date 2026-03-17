@@ -37,7 +37,7 @@ export default function ServiceProcess({ title, steps }: any) {
           </span>
         </div>
 
-        <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-[hsl(var(--foreground))] mb-20">
+        <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-[hsl(var(--foreground))] mb-10">
           {title}
         </h2>
 

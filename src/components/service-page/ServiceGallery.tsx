@@ -29,7 +29,7 @@ export default function ServiceGallery({ images }: any) {
           {images.map((img: string, i: number) => (
             <div
               key={i}
-              className="aspect-[4/3] relative overflow-hidden rounded-lg"
+              className="aspect-4/3 relative overflow-hidden rounded-lg"
             >
               <Image
                 src={img}
