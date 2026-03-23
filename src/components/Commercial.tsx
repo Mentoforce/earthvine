@@ -34,7 +34,7 @@ const CommercialSection = () => {
       ref={ref}
       className="section-padding bg-[hsl(var(--charcoal))] overflow-hidden"
     >
-      <div className="max-w-350 mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
           {/* Heading */}

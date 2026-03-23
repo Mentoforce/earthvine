@@ -49,7 +49,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-export default function ServiceOutro({ heading, description, image }: any) {
+export default function ServiceOutro({ heading, points, image, alt }: any) {
   return (
     <section className="section-padding">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12">
@@ -59,18 +59,18 @@ export default function ServiceOutro({ heading, description, image }: any) {
           whileInView={{ opacity: 1, x: 0 }}
           className="lg:col-span-6 flex flex-col justify-center"
         >
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-8 h-px bg-[hsl(var(--gold))]" />
-            <span className="text-[11px] tracking-[0.4em] uppercase text-[hsl(var(--secondary))]">
-              Overview
-            </span>
+          <h2 className="font-display text-2xl md:text-3xl mb-8">{heading}</h2>
+
+          <div className="space-y-3">
+            {points?.map((item: any, index: number) => (
+              <div key={index}>
+                <h3 className="font-semibold text-md mb-1">{item.title}</h3>
+                <p className="text-sm text-[hsl(var(--charcoal)/0.7)] leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            ))}
           </div>
-
-          <h2 className="font-display text-4xl md:text-5xl mb-6">{heading}</h2>
-
-          <p className="text-[hsl(var(--charcoal)/0.7)] font-body text-sm leading-relaxed">
-            {description}
-          </p>
         </motion.div>
 
         {/* Image SECOND (right side) */}
@@ -79,11 +79,19 @@ export default function ServiceOutro({ heading, description, image }: any) {
           whileInView={{ opacity: 1, y: 0 }}
           className="lg:col-span-5 lg:col-start-8"
         >
-          <div className="aspect-[3/4] relative overflow-hidden">
-            <Image
+          <div className="aspect-3/4 relative overflow-hidden">
+            {/* <Image
               src={image}
               alt={heading}
               fill
+              className="rounded-lg object-cover"
+            /> */}
+            <Image
+              src={image}
+              alt={alt || heading}
+              fill
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              quality={80}
               className="rounded-lg object-cover"
             />
           </div>

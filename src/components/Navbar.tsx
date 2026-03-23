@@ -217,7 +217,7 @@ export default function Navbar() {
           : "bg-[hsl(var(--charcoal)/0.9)] backdrop-blur-xl"
       }`}
     >
-      <nav className="max-w-350 mx-auto px-5 sm:px-8 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
         {/* Logo */}
 
         <Link href="/" className="flex items-center gap-4 group">

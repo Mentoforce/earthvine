@@ -16,7 +16,7 @@ const ResidentialSection = () => {
       ref={ref}
       className="section-padding bg-[hsl(var(--background))] overflow-hidden"
     >
-      <div className="max-w-350 mx-auto px-5 sm:px-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Section header */}
         <div className="grid grid-cols-1 lg:grid-cols-11 gap-6 sm:gap-8 mb-12 sm:mb-15">
           <motion.div
@@ -186,7 +186,7 @@ const ResidentialSection2 = () => {
       ref={ref}
       className="section-padding bg-[hsl(var(--background))] overflow-hidden"
     >
-      <div className="max-w-350 mx-auto px-5 sm:px-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Section header */}
         <div className="grid grid-cols-1 lg:grid-cols-11 gap-6 sm:gap-8 mb-12 sm:mb-15">
           <motion.div

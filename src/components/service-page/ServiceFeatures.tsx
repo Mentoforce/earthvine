@@ -24,7 +24,7 @@
 export default function ServiceFeatures({ title, items }: any) {
   return (
     <section className="section-padding bg-[hsl(var(--charcoal))]">
-      <div className="max-w-350 mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center gap-4 mb-4">
           <div className="w-8 h-px bg-[hsl(var(--gold))]" />
           <span className="text-[11px] tracking-[0.4em] uppercase text-[hsl(var(--gold))]">

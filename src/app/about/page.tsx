@@ -543,7 +543,7 @@ export default function About() {
       {/* ====== HERO ====== */}
       <section className="relative section-padding flex items-end min-h-[75vh] sm:min-h-[85vh] overflow-hidden">
         <motion.div
-          initial={{ scale: 1.1 }}
+          initial={{ scale: 1.05 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.8, ease: "easeOut" }}
           className="absolute inset-0"
@@ -670,7 +670,7 @@ export default function About() {
         ref={valuesRef}
         className="section-padding bg-[hsl(var(--charcoal))]"
       >
-        <div className="max-w-350 mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-8 h-px bg-[hsl(var(--gold))]" />
             <span className="text-[hsl(var(--gold))] font-body text-[11px] tracking-[0.4em] uppercase font-medium">
@@ -724,7 +724,7 @@ export default function About() {
         ref={processRef}
         className="section-padding bg-[hsl(var(--background))]"
       >
-        <div className="max-w-350 mx-auto px-6 text-center">
+        <div className="max-w-7xl mx-auto px-6 text-center">
           <div className="flex items-center justify-center gap-4 mb-4">
             <div className="w-8 h-px bg-[hsl(var(--secondary))]" />
             <span className="text-[hsl(var(--secondary))] font-body text-[11px] tracking-[0.4em] uppercase font-medium">

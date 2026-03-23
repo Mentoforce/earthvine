@@ -16,9 +16,11 @@ export default async function CategoryPage({ params }: PageProps) {
   if (!categoryData) return notFound();
 
   // if category contains sub-services (like residential)
-  if ("children" in categoryData) {
-    return notFound();
-  }
+  // if ("children" in categoryData) {
+  //   return notFound();
+  // }
+
+  return <ServiceLayout {...(categoryData as any)} />;
 
   // category itself is a service page (like terrace)
   return <ServiceLayout {...(categoryData as any)} />;
