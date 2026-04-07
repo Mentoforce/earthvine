@@ -22,10 +22,12 @@ export const services = {
     features: {
       title: "Residential Design Solutions",
       items: [
-        "Floor Designing",
-        "Apartment Interior Design",
-        "Farmhouse Designing",
-        "Bunglow Designing",
+        "Bedroom Design",
+        "Living Room Concepts",
+        "Modular Kitchen Design",
+        "Custom Wardrobe Solutions",
+        "Kids Room Design",
+        "Outdoor Living Spaces",
       ],
     },
     gallery: [
@@ -59,7 +61,6 @@ export const services = {
         },
       ],
     },
-
     outro: {
       image: "/services/residential/residential6.jpg",
       alt: "Premium residential interior design in Delhi highlighting a well-designed and aesthetically pleasing home space",

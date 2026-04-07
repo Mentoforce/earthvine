@@ -50,20 +50,18 @@ export default function ServiceProcess({ title, steps }: any) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="grid lg:grid-cols-12 gap-10 items-start"
+              className="grid lg:grid-cols-9 gap-1 items-start"
             >
               {/* Left Gold Divider */}
               <div className="lg:col-span-1 flex justify-center">
                 <div className="w-px h-full bg-[hsl(var(--gold)/0.3)]" />
               </div>
-
               {/* Content */}
               <div className="lg:col-span-10">
                 <div className="glass rounded-lg p-8 hover-lift">
                   <h3 className="font-display text-2xl sm:text-3xl text-[hsl(var(--foreground))] mb-4">
                     {step.title}
                   </h3>
-
                   <p className="text-[hsl(var(--muted-foreground))] font-body text-sm leading-relaxed max-w-2xl">
                     {step.desc}
                   </p>

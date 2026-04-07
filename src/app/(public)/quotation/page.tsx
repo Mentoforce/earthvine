@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useToast } from "@/hooks/use-toast";
-import servicesHero from "../../../public/services/servicesHero.png";
+import servicesHero from "../../../../public/services/servicesHero.png";
 
 const workTypes = [
   "Living Room Design",

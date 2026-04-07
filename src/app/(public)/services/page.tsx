@@ -4,10 +4,10 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 
-import servicesHero from "../../../public/services/servicesHero.png";
-import res1 from "../../../public/services/res.jpg";
-import com1 from "../../../public/services/commercial.jpg";
-import terrace1 from "../../../public/services/terrace.png";
+import servicesHero from "../../../../public/services/servicesHero.png";
+import res1 from "../../../../public/services/res.jpg";
+import com1 from "../../../../public/services/commercial.jpg";
+import terrace1 from "../../../../public/services/terrace.png";
 
 const servicesList = [
   {

@@ -39,19 +39,58 @@ import ServiceProcess from "./ServiceProcess";
 import ServiceContact from "./ServiceContact";
 import ServiceOutro from "./ServiceOutro";
 
+// export default function ServiceLayout(props: any) {
+//   return (
+//     <div className="bg-[hsl(var(--cream))] text-[hsl(var(--charcoal))]">
+//       {props.hero && <ServiceHero {...props.hero} />}
+
+//       {props.intro && <ServiceIntro {...props.intro} />}
+
+//       {props.features && <ServiceFeatures {...props.features} />}
+//       {props.outro && <ServiceOutro {...props.outro} />}
+
+//       {props.process && <ServiceProcess {...props.process} />}
+//       {props.gallery && <ServiceGallery images={props.gallery} />}
+
+//       <ServiceContact />
+//     </div>
+//   );
+// }
+
 export default function ServiceLayout(props: any) {
   return (
     <div className="bg-[hsl(var(--cream))] text-[hsl(var(--charcoal))]">
-      <ServiceHero {...props.hero} />
+      {/* HERO (required) */}
+      {props.hero?.title && props.hero?.image && (
+        <ServiceHero {...props.hero} />
+      )}
 
-      <ServiceIntro {...props.intro} />
+      {/* INTRO */}
+      {props.intro?.content && <ServiceIntro {...props.intro} />}
 
-      <ServiceFeatures {...props.features} />
-      <ServiceOutro {...props.outro} />
+      {/* FEATURES */}
+      {props.features?.items?.length > 0 &&
+        props.features.items.some((i: string) => i.trim() !== "") && (
+          <ServiceFeatures {...props.features} />
+        )}
 
-      <ServiceProcess {...props.process} />
-      <ServiceGallery images={props.gallery} />
+      {/* OUTRO */}
+      {/* {props.outro?.heading && <ServiceOutro {...props.outro} />} */}
+      {props.outro?.sections?.length > 0 && <ServiceOutro {...props.outro} />}
 
+      {/* PROCESS */}
+      {props.process?.steps?.length > 0 &&
+        props.process.steps.some((s: any) => s.title || s.desc) && (
+          <ServiceProcess {...props.process} />
+        )}
+
+      {/* GALLERY */}
+      {props.gallery?.length > 0 &&
+        props.gallery.some((img: any) => img.src) && (
+          <ServiceGallery images={props.gallery} />
+        )}
+
+      {/* CONTACT*/}
       <ServiceContact />
     </div>
   );

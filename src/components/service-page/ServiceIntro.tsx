@@ -17,16 +17,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-export default function ServiceIntro({
-  heading,
-  heading2,
-  alt,
-  description1,
-  description2,
-  description3,
-  keyword1,
-  image,
-}: any) {
+export default function ServiceIntro({ alt, image, content }: any) {
   return (
     <section className="section-padding">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12">
@@ -36,15 +27,9 @@ export default function ServiceIntro({
           className="lg:col-span-5"
         >
           <div className="aspect-3/4 relative overflow-hidden">
-            {/* <Image
-              src={image}
-              alt={heading}
-              fill
-              className="rounded-lg object-cover"
-            /> */}
             <Image
               src={image}
-              alt={alt || heading}
+              alt={alt || "service image"}
               fill
               sizes="(max-width: 1024px) 100vw, 40vw"
               quality={80}
@@ -64,22 +49,28 @@ export default function ServiceIntro({
               Overview
             </span>
           </div>
+          <div className="lg:col-span-6 lg:col-start-7">
+            <div
+              className="prose max-w-none"
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
+          </div>
 
-          <h1 className="font-display text-3xl md:text-4xl mb-6">{heading}</h1>
+          {/* <h2 className="font-display text-3xl md:text-4xl mb-6">{heading}</h2> */}
 
-          <p className="text-[hsl(var(--charcoal)/0.7)] font-body text-sm leading-relaxed mb-2">
+          {/* <p className="text-[hsl(var(--charcoal)/0.7)] font-body text-sm leading-relaxed mb-2">
             {description1}
           </p>
           <p className="text-[hsl(var(--charcoal)/0.7)] font-body text-sm leading-relaxed mb-8">
             {description2} <span className="font-bold">{keyword1}</span>
           </p>
-          <h2 className="font-display text-2xl md:text-3xl mt-3 mb-4">
+          <h2 className="font-display text-3xl md:text-4xl mt-3 mb-4">
             {heading2}
           </h2>
 
           <p className="text-[hsl(var(--charcoal)/0.7)] font-body text-sm leading-relaxed mb-2">
             {description3}
-          </p>
+          </p> */}
         </motion.div>
       </div>
     </section>

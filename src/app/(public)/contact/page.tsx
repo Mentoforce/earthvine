@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useToast } from "@/hooks/use-toast";
 
-import contactHero from "../../../public/contact/contact-hero.jpg"; // move image to /public
+import contactHero from "../../../../public/contact/contact-hero.jpg"; // move image to /public
 import { Building, Mail, PhoneCall } from "lucide-react";
 
 const Contact = () => {
