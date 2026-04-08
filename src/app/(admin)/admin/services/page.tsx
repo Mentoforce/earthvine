@@ -30,18 +30,6 @@ export default function AdminServices() {
     fetchServices();
   }, []);
 
-  // const deleteService = async (id: string) => {
-  //   const token = localStorage.getItem("token");
-
-  //   await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/admin/services/${id}`, {
-  //     method: "DELETE",
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   });
-
-  //   fetchServices();
-  // };
   const deleteService = async (id: string) => {
     const token = localStorage.getItem("token");
 

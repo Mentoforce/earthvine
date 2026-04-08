@@ -833,7 +833,7 @@ export default function About() {
           className="absolute inset-0"
         >
           <Image
-            src={data?.hero?.image || "/hero.jpg"}
+            src={data?.hero?.image || "/about/hero.jpg"}
             alt="Interior studio"
             fill
             priority
@@ -884,7 +884,7 @@ export default function About() {
           >
             <div className="aspect-3/4 relative overflow-hidden">
               <Image
-                src={data?.story?.image || "/photo.jpg"}
+                src={data?.story?.image || "/about/photo.jpg"}
                 alt="Design materials"
                 fill
                 className="w-full h-full rounded-lg object-cover"

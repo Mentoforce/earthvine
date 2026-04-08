@@ -105,12 +105,6 @@ export default function EditServicePage() {
               image: service.intro?.image || "",
               alt: service.intro?.alt || "",
               content: service.intro?.content || "",
-              // heading: service.intro?.heading || "",
-              // description1: service.intro?.description1 || "",
-              // description2: service.intro?.description2 || "",
-              // keyword1: service.intro?.keyword1 || "",
-              // heading2: service.intro?.heading2 || "",
-              // description3: service.intro?.description3 || "",
             },
 
             features: {
