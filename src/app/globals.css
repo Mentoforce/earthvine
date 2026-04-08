@@ -176,9 +176,22 @@
     background-clip: text;
   }
 
-  .section-padding {
+  /* .section-padding {
     padding: 5rem 1.5rem;
+  } */
+
+  .section-padding {
+  padding: 60px 16px; /* mobile safe */
+}
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 80px 40px;
   }
+}
+
+html, body {
+  overflow-x: hidden;
+}
 
   .hover-lift {
     transition: all 700ms ease-out;

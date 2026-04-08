@@ -42,11 +42,11 @@ export const menu: MenuItem[] = [
     children: [
       {
         label: "Residential",
-        // href: "/services/residential",
+        href: "/services/residential-interior-designer-in-delhi",
         children: [
           {
             label: "Apartment",
-            href: "/services/residential/apartment",
+            href: "/services/residential-interior-designer-in-delhi/apartment",
           },
         ],
       },

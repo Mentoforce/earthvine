@@ -179,7 +179,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import logo from "../../public/logo.png";
-import { menu } from "@/config/menu";
+// import { menu } from "@/config/menu";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -188,7 +188,24 @@ export default function Navbar() {
   const [mobileSubDropdown, setMobileSubDropdown] = useState<string | null>(
     null,
   );
+  const [services, setServices] = useState([]);
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/services/navbar`,
+        );
 
+        const data = await res.json();
+
+        setServices(data.data || []);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchServices();
+  }, []);
   const pathname = usePathname();
   const isActive = (href?: string) => {
     if (!href) return false;
@@ -217,7 +234,7 @@ export default function Navbar() {
           : "bg-[hsl(var(--charcoal)/0.9)] backdrop-blur-xl"
       }`}
     >
-      <nav className="max-w-350 mx-auto px-5 sm:px-8 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-2 sm:px-8 flex items-center justify-between">
         {/* Logo */}
 
         <Link href="/" className="flex items-center gap-4 group">
@@ -243,143 +260,136 @@ export default function Navbar() {
         {/* Desktop Menu */}
 
         <div className="hidden md:flex items-center gap-10">
-          {menu.map((item) => (
-            <div key={item.label} className="relative group">
-              {/* Main Nav Item */}
+          {/* STATIC */}
+          <Link
+            href="/"
+            className="font-display text-[13px] tracking-[0.15em] uppercase text-[hsl(var(--cream)/0.75)] hover:text-[hsl(var(--cream))] transition-colors"
+          >
+            Home
+          </Link>
 
-              <div className="flex items-center gap-1 cursor-pointer">
-                {"href" in item && item.href ? (
-                  <Link
-                    href={item.href}
-                    className={`font-display text-[13px] tracking-[0.15em] uppercase transition-colors
-                    ${
-                      isActive(item.href)
-                        ? "text-[hsl(var(--gold))]"
-                        : "text-[hsl(var(--cream)/0.75)] hover:text-[hsl(var(--cream))]"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                ) : (
-                  <span className="font-display text-[13px] tracking-[0.15em] uppercase text-[hsl(var(--cream)/0.75)]">
-                    {item.label}
-                  </span>
-                )}
+          <Link
+            href="/about"
+            className="font-display text-[13px] tracking-[0.15em] uppercase text-[hsl(var(--cream)/0.75)] hover:text-[hsl(var(--cream))] transition-colors"
+          >
+            About Us
+          </Link>
 
-                {item.children && (
-                  <ChevronDown
-                    size={14}
-                    className="text-[hsl(var(--cream)/0.7)] transition-transform duration-300 group-hover:rotate-180"
-                  />
-                )}
-              </div>
+          {/* SERVICES (DYNAMIC) */}
+          <div className="relative group">
+            <div className="flex items-center gap-1 cursor-pointer">
+              <Link
+                href="/services"
+                className="font-display text-[13px] tracking-[0.15em] uppercase text-[hsl(var(--cream)/0.75)] hover:text-[hsl(var(--cream))] transition-colors"
+              >
+                Services
+              </Link>
 
-              {/* Dropdown */}
-
-              {item.children && (
-                <div
-                  className="
-                  absolute left-0 top-full mt-5
-                  w-60
-                  opacity-0 invisible
-                  group-hover:visible group-hover:opacity-100
-                  transition-all duration-300
-
-                  bg-[hsl(var(--charcoal)/0.96)]
-                  backdrop-blur-xl
-                  border border-[hsl(var(--gold)/0.15)]
-                  shadow-[0_20px_60px_rgba(0,0,0,0.45)]
-                  rounded-xl
-                  py-2
-                "
-                >
-                  {item.children.map((child) => (
-                    <div key={child.label} className="group/sub relative">
-                      {/* Child Item */}
-
-                      {"href" in child && child.href ? (
-                        <Link
-                          href={child.href}
-                          className="
-                          flex items-center justify-between
-                          px-5 py-3
-                          text-sm
-                          text-[hsl(var(--cream)/0.75)]
-                          hover:text-[hsl(var(--gold))]
-                          hover:bg-[hsl(var(--gold)/0.05)]
-                          transition-colors
-                        "
-                        >
-                          {child.label}
-
-                          {child.children && (
-                            <ChevronDown size={14} className="-rotate-90" />
-                          )}
-                        </Link>
-                      ) : (
-                        <div
-                          className="
-                          flex items-center justify-between
-                          px-5 py-3
-                          text-sm
-                          text-[hsl(var(--cream)/0.75)]
-                          cursor-default
-                        "
-                        >
-                          {child.label}
-
-                          {child.children && (
-                            <ChevronDown size={14} className="-rotate-90" />
-                          )}
-                        </div>
-                      )}
-
-                      {/* Submenu */}
-
-                      {child.children && (
-                        <div
-                          className="
-                          absolute left-full top-0
-                          w-56
-                          opacity-0 invisible
-                          group-hover/sub:visible
-                          group-hover/sub:opacity-100
-                          transition-all duration-300
-
-                          bg-[hsl(var(--charcoal)/0.96)]
-                          border border-[hsl(var(--gold)/0.15)]
-                          shadow-[0_20px_60px_rgba(0,0,0,0.45)]
-                          rounded-xl
-                          py-2 ml-1
-                        "
-                        >
-                          {child.children.map((sub) => (
-                            <Link
-                              key={sub.label}
-                              href={sub.href}
-                              className="
-                              block px-5 py-3
-                              text-sm
-                              text-[hsl(var(--cream)/0.75)]
-                              hover:text-[hsl(var(--gold))]
-                              hover:bg-[hsl(var(--gold)/0.05)]
-                              transition-colors 
-                            "
-                            >
-                              {sub.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
+              <ChevronDown
+                size={14}
+                className="ml-1 text-[hsl(var(--cream)/0.6)] transition-transform duration-300 group-hover:rotate-180"
+              />
             </div>
-          ))}
+
+            {/* DROPDOWN */}
+            <div
+              className="
+      absolute left-0 top-full mt-5
+      w-64
+      opacity-0 invisible
+      group-hover:visible group-hover:opacity-100
+      transition-all duration-300
+
+      bg-[linear-gradient(135deg,rgba(30,30,30,0.95),rgba(40,40,40,0.9))]
+      backdrop-blur-xl
+
+      border border-[hsl(var(--gold)/0.15)]
+      shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+
+      rounded-2xl
+      py-3
+    "
+            >
+              {services.map((cat: any) => (
+                <div key={cat._id} className="group/sub relative">
+                  {/* CATEGORY */}
+                  <Link
+                    href={`/services/${cat.slug}`}
+                    className="
+              flex items-center justify-between
+              px-5 py-3
+              text-sm
+              text-[hsl(var(--cream)/0.75)]
+              hover:text-[hsl(var(--gold))]
+              hover:bg-[rgba(255,215,160,0.06)]
+              transition-all duration-200
+              rounded-lg
+            "
+                  >
+                    {cat.title}
+
+                    {cat.children?.length > 0 && (
+                      <ChevronDown
+                        size={14}
+                        className="-rotate-90 text-[hsl(var(--cream)/0.6)]"
+                      />
+                    )}
+                  </Link>
+
+                  {/* SUBCATEGORY */}
+                  {cat.children?.length > 0 && (
+                    <div
+                      className="
+              absolute left-[100%] top-0 ml-2
+              w-56
+              opacity-0 invisible
+              group-hover/sub:visible
+              group-hover/sub:opacity-100
+              transition-all duration-300
+
+              bg-[linear-gradient(135deg,rgba(30,30,30,0.95),rgba(40,40,40,0.9))]
+              backdrop-blur-xl
+
+              border border-[hsl(var(--gold)/0.15)]
+              shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+
+              rounded-2xl
+              py-2
+            "
+                    >
+                      {cat.children.map((child: any) => (
+                        <Link
+                          key={child._id}
+                          href={`/services/${cat.slug}/${child.slug}`}
+                          className="
+                    block px-5 py-3
+                    text-sm
+                    text-[hsl(var(--cream)/0.75)]
+                    hover:text-[hsl(var(--gold))]
+                    hover:bg-[rgba(255,215,160,0.06)]
+                    transition-all duration-200
+                    rounded-lg
+                  "
+                        >
+                          {child.title}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* STATIC */}
+          <Link
+            href="/contact"
+            className="font-display text-[13px] tracking-[0.15em] uppercase text-[hsl(var(--cream)/0.75)] hover:text-[hsl(var(--cream))] transition-colors"
+          >
+            Contact
+          </Link>
 
           {/* CTA */}
-
           <Link
             href="/quotation"
             className="px-7 py-3 bg-[hsl(var(--gold))] text-[hsl(var(--charcoal))] rounded-lg font-display text-[13px] font-bold tracking-wider uppercase transition-all duration-300 hover:bg-[hsl(var(--cream))]"
@@ -411,113 +421,122 @@ export default function Navbar() {
             className="md:hidden bg-[hsl(var(--charcoal))]"
           >
             <div className="px-8 py-6 flex flex-col gap-5">
-              {menu.map((item) => {
-                const isOpen = mobileDropdown === item.label;
+              {/* STATIC LINKS */}
+              <Link
+                href="/"
+                className={`font-display text-sm tracking-[0.15em] uppercase ${
+                  isActive("/")
+                    ? "text-[hsl(var(--gold))]"
+                    : "text-[hsl(var(--cream)/0.85)]"
+                }`}
+              >
+                Home
+              </Link>
 
-                return (
-                  <div key={item.label}>
-                    {/* Top Level */}
+              <Link
+                href="/about"
+                className={`font-display text-sm tracking-[0.15em] uppercase ${
+                  isActive("/about")
+                    ? "text-[hsl(var(--gold))]"
+                    : "text-[hsl(var(--cream)/0.85)]"
+                }`}
+              >
+                About Us
+              </Link>
 
-                    <div className="flex items-center justify-between">
-                      {"href" in item && item.href ? (
-                        <Link
-                          href={item.href}
-                          className={`font-display text-sm tracking-[0.15em] uppercase ${
-                            isActive(item.href)
-                              ? "text-[hsl(var(--gold))]"
-                              : "text-[hsl(var(--cream)/0.85)]"
-                          }`}
-                        >
-                          {item.label}
-                        </Link>
-                      ) : (
-                        <span className="font-display text-sm tracking-[0.15em] uppercase text-[hsl(var(--cream)/0.85)]">
-                          {item.label}
-                        </span>
-                      )}
+              {/* SERVICES (DYNAMIC) */}
+              <div>
+                <div className="flex items-center justify-between">
+                  <Link
+                    href="/services"
+                    className="font-display text-sm tracking-[0.15em] uppercase text-[hsl(var(--cream)/0.85)]"
+                  >
+                    Services
+                  </Link>
 
-                      {item.children && (
-                        <button
-                          onClick={() =>
-                            setMobileDropdown(isOpen ? null : item.label)
-                          }
-                        >
-                          <ChevronDown
-                            size={16}
-                            className={`text-[hsl(var(--cream)/0.7)] transition-transform ${
-                              isOpen ? "rotate-180" : ""
-                            }`}
-                          />
-                        </button>
-                      )}
-                    </div>
+                  <button
+                    onClick={() =>
+                      setMobileDropdown(
+                        mobileDropdown === "services" ? null : "services",
+                      )
+                    }
+                  >
+                    <ChevronDown
+                      size={16}
+                      className={`text-[hsl(var(--cream)/0.7)] transition-transform ${
+                        mobileDropdown === "services" ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                </div>
 
-                    {/* Category Dropdown */}
+                {/* CATEGORY DROPDOWN */}
+                {mobileDropdown === "services" && (
+                  <div className="ml-4 mt-3 flex flex-col gap-3">
+                    {services.map((cat: any) => {
+                      const isSubOpen = mobileSubDropdown === cat._id;
 
-                    {item.children && isOpen && (
-                      <div className="ml-4 mt-3 flex flex-col gap-2">
-                        {item.children.map((child) => {
-                          const subOpen = mobileSubDropdown === child.label;
+                      return (
+                        <div key={cat._id}>
+                          {/* CATEGORY */}
+                          <div className="flex items-center justify-between">
+                            <Link
+                              href={`/services/${cat.slug}`}
+                              className="font-display text-[13px] tracking-[0.15em] uppercase text-[hsl(var(--cream)/0.75)]"
+                            >
+                              {cat.title}
+                            </Link>
 
-                          return (
-                            <div key={child.label}>
-                              {/* Category */}
+                            {cat.children?.length > 0 && (
+                              <button
+                                onClick={() =>
+                                  setMobileSubDropdown(
+                                    isSubOpen ? null : cat._id,
+                                  )
+                                }
+                              >
+                                <ChevronDown
+                                  size={14}
+                                  className={`text-[hsl(var(--cream)/0.6)] transition-transform ${
+                                    isSubOpen ? "rotate-180" : ""
+                                  }`}
+                                />
+                              </button>
+                            )}
+                          </div>
 
-                              <div className="flex items-center justify-between">
-                                {"href" in child && child.href ? (
-                                  <Link
-                                    href={child.href}
-                                    className="font-display text-[13px] tracking-[0.15em] uppercase text-[hsl(var(--cream)/0.75)]"
-                                  >
-                                    {child.label}
-                                  </Link>
-                                ) : (
-                                  <span className="font-display text-[13px] tracking-[0.15em] uppercase text-[hsl(var(--cream)/0.75)]">
-                                    {child.label}
-                                  </span>
-                                )}
-
-                                {child.children && (
-                                  <button
-                                    onClick={() =>
-                                      setMobileSubDropdown(
-                                        subOpen ? null : child.label,
-                                      )
-                                    }
-                                  >
-                                    <ChevronDown
-                                      size={14}
-                                      className={`text-[hsl(var(--cream)/0.6)] transition-transform ${
-                                        subOpen ? "rotate-180" : ""
-                                      }`}
-                                    />
-                                  </button>
-                                )}
-                              </div>
-
-                              {/* Subcategory */}
-
-                              {child.children && subOpen && (
-                                <div className="ml-4 mt-2 flex flex-col gap-1">
-                                  {child.children.map((sub) => (
-                                    <Link
-                                      key={sub.label}
-                                      href={sub.href}
-                                      className="font-display text-[12px] tracking-[0.15em] uppercase text-[hsl(var(--cream)/0.6)]"
-                                    >
-                                      {sub.label}
-                                    </Link>
-                                  ))}
-                                </div>
-                              )}
+                          {/* SUBCATEGORY */}
+                          {cat.children?.length > 0 && isSubOpen && (
+                            <div className="ml-4 mt-2 flex flex-col gap-2">
+                              {cat.children.map((child: any) => (
+                                <Link
+                                  key={child._id}
+                                  href={`/services/${cat.slug}/${child.slug}`}
+                                  className="font-display text-[12px] tracking-[0.15em] uppercase text-[hsl(var(--cream)/0.6)]"
+                                >
+                                  {child.title}
+                                </Link>
+                              ))}
                             </div>
-                          );
-                        })}
-                      </div>
-                    )}
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
-                );
-              })}
+                )}
+              </div>
+
+              {/* STATIC */}
+              <Link
+                href="/contact"
+                className={`font-display text-sm tracking-[0.15em] uppercase ${
+                  isActive("/contact")
+                    ? "text-[hsl(var(--gold))]"
+                    : "text-[hsl(var(--cream)/0.85)]"
+                }`}
+              >
+                Contact
+              </Link>
             </div>
           </motion.div>
         )}

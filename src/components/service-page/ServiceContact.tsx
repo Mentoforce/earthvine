@@ -1,42 +1,3 @@
-// "use client";
-
-// export default function ServiceContact() {
-//   return (
-//     // <section className="py-24 bg-[hsl(var(--charcoal))]">
-//     <section className="section-padding bg-[hsl(var(--charcoal))]">
-//       <div className="max-w-xl mx-auto px-6 text-center">
-//         <h2 className="text-3xl font-display text-[hsl(var(--cream))] uppercase">
-//           Start Your Interior Project
-//         </h2>
-
-//         <form className="mt-10 space-y-5">
-//           <input
-//             type="text"
-//             placeholder="Name"
-//             className="w-full p-3 bg-black border border-[hsl(var(--gold)/0.2)] text-white"
-//           />
-
-//           <input
-//             type="email"
-//             placeholder="Email"
-//             className="w-full p-3 bg-black border border-[hsl(var(--gold)/0.2)] text-white"
-//           />
-
-//           <textarea
-//             placeholder="Project details"
-//             rows={4}
-//             className="w-full p-3 bg-black border border-[hsl(var(--gold)/0.2)] text-white"
-//           />
-
-//           <button className="px-8 py-3 bg-[hsl(var(--gold))] text-black font-bold uppercase">
-//             Send Inquiry
-//           </button>
-//         </form>
-//       </div>
-//     </section>
-//   );
-// }
-
 //---------------------------------------------------------------------------------------------------------------
 //this works: and is correct:
 // "use client";
@@ -122,11 +83,8 @@ import { usePathname } from "next/navigation";
 
 export default function ServiceContact() {
   const pathname = usePathname();
-
   const subject = pathname.split("/").filter(Boolean).pop() || "general";
-
   const [loading, setLoading] = useState(false);
-
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -144,7 +102,6 @@ export default function ServiceContact() {
     hour12: true,
     timeZone: "Asia/Kolkata",
   };
-
   const istFormatted = new Intl.DateTimeFormat("en-IN", options).format(
     new Date(),
   );
@@ -172,7 +129,7 @@ export default function ServiceContact() {
     formPayload.append("Email", form.email);
     formPayload.append("Phone", form.phone);
     formPayload.append("Message", form.message);
-    formPayload.append("Subject", subject); // ✅ auto from path
+    formPayload.append("Subject", subject);
     formPayload.append("Timestamp", istFormatted);
 
     try {
@@ -199,7 +156,7 @@ export default function ServiceContact() {
 
   return (
     <section className="section-padding bg-[hsl(var(--charcoal))]">
-      <div className="max-w-350 mx-auto px-6 grid lg:grid-cols-12 gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-16 items-center">
         {/* Left Content */}
         <div className="lg:col-span-5">
           <div className="flex items-center gap-4 mb-4">

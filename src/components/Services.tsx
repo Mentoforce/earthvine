@@ -33,7 +33,7 @@ const ServicesPreview = () => {
 
   return (
     <section ref={ref} className="section-padding bg-[hsl(var(--background))]">
-      <div className="max-w-350 mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 mb-14 sm:mb-20">
           <motion.div

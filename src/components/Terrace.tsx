@@ -14,7 +14,7 @@ const TerraceSection = () => {
       <div className="relative min-h-[70vh] md:min-h-screen flex items-end sm:items-center">
         {/* Background */}
         <motion.div
-          initial={{ scale: 1.1 }}
+          initial={{ scale: 1.05 }}
           animate={inView ? { scale: 1 } : {}}
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="absolute inset-0"
@@ -37,7 +37,7 @@ const TerraceSection = () => {
         </motion.div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-350 mx-auto w-full section-padding">
+        <div className="relative z-10 max-w-7xl mx-auto w-full section-padding">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <motion.div

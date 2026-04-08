@@ -26,16 +26,24 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-export default function ServiceHero({ title, subtitle, image }: any) {
+export default function ServiceHero({ title, subtitle, image, alt }: any) {
   return (
     <section className="relative section-padding flex items-end min-h-[75vh] sm:min-h-[85vh] overflow-hidden">
       <motion.div
-        initial={{ scale: 1.1 }}
+        initial={{ scale: 1.05 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.8 }}
         className="absolute inset-0"
       >
-        <Image src={image} alt={title} fill priority className="object-cover" />
+        <Image
+          src={image}
+          alt={alt || title}
+          fill
+          priority
+          sizes="100vw"
+          quality={85}
+          className="object-cover"
+        />
 
         <div className="absolute inset-0 bg-linear-to-r from-black to-black/25" />
       </motion.div>
