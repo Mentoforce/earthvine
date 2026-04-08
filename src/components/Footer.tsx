@@ -10,7 +10,7 @@ const Footer = () => {
       {/* Top Accent Line */}
       <div className="h-px bg-linear-to-r from-transparent via-[hsl(var(--gold)/0.3)] to-transparent" />
 
-      <div className="max-w-350 mx-auto mt-10">
+      <div className="max-w-7xl mx-auto mt-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8">
           {/* Brand */}
           <div className="md:col-span-4">
@@ -82,7 +82,7 @@ const Footer = () => {
             </h4>
 
             <div className="flex flex-col gap-3 text-sm text-[hsl(var(--cream)/0.4)]">
-              <span>Infoearthvine@gmail.com</span>
+              <span>infoearthvine@gmail.com</span>
               <span>+91 93103 33265</span>
 
               <Link

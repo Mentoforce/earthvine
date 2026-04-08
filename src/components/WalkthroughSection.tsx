@@ -66,7 +66,7 @@ export const WalkthroughSection1 = () => {
 
   return (
     <section className="py-20 md:py-28 bg-[hsl(var(--cream))]">
-      <div className="max-w-350 px-6 md:px-10">
+      <div className="max-w-7xl px-6 md:px-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -241,7 +241,7 @@ const WalkthroughSection = () => {
 
   return (
     <section className="section-padding bg-[hsl(var(--background))] overflow-hidden">
-      <div className="max-w-350 mx-auto px-5 sm:px-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
