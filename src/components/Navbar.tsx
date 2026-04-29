@@ -360,7 +360,7 @@ export default function Navbar() {
                       {cat.children.map((child: any) => (
                         <Link
                           key={child._id}
-                          href={`/services/${cat.slug}/${child.slug}`}
+                          href={`/services/${child.slug}`}
                           className="
                     block px-5 py-3
                     text-sm
@@ -511,7 +511,7 @@ export default function Navbar() {
                               {cat.children.map((child: any) => (
                                 <Link
                                   key={child._id}
-                                  href={`/services/${cat.slug}/${child.slug}`}
+                                  href={`/services/${child.slug}`}
                                   className="font-display text-[12px] tracking-[0.15em] uppercase text-[hsl(var(--cream)/0.6)]"
                                 >
                                   {child.title}

@@ -48,7 +48,7 @@ import { useState } from "react";
 import useAdminAuth from "@/hooks/useAdminAuth";
 
 export default function AdminLogin() {
-  useAdminAuth(false); // redirect to dashboard if already logged in
+  useAdminAuth(false);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -81,7 +81,8 @@ export default function AdminLogin() {
         localStorage.setItem("token", data.token);
 
         // redirect AFTER storing token
-        window.location.href = "/admin/dashboard";
+        // window.location.href = "/admin/dashboard";
+        window.location.replace("/admin/dashboard");
       }
     } catch (err) {
       alert("Something went wrong");
