@@ -50,10 +50,10 @@
 
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
-import "../../app/globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/Toaster";
+// import "../globals.css"
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
