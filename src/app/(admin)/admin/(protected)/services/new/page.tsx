@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import useAdminAuth from "@/hooks/useAdminAuth";
 import { uploadFile } from "@/lib/utils";
 import { Editor } from "@tinymce/tinymce-react";
+import { serviceTinyMCEConfig } from "@/lib/tinyMceConfig";
+import { cleanEditorHtml } from "@/lib/cleanEditorHtml";
 
 type OutroSection = {
   content: string;
@@ -139,11 +141,30 @@ export default function NewServicePage() {
   const handleSubmit = async () => {
     try {
       const token = localStorage.getItem("token");
-      // ✅ minimal validation
       if (!form.title || !form.slug || !form.hero.title || !form.hero.image) {
         alert("Please fill required fields (title, slug, hero)");
         return;
       }
+      console.log(form.intro.content);
+      console.log(form.outro.sections[0].content);
+      const cleanedForm = {
+        ...form,
+
+        intro: {
+          ...form.intro,
+          content: cleanEditorHtml(form.intro.content),
+        },
+
+        outro: {
+          ...form.outro,
+          sections: form.outro.sections.map((section) => ({
+            ...section,
+            content: cleanEditorHtml(section.content),
+          })),
+        },
+      };
+
+      console.log(cleanedForm);
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/api/admin/services`,
         {
@@ -152,7 +173,7 @@ export default function NewServicePage() {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify(form),
+          body: JSON.stringify(cleanedForm),
         },
       );
       const data = await res.json();
@@ -401,33 +422,34 @@ export default function NewServicePage() {
               onEditorChange={(content) =>
                 updateField("intro", "content", content)
               }
-              init={{
-                height: 400,
-                menubar: true,
-                plugins: [
-                  "advlist",
-                  "autolink",
-                  "lists",
-                  "link",
-                  "image",
-                  "charmap",
-                  "preview",
-                  "anchor",
-                  "searchreplace",
-                  "visualblocks",
-                  "code",
-                  "fullscreen",
-                  "insertdatetime",
-                  "media",
-                  "table",
-                  "help",
-                  "wordcount",
-                ],
-                toolbar:
-                  "undo redo | formatselect | bold italic underline | " +
-                  "alignleft aligncenter alignright alignjustify | " +
-                  "bullist numlist | link image | code fullscreen",
-              }}
+              init={serviceTinyMCEConfig}
+              // init={{
+              //   height: 400,
+              //   menubar: true,
+              //   plugins: [
+              //     "advlist",
+              //     "autolink",
+              //     "lists",
+              //     "link",
+              //     "image",
+              //     "charmap",
+              //     "preview",
+              //     "anchor",
+              //     "searchreplace",
+              //     "visualblocks",
+              //     "code",
+              //     "fullscreen",
+              //     "insertdatetime",
+              //     "media",
+              //     "table",
+              //     "help",
+              //     "wordcount",
+              //   ],
+              //   toolbar:
+              //     "undo redo | formatselect | bold italic underline | " +
+              //     "alignleft aligncenter alignright alignjustify | " +
+              //     "bullist numlist | link image | code fullscreen",
+              // }}
             />
           </div>
         )}
@@ -769,11 +791,12 @@ export default function NewServicePage() {
                     updateOutroSection(index, "content", content)
                   }
                   init={{
+                    ...serviceTinyMCEConfig,
                     height: 300,
-                    menubar: false,
-                    plugins: ["lists", "link", "image", "code"],
-                    toolbar:
-                      "undo redo | bold italic | bullist numlist | link | code",
+                    // menubar: false,
+                    // plugins: ["lists", "link", "image", "code"],
+                    // toolbar:
+                    //   "undo redo | bold italic | bullist numlist | link | code",
                   }}
                 />
 

@@ -1,17 +1,3 @@
-// export default function ServiceIntro({ heading, description }: any) {
-//   return (
-//     <section className="py-24 bg-[hsl(var(--charcoal))] text-center">
-//       <div className="max-w-3xl mx-auto px-6">
-//         <h2 className="text-3xl font-display text-[hsl(var(--cream))] uppercase">
-//           {heading}
-//         </h2>
-
-//         <p className="mt-6 text-[hsl(var(--cream)/0.8)]">{description}</p>
-//       </div>
-//     </section>
-//   );
-// }
-
 "use client";
 
 import Image from "next/image";
@@ -51,14 +37,36 @@ export default function ServiceIntro({ alt, image, content }: any) {
           </div>
           <div className="lg:col-span-6 lg:col-start-7">
             <div
-              className="prose max-w-none"
+              // className="prose max-w-none"
+              className="prose max-w-none earthvine-prose"
               dangerouslySetInnerHTML={{ __html: content }}
             />
           </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+// export default function ServiceIntro({ heading, description }: any) {
+//   return (
+//     <section className="py-24 bg-[hsl(var(--charcoal))] text-center">
+//       <div className="max-w-3xl mx-auto px-6">
+//         <h2 className="text-3xl font-display text-[hsl(var(--cream))] uppercase">
+//           {heading}
+//         </h2>
 
-          {/* <h2 className="font-display text-3xl md:text-4xl mb-6">{heading}</h2> */}
+//         <p className="mt-6 text-[hsl(var(--cream)/0.8)]">{description}</p>
+//       </div>
+//     </section>
+//   );
+// }
 
-          {/* <p className="text-[hsl(var(--charcoal)/0.7)] font-body text-sm leading-relaxed mb-2">
+{
+  /* <h2 className="font-display text-3xl md:text-4xl mb-6">{heading}</h2> */
+}
+
+{
+  /* <p className="text-[hsl(var(--charcoal)/0.7)] font-body text-sm leading-relaxed mb-2">
             {description1}
           </p>
           <p className="text-[hsl(var(--charcoal)/0.7)] font-body text-sm leading-relaxed mb-8">
@@ -70,9 +78,5 @@ export default function ServiceIntro({ alt, image, content }: any) {
 
           <p className="text-[hsl(var(--charcoal)/0.7)] font-body text-sm leading-relaxed mb-2">
             {description3}
-          </p> */}
-        </motion.div>
-      </div>
-    </section>
-  );
+          </p> */
 }

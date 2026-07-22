@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@plugin "@tailwindcss/typography";
 /* =========================
   THEME TOKENS
 ========================= */
@@ -181,17 +181,18 @@
   } */
 
   .section-padding {
-  padding: 60px 16px; /* mobile safe */
-}
-@media (min-width: 768px) {
-  .section-padding {
-    padding: 80px 40px;
+    padding: 60px 16px; /* mobile safe */
   }
-}
+  @media (min-width: 768px) {
+    .section-padding {
+      padding: 80px 40px;
+    }
+  }
 
-html, body {
-  overflow-x: hidden;
-}
+  html,
+  body {
+    overflow-x: hidden;
+  }
 
   .hover-lift {
     transition: all 700ms ease-out;
@@ -238,4 +239,50 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(18 32% 24%);
+}
+
+/* =========================
+   EARTHVINE PROSE
+========================= */
+
+.earthvine-prose {
+  color: hsl(var(--muted-foreground));
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.earthvine-prose h1,
+.earthvine-prose h2,
+.earthvine-prose h3,
+.earthvine-prose h4,
+.earthvine-prose h5,
+.earthvine-prose h6 {
+  color: hsl(var(--foreground));
+  font-family: "Playfair Display", serif;
+  line-height: 1.25;
+  margin-top: 0 rem;
+  margin-bottom: 0.6rem;
+}
+
+.earthvine-prose p {
+  margin: 0 0 1rem;
+}
+
+.earthvine-prose ul,
+.earthvine-prose ol {
+  margin: 0.75rem 0 1rem;
+  padding-left: 1.5rem;
+}
+
+.earthvine-prose li {
+  margin: 0.35rem 0;
+}
+
+.earthvine-prose strong {
+  color: hsl(var(--foreground));
+}
+
+.earthvine-prose img {
+  border-radius: 12px;
+  margin: 1.5rem 0;
 }
