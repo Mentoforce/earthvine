@@ -914,7 +914,8 @@ export default function NewServicePage() {
             >
               <option value="">No Parent (Category)</option>
               {parents
-                .filter((p: any) => p.parent === null && p.isActive)
+                // .filter((p: any) => p.parent === null && p.isActive)
+                .filter((p: any) => !p.parent && p.isActive)
                 .map((p: any) => (
                   <option key={p._id} value={p._id}>
                     {p.title}

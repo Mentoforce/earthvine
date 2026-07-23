@@ -93,7 +93,8 @@ export default function EditServicePage() {
           setForm({
             title: service.title || "",
             slug: service.slug || "",
-            parent: service.parent || null,
+            // parent: service.parent || null,
+            parent: service.parent?._id || null,
             isActive: service.isActive ?? true,
 
             hero: {
@@ -909,10 +910,12 @@ export default function EditServicePage() {
             >
               <option value="">No Parent (Category)</option>
 
-              {parents
+              {/* {parents
                 .filter(
                   (p: any) => p.parent === null && p.isActive && p._id !== id,
-                )
+                ) */}
+              {parents
+                .filter((p: any) => !p.parent && p.isActive && p._id !== id)
                 .map((p: any) => (
                   <option key={p._id} value={p._id}>
                     {p.title}
