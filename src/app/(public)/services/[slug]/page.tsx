@@ -64,7 +64,7 @@ interface PageProps {
 export async function generateMetadata({ params }: any) {
   const { slug } = await params;
 
-  // 🔥 1. TRY SERVICE
+  // 1. TRY SERVICE
   let res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/services/single/${slug}`,
     { cache: "no-store" },
@@ -104,7 +104,6 @@ export async function generateMetadata({ params }: any) {
 }
 
 // ✅ PAGE
-// ✅ PAGE
 export default async function Page({ params }: PageProps) {
   const { slug } = await params;
 
@@ -131,7 +130,6 @@ export default async function Page({ params }: PageProps) {
   const json = await res.json();
   const data = json.data;
 
-  // 🔥 THIS IS THE FIX
   return (
     <div className="container py-20">
       <h1 className="text-3xl font-bold mb-6">{data.title}</h1>

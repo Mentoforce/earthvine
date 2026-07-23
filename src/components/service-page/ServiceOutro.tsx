@@ -207,7 +207,7 @@ export default function ServiceOutro({
 
   return (
     <section className="section-padding">
-      <div className="max-w-7xl mx-auto px-4 space-y-20">
+      <div className="max-w-7xl mx-auto px-4 space-y-5">
         {sections.map((section, index) => {
           const isLeft = section.layout === "left";
           const hasImage = !!section.image;
@@ -248,11 +248,11 @@ export default function ServiceOutro({
                   col-span-1
                   ${hasImage ? "lg:col-span-7" : "lg:col-span-12"}
                   ${isLeft ? "lg:order-2" : "lg:order-1"}
-                  min-w-0   /* 🔥 CRITICAL FIX */
+                  min-w-0  
                 `}
               >
                 <div
-                  className="prose max-w-none break-words"
+                  className="prose max-w-none earthvine-prose break-words"
                   dangerouslySetInnerHTML={{
                     __html: section.content || "",
                   }}

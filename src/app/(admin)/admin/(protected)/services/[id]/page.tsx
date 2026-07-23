@@ -5,6 +5,8 @@ import useAdminAuth from "@/hooks/useAdminAuth";
 import { useParams } from "next/navigation";
 import { uploadFile } from "@/lib/utils";
 import { Editor } from "@tinymce/tinymce-react";
+import { serviceTinyMCEConfig } from "@/lib/tinyMceConfig";
+import { cleanEditorHtml } from "@/lib/cleanEditorHtml";
 
 const tabs = [
   "Hero",
@@ -24,7 +26,7 @@ export default function EditServicePage() {
   const [uploading, setUploading] = useState(false);
   const { id } = useParams();
 
-  // ✅ GLOBAL FORM STATE
+  // GLOBAL FORM STATE
   const [form, setForm] = useState({
     title: "",
     slug: "",
@@ -91,7 +93,8 @@ export default function EditServicePage() {
           setForm({
             title: service.title || "",
             slug: service.slug || "",
-            parent: service.parent || null,
+            // parent: service.parent || null,
+            parent: service.parent?._id || null,
             isActive: service.isActive ?? true,
 
             hero: {
@@ -212,7 +215,22 @@ export default function EditServicePage() {
   const handleUpdate = async () => {
     try {
       const token = localStorage.getItem("token");
+      const cleanedForm = {
+        ...form,
 
+        intro: {
+          ...form.intro,
+          content: cleanEditorHtml(form.intro.content),
+        },
+
+        outro: {
+          ...form.outro,
+          sections: form.outro.sections.map((section: any) => ({
+            ...section,
+            content: cleanEditorHtml(section.content),
+          })),
+        },
+      };
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/api/admin/services/${id}`,
         {
@@ -221,7 +239,7 @@ export default function EditServicePage() {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify(form),
+          body: JSON.stringify(cleanedForm),
         },
       );
 
@@ -385,33 +403,68 @@ export default function EditServicePage() {
                 onEditorChange={(content) =>
                   updateField("intro", "content", content)
                 }
-                init={{
-                  height: 400,
-                  menubar: true,
-                  plugins: [
-                    "advlist",
-                    "autolink",
-                    "lists",
-                    "link",
-                    "image",
-                    "charmap",
-                    "preview",
-                    "anchor",
-                    "searchreplace",
-                    "visualblocks",
-                    "code",
-                    "fullscreen",
-                    "insertdatetime",
-                    "media",
-                    "table",
-                    "help",
-                    "wordcount",
-                  ],
-                  toolbar:
-                    "undo redo | formatselect | bold italic underline | " +
-                    "alignleft aligncenter alignright alignjustify | " +
-                    "bullist numlist | link image | code fullscreen",
-                }}
+                //               init={{
+                //                 height: 500,
+
+                //                 menubar: true,
+
+                //                 plugins: [
+                //                   "advlist",
+                //                   "autolink",
+                //                   "lists",
+                //                   "link",
+                //                   "image",
+                //                   "table",
+                //                   "media",
+                //                   "searchreplace",
+                //                   "code",
+                //                   "fullscreen",
+                //                   "preview",
+                //                   "wordcount",
+                //                   "visualblocks",
+                //                   "anchor",
+                //                 ],
+
+                //                 toolbar:
+                //                   "undo redo | " +
+                //                   "blocks | " +
+                //                   "bold italic underline | " +
+                //                   "alignleft aligncenter alignright alignjustify | " +
+                //                   "bullist numlist | " +
+                //                   "link image table | " +
+                //                   "removeformat | " +
+                //                   "code fullscreen preview",
+
+                //                 branding: false,
+
+                //                 statusbar: false,
+
+                //                 content_style: `
+                //   body{
+                //     font-family: Raleway, sans-serif;
+                //     font-size:18px;
+                //     line-height:1.8;
+                //     color:#444;
+                //     padding:20px;
+                //   }
+
+                //   h1,h2,h3,h4,h5,h6{
+                //     font-family: Playfair Display, serif;
+                //     color:#222;
+                //     font-weight:600;
+                //   }
+
+                //   p{
+                //     margin-bottom:18px;
+                //   }
+
+                //   ul,ol{
+                //     margin:16px 0;
+                //     padding-left:22px;
+                //   }
+                // `,
+                //               }}
+                init={serviceTinyMCEConfig}
               />
             </div>
           </div>
@@ -753,11 +806,12 @@ export default function EditServicePage() {
                     updateOutroSection(index, "content", content)
                   }
                   init={{
+                    ...serviceTinyMCEConfig,
                     height: 300,
-                    menubar: false,
-                    plugins: ["lists", "link", "image", "code"],
-                    toolbar:
-                      "undo redo | bold italic | bullist numlist | link | code",
+                    // menubar: false,
+                    // plugins: ["lists", "link", "image", "code"],
+                    // toolbar:
+                    //   "undo redo | bold italic | bullist numlist | link | code",
                   }}
                 />
 
@@ -856,10 +910,12 @@ export default function EditServicePage() {
             >
               <option value="">No Parent (Category)</option>
 
-              {parents
+              {/* {parents
                 .filter(
                   (p: any) => p.parent === null && p.isActive && p._id !== id,
-                )
+                ) */}
+              {parents
+                .filter((p: any) => !p.parent && p.isActive && p._id !== id)
                 .map((p: any) => (
                   <option key={p._id} value={p._id}>
                     {p.title}
