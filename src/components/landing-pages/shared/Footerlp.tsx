@@ -154,15 +154,18 @@ export default function Footer() {
         >
           <p>© 2026 Earthvine Interior Design. All rights reserved.</p>
 
-          {/* <div className="flex gap-8">
-            <Link href="/privacy-policy" className="hover:text-white">
+          <div className="flex gap-8">
+            {/* <Link href="/privacy-policy" className="hover:text-white">
               Privacy Policy
             </Link>
 
             <Link href="/terms-of-service" className="hover:text-white">
               Terms of Service
-            </Link>
-          </div> */}
+            </Link> */}
+
+            <p>Privacy Policy</p>
+            <p>Terms of Service</p>
+          </div>
         </div>
       </div>
     </footer>
