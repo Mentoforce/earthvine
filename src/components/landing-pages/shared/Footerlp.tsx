@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   Facebook,
@@ -32,15 +33,15 @@ export default function Footer() {
             className="max-w-lg"
           >
             {/* Logo */}
-            {/* <h2
-              className={`
-                ${arapey.className}
-                text-[34px]
-                text-white
-              `}
-            >
-              Earthvine
-            </h2> */}
+            <a href="/">
+              <Image
+                src="/logo.png"
+                alt="Earthvine Interior Design"
+                width={120}
+                height={10}
+                className="object-contain"
+              />
+            </a>
 
             <p
               className={`
@@ -95,6 +96,7 @@ export default function Footer() {
               className={`
                 ${jost.className}
                 mb-5
+                mt-10
                 text-[19px]
                 font-semibold
               `}
@@ -152,8 +154,14 @@ export default function Footer() {
             lg:flex-row
           `}
         >
-          <p>© 2026 Earthvine Interior Design. All rights reserved.</p>
-
+          <a
+            href="https://mentoforce.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white cursor-pointer"
+          >
+            © 2026 Earthvine Interior Design. All rights reserved by Mentoforce.
+          </a>
           <div className="flex gap-8">
             {/* <Link href="/privacy-policy" className="hover:text-white">
               Privacy Policy
@@ -163,8 +171,10 @@ export default function Footer() {
               Terms of Service
             </Link> */}
 
-            <p>Privacy Policy</p>
-            <p>Terms of Service</p>
+            <p className="hover:text-white cursor-pointer">Privacy Policy</p>
+            <p className="hover:text-white cursor-pointer">
+              Terms and Services
+            </p>
           </div>
         </div>
       </div>

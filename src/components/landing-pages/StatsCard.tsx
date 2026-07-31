@@ -13,7 +13,7 @@ const stats = [
     label: "Projects Done",
   },
   {
-    value: "4.9",
+    value: "5",
     label: "Google Rating",
   },
   {

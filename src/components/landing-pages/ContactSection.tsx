@@ -87,8 +87,8 @@ export default function ContactSection() {
                 ${arapey.className}
                 max-w-xl
                 text-white
-                text-[28px]
-                lg:text-[50px]
+                text-[48px]
+                lg:text-[70px]
                 leading-[95%]
                 font-normal
               `}
@@ -101,7 +101,7 @@ export default function ContactSection() {
                 ${jost.className}
                 mt-5
                 max-w-lg
-                text-[19px]
+                text-[29px]
                 leading-[150%]
                 text-white
               `}
@@ -110,9 +110,9 @@ export default function ContactSection() {
               today.
             </p>
 
-            <div className="mt-7 flex flex-wrap gap-5">
-              {/* Phone */}
-              <div className="flex items-center gap-4">
+            {/* <div className="mt-7 flex flex-wrap gap-5"> */}
+            {/* Phone */}
+            {/* <div className="flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#3C2A20]">
                   <Phone size={28} strokeWidth={2} className="text-white" />
                 </div>
@@ -129,10 +129,10 @@ export default function ContactSection() {
                     +91 9310333265
                   </a>
                 </div>
-              </div>
+              </div> */}
 
-              {/* Email */}
-              <div className="flex items-center gap-4">
+            {/* Email */}
+            {/* <div className="flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#3C2A20]">
                   <Mail size={28} strokeWidth={2} className="text-white" />
                 </div>
@@ -149,8 +149,8 @@ export default function ContactSection() {
                     info@earthvine.in
                   </a>
                 </div>
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
           </motion.div>
 
           {/* Form */}

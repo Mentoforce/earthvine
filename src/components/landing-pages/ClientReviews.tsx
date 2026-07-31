@@ -15,14 +15,14 @@ const reviews = [
   {
     name: "Rahul Malhotra",
     location: "Gurugram",
-    rating: 4,
+    rating: 5,
     review:
       "Amazing experience! They understood our vision perfectly and the results exceeded our expectations. On-time delivery with great attention to detail.",
   },
   {
     name: "Neha Verma",
     location: "Noida",
-    rating: 4,
+    rating: 5,
     review:
       "Very smooth process from start to finish. The 3D designs helped us visualise the space beforehand. Pricing was transparent with no hidden costs.",
   },

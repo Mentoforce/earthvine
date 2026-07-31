@@ -85,27 +85,27 @@ export default function Hero() {
             <a
               href="#getquote"
               className={`
-    ${arapey.className}
-    group
-    inline-flex
-    items-center
-    justify-center
-    gap-3
-    rounded-xl
-    bg-[#795547]
-    px-6
-    py-3
-    text-xl
-    font-semibold
-    text-white
-    shadow-lg
-    transition-all
-    duration-300
-    hover:bg-[#68493D]
-    hover:-translate-y-1
-    hover:shadow-xl
-    mt-5
-  `}
+                ${arapey.className}
+                group
+                inline-flex
+                items-center
+                justify-center
+                gap-3
+                rounded-xl
+                bg-[#795547]
+                px-6
+                py-3
+                text-xl
+                font-semibold
+                text-white
+                shadow-lg
+                transition-all
+                duration-300
+                hover:bg-[#68493D]
+                hover:-translate-y-1
+                hover:shadow-xl
+                mt-5
+              `}
             >
               <Image
                 src="/icons/send.svg"
