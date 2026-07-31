@@ -56,7 +56,7 @@ export default function HowWeWork() {
               text-[16px]
             `}
           >
-            OUR 8-STEP PROCESS
+            OUR 5-STEP PROCESS
           </p>
 
           <h2
