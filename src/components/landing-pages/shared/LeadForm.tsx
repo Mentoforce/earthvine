@@ -62,18 +62,20 @@ export default function LeadForm() {
     setLoading(false);
   };
   return (
+    // shadow-[-4px_-4px_9px_rgba(255,255,255,0.62),0_4px_8px_rgba(255,255,255,0.62)]
     <div
       className="
         w-full
         max-w-130
         rounded-2xl
         bg-[#EEEEEE]
+        border
+      border-[#795547]
         px-6
         sm:px-7
         lg:px-8
         py-7
         lg:py-8
-        shadow-[-4px_-4px_9px_rgba(255,255,255,0.62),0_4px_8px_rgba(255,255,255,0.62)]
       "
     >
       {/* Heading */}

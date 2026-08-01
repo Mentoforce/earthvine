@@ -6,19 +6,19 @@ import { jost } from "@/app/layout";
 const stats = [
   {
     value: "500+",
-    label: "Happy Designs",
+    label: "Happy Clients",
   },
   {
     value: "250+",
     label: "Projects Done",
   },
   {
-    value: "5",
+    value: "4.9",
     label: "Google Rating",
   },
   {
     value: "7+",
-    label: "Years Experience",
+    label: "Years of Experience",
   },
 ];
 
@@ -32,13 +32,15 @@ export default function StatsCard() {
       className="
       lg:block
       hidden
-        mt-12
-        w-full
-        max-w-135
-        overflow-hidden
-        rounded-[18px]
-        bg-white
-        shadow-[0_8px_24px_rgba(0,0,0,0.12)]
+      border
+    border-[#795547]
+      mt-12
+      w-full
+      max-w-135
+      overflow-hidden
+      rounded-[18px]
+    bg-white
+      shadow-[0_8px_24px_rgba(0,0,0,0.12)]
       "
     >
       <div className="grid grid-cols-2 md:grid-cols-4">
@@ -109,8 +111,9 @@ export default function StatsCard() {
             <p
               className="
                 text-[11px]
+                whitespace-nowrap
                 lg:text-[12px]
-                font-medium
+                font-bold
                 leading-[1.35]
                 text-[#7A808B]
               "

@@ -118,7 +118,7 @@ const HeroSection = () => {
                 href="/quotation"
                 className="group flex items-center rounded-lg gap-2 px-6 sm:px-7 py-3 bg-[hsl(var(--gold))] text-[hsl(var(--charcoal))] font-body font-semibold text-[11px] lg:text-[13px] tracking-wider uppercase transition-all duration-500 hover:bg-[hsl(var(--cream))]"
               >
-                Get Quotation
+                Get Quote
                 <svg
                   className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                   fill="none"

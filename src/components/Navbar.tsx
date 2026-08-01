@@ -394,7 +394,7 @@ export default function Navbar() {
             href="/quotation"
             className="px-7 py-3 bg-[hsl(var(--gold))] text-[hsl(var(--charcoal))] rounded-lg font-display text-[13px] font-bold tracking-wider uppercase transition-all duration-300 hover:bg-[hsl(var(--cream))]"
           >
-            Get Quotation
+            Get Quote
           </Link>
         </div>
 

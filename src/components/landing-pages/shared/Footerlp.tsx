@@ -101,7 +101,7 @@ export default function Footer() {
                 font-semibold
               `}
             >
-              Contact
+              Contact Us
             </h3>
 
             <div className="space-y-6">
@@ -154,26 +154,27 @@ export default function Footer() {
             lg:flex-row
           `}
         >
-          <a
-            href="https://mentoforce.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-white cursor-pointer"
-          >
-            © 2026 Earthvine Interior Design. All rights reserved by Mentoforce.
-          </a>
-          <div className="flex gap-8">
-            {/* <Link href="/privacy-policy" className="hover:text-white">
-              Privacy Policy
-            </Link>
+          <p>© 2026 Earthvine Interiors. All rights reserved.</p>
 
-            <Link href="/terms-of-service" className="hover:text-white">
-              Terms of Service
-            </Link> */}
+          <p>
+            Designed and Developed by{" "}
+            <a
+              href="https://mentoforce.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white"
+            >
+              Mentoforce
+            </a>
+          </p>
 
+          <div className="flex items-center gap-4">
             <p className="hover:text-white cursor-pointer">Privacy Policy</p>
+
+            <span className="text-white/20">|</span>
+
             <p className="hover:text-white cursor-pointer">
-              Terms and Services
+              Terms & Conditions
             </p>
           </div>
         </div>

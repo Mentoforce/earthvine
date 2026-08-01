@@ -176,7 +176,7 @@ const Contact = () => {
               {[
                 {
                   label: "Email",
-                  value: "infoearthvine@gmail.com",
+                  value: "info@earthvine.in",
                   logo: Mail,
                 },
                 {

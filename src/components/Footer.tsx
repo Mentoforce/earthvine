@@ -82,24 +82,37 @@ const Footer = () => {
             </h4>
 
             <div className="flex flex-col gap-3 text-sm text-[hsl(var(--cream)/0.4)]">
-              <span>infoearthvine@gmail.com</span>
+              <span>info@earthvine.in</span>
               <span>+91 93103 33265</span>
 
               <Link
                 href="/quotation"
                 className="mt-4 inline-block px-6 sm:px-7 py-3 rounded-lg border border-[hsl(var(--gold)/0.3)] text-[hsl(var(--gold))] text-center text-[12px] tracking-widest uppercase transition-all duration-300 hover:bg-[hsl(var(--gold))] hover:text-[hsl(var(--charcoal))]"
               >
-                Get Quotation
+                Get Quote
               </Link>
             </div>
           </div>
         </div>
         {/* Bottom */}
         <div className="h-px mt-20 bg-linear-to-r from-transparent via-[hsl(var(--gold)/0.3)] to-transparent" />
-        <div className="flex justify-center text-[hsl(var(--cream)/0.25)] text-xs tracking-wider">
+
+        <div className="flex justify-between items-end text-[hsl(var(--cream)/0.25)] text-xs tracking-wider">
           <p className="my-8">
             © {new Date().getFullYear()} Earthvine Interiors. All rights
             reserved.
+          </p>
+
+          <p className="my-8">
+            Designed and Developed by{" "}
+            <a
+              href="https://mentoforce.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white"
+            >
+              Mentoforce
+            </a>
           </p>
         </div>
       </div>

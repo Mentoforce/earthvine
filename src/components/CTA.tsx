@@ -62,7 +62,7 @@ const CTASection = () => {
                   href="/quotation"
                   className="px-7 py-3 rounded-lg bg-[hsl(var(--gold))] text-[hsl(var(--charcoal))] font-semibold text-[13px] tracking-wider uppercase transition-all duration-500 hover:bg-[hsl(var(--cream))]"
                 >
-                  Get Free Quotation
+                  Get Free Quote
                 </Link>
 
                 <Link
@@ -120,7 +120,7 @@ const CTASection = () => {
                 href="/quotation"
                 className="px-6 py-3 rounded-lg bg-[hsl(var(--gold))] text-[hsl(var(--charcoal))] font-semibold text-[11px] tracking-wider uppercase"
               >
-                Get Free Quotation
+                Get Free Quote
               </Link>
 
               <Link
