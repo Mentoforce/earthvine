@@ -29,7 +29,7 @@ export default function ServiceIntro({ alt, image, content }: any) {
           whileInView={{ opacity: 1, x: 0 }}
           className="lg:col-span-6 lg:col-start-7 flex flex-col "
         >
-          <div className="flex items-center mt-3 gap-4 mb-4">
+          <div className="flex items-center mt-0 gap-4 mb-4">
             <div className="w-8 h-px bg-[hsl(var(--gold))]" />
             <span className="text-[11px] tracking-[0.4em] uppercase text-[hsl(var(--secondary))]">
               Overview

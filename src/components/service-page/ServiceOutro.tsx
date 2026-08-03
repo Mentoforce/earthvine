@@ -207,7 +207,7 @@ export default function ServiceOutro({
 
   return (
     <section className="section-padding">
-      <div className="max-w-7xl mx-auto px-4 space-y-5">
+      <div className="max-w-7xl mx-auto px-4 space-y-10">
         {sections.map((section, index) => {
           const isLeft = section.layout === "left";
           const hasImage = !!section.image;
