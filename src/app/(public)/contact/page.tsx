@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useToast } from "@/hooks/use-toast";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 import contactHero from "../../../../public/contact/contact-hero.jpg"; // move image to /public
 import { Building, Mail, PhoneCall } from "lucide-react";
@@ -14,6 +15,7 @@ const Contact = () => {
   const formInView = useInView(formRef, { once: true, margin: "-100px" });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -62,7 +64,7 @@ const Contact = () => {
       formPayload.append("Email", form.email);
       formPayload.append("Phone", form.phone);
       formPayload.append("Subject", form.subject);
-      formPayload.append("Message", form.message);
+      formPayload.append("cfToken", turnstileToken);
       formPayload.append("Timestamp", istFormatted);
       try {
         const response = await fetch(scriptURL, {
@@ -261,7 +263,10 @@ const Contact = () => {
                 className="w-full bg-[hsl(var(--background))] border border-[hsl(var(--border))] rounded-lg px-4 py-3.5 font-body text-sm focus:outline-none focus:ring-2 focus:ring-[hsl(var(--primary)/0.5)] transition-all resize-none"
               />
             </div>
-
+            <Turnstile
+              siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+              onSuccess={(token) => setTurnstileToken(token)}
+            />
             <button
               type="submit"
               disabled={loading}
