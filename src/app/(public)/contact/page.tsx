@@ -13,9 +13,12 @@ const Contact = () => {
   const { toast } = useToast();
   const formRef = useRef(null);
   const formInView = useInView(formRef, { once: true, margin: "-100px" });
-  const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [turnstileToken, setTurnstileToken] = useState("");
+
+  const [captchaToken, setCaptchaToken] = useState("");
+
+  const [turnstileKey, setTurnstileKey] = useState(0);
+
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -23,24 +26,6 @@ const Contact = () => {
     subject: "",
     message: "",
   });
-
-  const options: Intl.DateTimeFormatOptions = {
-    year: "numeric", // Must be 'numeric' or '2-digit'
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: true,
-    timeZone: "Asia/Kolkata",
-  };
-
-  const currentDate = new Date();
-  const formatter = new Intl.DateTimeFormat("en-IN", options);
-  const istFormatted = formatter.format(currentDate);
-
-  const scriptURL =
-    "https://script.google.com/macros/s/AKfycbzXkPmfSywVrL_IBqcLSfqMOMKo2l5DYRI65EobSHYv9ACg410qz-cXqjFiYmEXgnKrCg/exec";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,42 +41,75 @@ const Contact = () => {
         variant: "destructive",
       });
       return;
-    } else {
+    }
+
+    if (!captchaToken) {
+      toast({
+        title: "Please verify that you're human.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
       setLoading(true);
-      // --------- SEND WITH CAPITALIZED FIELD NAMES ---------
-      const formPayload = new FormData();
-      formPayload.append("Name", form.name);
-      formPayload.append("Email", form.email);
-      formPayload.append("Phone", form.phone);
-      formPayload.append("Subject", form.subject);
-      formPayload.append("cfToken", turnstileToken);
-      formPayload.append("Timestamp", istFormatted);
-      try {
-        const response = await fetch(scriptURL, {
+
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/leads`,
+        {
           method: "POST",
-          body: formPayload,
-        });
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: form.name,
+            email: form.email,
+            phone: form.phone,
+            subject: form.subject,
+            message: form.message,
+            captchaToken,
+          }),
+        },
+      );
 
-        setSubmitted(true);
-        setTimeout(() => {
-          setLoading(false);
-          toast({
-            title: "Message sent!",
-            description: "We'll get back to you within 24 hours.",
-          });
+      const data = await response.json();
 
-          setForm({
-            name: "",
-            email: "",
-            phone: "",
-            subject: "",
-            message: "",
-          });
-          setSubmitted(false);
-        }, 1000);
-      } catch (error) {
-        console.error("Error!", error);
+      if (!response.ok) {
+        console.error("Backend Response:", data);
+
+        throw new Error(
+          data.errors?.[0]?.message || data.message || "Submission failed",
+        );
       }
+
+      toast({
+        title: "Message sent!",
+        description: "We'll get back to you within 24 hours.",
+      });
+
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+
+      setCaptchaToken("");
+      setTurnstileKey((prev) => prev + 1);
+    } catch (error: any) {
+      console.error(error);
+
+      toast({
+        title: "Submission Failed",
+        description: error.message || "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+
+      setCaptchaToken("");
+      setTurnstileKey((prev) => prev + 1);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -264,8 +282,20 @@ const Contact = () => {
               />
             </div>
             <Turnstile
+              key={turnstileKey}
               siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
-              onSuccess={(token) => setTurnstileToken(token)}
+              options={{
+                theme: "light",
+              }}
+              onSuccess={(token) => {
+                setCaptchaToken(token);
+              }}
+              onExpire={() => {
+                setCaptchaToken("");
+              }}
+              onError={() => {
+                setCaptchaToken("");
+              }}
             />
             <button
               type="submit"
