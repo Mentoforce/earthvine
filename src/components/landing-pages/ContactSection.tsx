@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail } from "lucide-react";
 import { arapey, jost } from "@/app/layout";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 export default function ContactSection() {
   const propertyTypes = [
@@ -19,7 +20,10 @@ export default function ContactSection() {
 
   const [selectedType, setSelectedType] = useState("2 BHK");
   const SCRIPT_URL = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL!;
-  console.log(SCRIPT_URL);
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [turnstileKey, setTurnstileKey] = useState(0);
+  const [honeypot, setHoneypot] = useState("");
+  // console.log(SCRIPT_URL);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -35,25 +39,43 @@ export default function ContactSection() {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (loading) return;
+
+    if (!formData.name.trim()) {
+      alert("Please enter your name.");
+      return;
+    }
+
+    if (!/^[6-9]\d{9}$/.test(formData.phone.trim())) {
+      alert("Please enter a valid 10-digit mobile number.");
+      return;
+    }
+
+    if (!captchaToken) {
+      alert("Please verify that you're human.");
+      return;
+    }
 
     setLoading(true);
 
     try {
+      const form = new URLSearchParams();
+
+      form.append("name", formData.name.trim());
+      form.append("phone", formData.phone.trim());
+      form.append("email", "");
+      form.append("property", selectedType);
+      form.append("source", "Landing Page Contact");
+      form.append("captchaToken", captchaToken);
+      form.append("website", honeypot);
+
       await fetch(SCRIPT_URL, {
         method: "POST",
         mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          phone: formData.phone,
-          email: "",
-          property: selectedType,
-          source: "Landing Page Contact",
-        }),
+        body: form,
       });
 
       alert("Thank you! We will contact you soon.");
@@ -64,12 +86,19 @@ export default function ContactSection() {
       });
 
       setSelectedType("2 BHK");
+
+      setCaptchaToken("");
+      setHoneypot("");
+      setTurnstileKey((prev) => prev + 1);
     } catch (error) {
       console.error(error);
-      alert("Something went wrong.");
-    }
+      alert("Something went wrong. Please try again.");
 
-    setLoading(false);
+      setCaptchaToken("");
+      setTurnstileKey((prev) => prev + 1);
+    } finally {
+      setLoading(false);
+    }
   };
   return (
     <section id="getquote" className="bg-[#795547] py-16 lg:py-24">
@@ -170,6 +199,15 @@ export default function ContactSection() {
             <form onSubmit={handleSubmit} className="mt-5 space-y-5">
               <input
                 type="text"
+                name="website"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+              />
+              <input
+                type="text"
                 placeholder="Your Name"
                 name="name"
                 value={formData.name}
@@ -237,7 +275,22 @@ export default function ContactSection() {
                   </button>
                 ))}
               </div>
-
+              <Turnstile
+                key={turnstileKey}
+                siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+                options={{
+                  theme: "light",
+                }}
+                onSuccess={(token) => {
+                  setCaptchaToken(token);
+                }}
+                onExpire={() => {
+                  setCaptchaToken("");
+                }}
+                onError={() => {
+                  setCaptchaToken("");
+                }}
+              />
               <button
                 className={`
                   ${arapey.className}

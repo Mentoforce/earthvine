@@ -191,7 +191,7 @@
 
   html,
   body {
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   .hover-lift {
@@ -221,7 +221,7 @@
 ========================= */
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 ::-webkit-scrollbar {
@@ -285,4 +285,26 @@ html {
 .earthvine-prose img {
   border-radius: 12px;
   margin: 1.5rem 0;
+}
+
+/* Fix Chrome autofill styling for dark form inputs */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  box-shadow: 0 0 0px 1000px transparent inset !important;
+  background-color: transparent !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+/* Fix Chrome autofill text color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: #222 !important;
+  caret-color: #222 !important;
+  transition: background-color 9999s ease-in-out 0s;
 }

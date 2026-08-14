@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Arapey, Inter, Jost } from "next/font/google";
+import { Arapey, Inter, Jost, Playfair_Display } from "next/font/google";
 
 export const arapey = Arapey({
   subsets: ["latin"],
@@ -12,6 +12,12 @@ export const inter = Inter({
 
 export const jost = Jost({
   subsets: ["latin"],
+});
+
+export const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
 });
 
 export default function RootLayout({

@@ -35,7 +35,7 @@ export default function Footer() {
             {/* Logo */}
             <a href="/">
               <Image
-                src="/logo.png"
+                src="/logo2.png"
                 alt="Earthvine Interior Design"
                 width={120}
                 height={10}

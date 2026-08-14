@@ -4,11 +4,15 @@ import Image from "next/image";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { arapey, jost } from "@/app/layout";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 export default function LeadForm() {
   const SCRIPT_URL = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL!;
 
   const [loading, setLoading] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [turnstileKey, setTurnstileKey] = useState(0);
+  const [honeypot, setHoneypot] = useState("");
 
   const [formData, setFormData] = useState({
     name: "",
@@ -29,22 +33,55 @@ export default function LeadForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (loading) return;
+
+    if (!formData.name.trim()) {
+      alert("Please enter your name.");
+      return;
+    }
+
+    if (!formData.email.trim()) {
+      alert("Please enter your email.");
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    if (!/^[6-9]\d{9}$/.test(formData.phone.trim())) {
+      alert("Please enter a valid 10-digit mobile number.");
+      return;
+    }
+
+    if (!formData.property) {
+      alert("Please select a property type.");
+      return;
+    }
+
+    if (!captchaToken) {
+      alert("Please verify that you're human.");
+      return;
+    }
+
     setLoading(true);
 
     try {
+      const form = new URLSearchParams();
+
+      form.append("name", formData.name.trim());
+      form.append("phone", formData.phone.trim());
+      form.append("email", formData.email.trim());
+      form.append("property", formData.property);
+      form.append("source", "Landing Page Hero");
+      form.append("captchaToken", captchaToken);
+      form.append("website", honeypot);
+
       await fetch(SCRIPT_URL, {
         method: "POST",
         mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          phone: formData.phone,
-          email: formData.email,
-          property: formData.property,
-          source: "Landing Page Hero",
-        }),
+        body: form,
       });
 
       alert("Thank you! We'll contact you shortly.");
@@ -55,11 +92,19 @@ export default function LeadForm() {
         email: "",
         property: "",
       });
-    } catch (err) {
-      alert("Something went wrong.");
-    }
 
-    setLoading(false);
+      setCaptchaToken("");
+      setHoneypot("");
+      setTurnstileKey((prev) => prev + 1);
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong. Please try again.");
+
+      setCaptchaToken("");
+      setTurnstileKey((prev) => prev + 1);
+    } finally {
+      setLoading(false);
+    }
   };
   return (
     // shadow-[-4px_-4px_9px_rgba(255,255,255,0.62),0_4px_8px_rgba(255,255,255,0.62)]
@@ -117,6 +162,15 @@ export default function LeadForm() {
       <form onSubmit={handleSubmit} className="mt-7 space-y-6">
         {/* Name */}
         <div className="flex flex-col gap-1.5">
+          <input
+            type="text"
+            name="website"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
+            tabIndex={-1}
+            autoComplete="off"
+            className="hidden"
+          />
           <input
             type="text"
             placeholder="Your name"
@@ -261,7 +315,22 @@ export default function LeadForm() {
             "
           />
         </div>
-
+        <Turnstile
+          key={turnstileKey}
+          siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+          options={{
+            theme: "light",
+          }}
+          onSuccess={(token) => {
+            setCaptchaToken(token);
+          }}
+          onExpire={() => {
+            setCaptchaToken("");
+          }}
+          onError={() => {
+            setCaptchaToken("");
+          }}
+        />
         {/* Submit */}
         <button
           type="submit"

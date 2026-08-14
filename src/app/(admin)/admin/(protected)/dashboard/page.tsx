@@ -185,11 +185,19 @@
 
 import { useEffect, useState } from "react";
 import useAdminAuth from "@/hooks/useAdminAuth";
+import { getLeads } from "@/lib/api";
 
 export default function Dashboard() {
   useAdminAuth(true);
 
   const [services, setServices] = useState<any[]>([]);
+  const [leadStats, setLeadStats] = useState({
+    total: 0,
+    new: 0,
+    ongoing: 0,
+    qualified: 0,
+    spam: 0,
+  });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -231,6 +239,17 @@ export default function Dashboard() {
         }
 
         setServices(data.data || []);
+        const leads = await getLeads();
+
+        setLeadStats({
+          total: leads.length,
+          new: leads.filter((lead: any) => lead.status === "New").length,
+          ongoing: leads.filter((lead: any) => lead.status === "Contacted")
+            .length,
+          qualified: leads.filter((lead: any) => lead.status === "Qualified")
+            .length,
+          spam: leads.filter((lead: any) => lead.status === "Spam").length,
+        });
       } catch (err) {
         console.error("Dashboard error:", err);
       } finally {
@@ -273,11 +292,17 @@ export default function Dashboard() {
       ) : (
         <>
           {/* 🔥 STATS */}
-          <div className="grid md:grid-cols-4 gap-6 mb-10">
+          <div className="grid md:grid-cols-4 lg:grid-cols-5 gap-6 mb-10">
             <StatCard title="Total Services" value={services.length} />
             <StatCard title="Categories" value={categories.length} />
             <StatCard title="Subcategories" value={subcategories.length} />
             <StatCard title="Active" value={activeServices.length} />
+
+            <StatCard title="Total Leads" value={leadStats.total} />
+            <StatCard title="New Leads" value={leadStats.new} />
+            <StatCard title="Ongoing Leads" value={leadStats.ongoing} />
+            <StatCard title="Qualified Leads" value={leadStats.qualified} />
+            <StatCard title="Spam Leads" value={leadStats.spam} />
           </div>
 
           {/* 🔥 MAIN GRID */}

@@ -50,9 +50,10 @@
 
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar2";
+import Footer from "@/components/Footer2";
 import { Toaster } from "@/components/ui/Toaster";
+import ContactPopup from "@/components/ContactPopup";
 // import "../globals.css"
 
 const playfair = Playfair_Display({
@@ -90,6 +91,7 @@ export default function PublicLayout({
       >
         <Navbar />
         {children}
+        <ContactPopup />
         <Toaster />
         <Footer />
       </div>
