@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { playfairDisplay } from "@/app/layout";
+import { playfairDisplay } from "@/lib/fonts";
 import heroImg from "../../public/new/Hero.png";
 
 const HeroSection = () => {
@@ -10,12 +10,11 @@ const HeroSection = () => {
     <section
       className="
         relative
-        h-[600px]
-        min-h-0
+        h-[720px]
         w-full
         overflow-hidden
-        sm:h-[560px]
-        md:h-[680px]
+        sm:h-[760px]
+        md:h-[820px]
         lg:h-[calc(100vh-87px)]
         lg:min-h-[870px]
       "
@@ -24,7 +23,7 @@ const HeroSection = () => {
           HERO BACKGROUND
       ====================================================== */}
       <motion.div
-        initial={{ scale: 1.2 }}
+        initial={{ scale: 1.12 }}
         animate={{ scale: 1 }}
         transition={{
           duration: 2,
@@ -45,6 +44,35 @@ const HeroSection = () => {
       />
 
       {/* =====================================================
+          MOBILE OVERLAY
+      ====================================================== */}
+      <div
+        className="
+          absolute
+          inset-0
+          bg-gradient-to-b
+          from-black/5
+          via-black/5
+          to-black/55
+
+          lg:hidden
+        "
+      />
+
+      {/* =====================================================
+          DESKTOP OVERLAY
+      ====================================================== */}
+      <div
+        className="
+          absolute
+          inset-0
+          hidden
+          bg-black/10
+          lg:block
+        "
+      />
+
+      {/* =====================================================
           MAIN CONTENT
       ====================================================== */}
       <div
@@ -54,18 +82,33 @@ const HeroSection = () => {
           flex
           h-full
           w-full
-          items-start
+          items-end
           px-5
-          pt-[400px]
+          pb-[368px]
+
           sm:px-8
-          sm:pt-[110px]
+          sm:pb-[65px]
+
           md:px-[60px]
-          md:pt-[180px]
+          md:pb-[75px]
+
+          lg:items-start
           lg:px-[96px]
+          lg:pb-0
           lg:pt-[270px]
         "
       >
-        <div className="flex flex-col">
+        <div
+          className="
+            flex
+            w-full
+            flex-col
+            items-center
+
+            md:items-start
+            lg:w-auto
+          "
+        >
           {/* =================================================
               HEADING
           ================================================== */}
@@ -81,15 +124,24 @@ const HeroSection = () => {
               className={`
                 ${playfairDisplay.className}
                 m-0
-                max-w-[660px]
-                text-[36px]
+                max-w-[350px]
+                text-center
+                text-[40px]
                 font-bold
-                leading-[115%]
+                leading-[112%]
                 tracking-normal
                 text-white
-                sm:text-[48px]
-                sm:leading-[120%]
-                md:text-[64px]
+
+                sm:max-w-[470px]
+                sm:text-[44px]
+                sm:leading-[115%]
+
+                md:max-w-[600px]
+                md:text-left
+                md:text-[60px]
+
+                lg:max-w-[660px]
+                lg:text-left
                 lg:text-[77px]
                 lg:leading-[135%]
               `}
@@ -111,80 +163,122 @@ const HeroSection = () => {
               delay: 1.2,
             }}
             className="
-              mt-[28px]
+              mt-[22px]
               flex
               flex-row
               items-center
+              justify-center
               gap-[8px]
-              sm:mt-[30px]
-              md:mt-[34px]
+
+              sm:mt-[26px]
+              sm:gap-[10px]
+
+              md:mt-[30px]
+              md:justify-start
+
+              lg:mt-[28px]
+              lg:gap-[8px]
             "
           >
-            {/* Get Quote */}
+            {/* =================================================
+                GET QUOTE
+            ================================================== */}
             <Link
               href="/contact"
               className={`
                 ${playfairDisplay.className}
+
                 flex
-                h-[52px]
-                w-[145px]
+                h-[48px]
+                w-[132px]
                 shrink-0
                 items-center
                 justify-center
+
                 border
                 border-white
                 bg-[#3C2A20]
-                px-3
+
+                px-2
                 text-center
-                text-[15px]
+                text-[14px]
                 leading-[120%]
                 text-white
+
                 transition-all
                 duration-300
+
                 hover:bg-[#F7F2EC]
                 hover:text-[#3C2A20]
-                sm:h-[56px]
-                sm:w-[158px]
-                sm:text-[16px]
-                md:h-[59px]
-                md:w-[168px]
-                md:px-4
-                md:text-[17px]
+
+                sm:h-[52px]
+                sm:w-[145px]
+                sm:text-[15px]
+
+                md:h-[57px]
+                md:w-[160px]
+                md:text-[16px]
+
+                lg:h-[52px]
+                lg:w-[145px]
+                lg:px-3
+                lg:text-[15px]
+
+                xl:h-[59px]
+                xl:w-[168px]
+                xl:text-[17px]
               `}
             >
               Get Quote
             </Link>
 
-            {/* Book Consultation */}
+            {/* =================================================
+                BOOK CONSULTATION
+            ================================================== */}
             <Link
               href="#consultation"
               className={`
                 ${playfairDisplay.className}
+
                 flex
-                h-[52px]
-                w-[145px]
+                h-[48px]
+                w-[132px]
                 shrink-0
                 items-center
                 justify-center
+
                 border
                 border-[#3C2A20]
                 bg-[#F7F2EC]
-                px-3
+
+                px-2
                 text-center
-                text-[15px]
+                text-[14px]
                 leading-[120%]
                 text-[#3C2A20]
+
                 transition-all
                 duration-300
+
                 hover:bg-[#3C2A20]
                 hover:text-white
-                sm:h-[56px]
-                sm:w-[153px]
-                sm:text-[16px]
-                md:h-[59px]
-                md:w-[163px]
-                md:px-4
-                md:text-[17px]
+
+                sm:h-[52px]
+                sm:w-[145px]
+                sm:text-[15px]
+
+                md:h-[57px]
+                md:w-[160px]
+                md:text-[16px]
+
+                lg:h-[52px]
+                lg:w-[145px]
+                lg:px-3
+                lg:text-[15px]
+
+                xl:h-[59px]
+                xl:w-[163px]
+                xl:text-[17px]
               `}
             >
               Book Consultation

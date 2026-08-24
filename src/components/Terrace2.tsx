@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { playfairDisplay, jost } from "@/app/layout";
+import { playfairDisplay, jost } from "@/lib/fonts";
 
 import terraceDesktop from "../../public/new/Terraceb.png";
 import terraceMobile from "../../public/new/terracemobile.jpg";
@@ -94,7 +94,7 @@ const TerraceBeyond = () => {
           {/* BUTTON */}
 
           <a
-            href="#consultations"
+            href="/contact"
             className={`
               ${playfairDisplay.className}
               mt-8
@@ -112,7 +112,7 @@ const TerraceBeyond = () => {
               hover:bg-[#5f4338]
             `}
           >
-            Connect now
+            Contact Now
           </a>
         </motion.div>
       </div>
@@ -153,7 +153,7 @@ const TerraceBeyond = () => {
             flex-col
             items-center
             px-6
-            py-12
+            py-8
             text-center
           "
         >
@@ -161,8 +161,8 @@ const TerraceBeyond = () => {
             className={`
               ${playfairDisplay.className}
               m-0
-              text-[44px]
-              font-normal
+              text-[30px]
+              font-bold
               leading-[0.95]
               text-[#795547]
             `}
@@ -189,7 +189,7 @@ const TerraceBeyond = () => {
           </p>
 
           <a
-            href="/services"
+            href="/contact"
             className={`
               ${playfairDisplay.className}
               mt-7
@@ -204,7 +204,7 @@ const TerraceBeyond = () => {
               text-white
             `}
           >
-            View Our Work
+            Contact Now
           </a>
         </motion.div>
       </div>

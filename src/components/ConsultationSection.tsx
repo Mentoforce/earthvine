@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { ChevronDown } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { arapey, jost } from "@/app/layout";
+import { arapey, jost } from "@/lib/fonts";
 
 const ConsultationSection = () => {
   const { toast } = useToast();

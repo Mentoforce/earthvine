@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { arapey, jost } from "@/app/layout";
+import { arapey, jost } from "@/lib/fonts";
 import { Turnstile } from "@marsidev/react-turnstile";
 
 export default function LeadForm() {

@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { jost, playfairDisplay } from "@/app/layout";
+import { jost, playfairDisplay } from "@/lib/fonts";
 
 import kit from "../../public/new/Frame121.png";
 import liv from "../../public/new/Frame120.png";
@@ -12,6 +12,13 @@ import bed from "../../public/new/Frame119.png";
 import cor from "../../public/new/Frame118.png";
 import war from "../../public/new/Frame117.png";
 import ter from "../../public/new/Frame116.png";
+
+import kitMobile from "../../public/new/10.png";
+import livMobile from "../../public/new/20.png";
+import bedMobile from "../../public/new/30.png";
+import corMobile from "../../public/new/40.png";
+import warMobile from "../../public/new/50.png";
+import terMobile from "../../public/new/60.png";
 
 const SpaceSection = () => {
   const ref = useRef(null);
@@ -24,12 +31,10 @@ const SpaceSection = () => {
   return (
     <section
       ref={ref}
-      className="w-full bg-[#F7F2EC] px-5 py-20 md:px-8 lg:px-10"
+      className="w-full bg-[#F7F2EC] px-5 py-12 md:px-8 lg:px-10"
     >
       <div className="mx-auto w-full max-w-[1245.543px]">
-        {/* =====================================================
-            DESKTOP
-        ====================================================== */}
+        {/*DESKTOP*/}
 
         <div
           className="
@@ -40,9 +45,7 @@ const SpaceSection = () => {
             h-[904px]
           "
         >
-          {/* =====================================================
-              TEXT
-          ====================================================== */}
+          {/* TEXT*/}
 
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -84,14 +87,13 @@ const SpaceSection = () => {
                 text-[#504E4C]
               `}
             >
-              Crafting homes that reflect your personality — from cozy bedrooms
-              to stunning kitchens. Each space, a masterpiece. Crafting homes
-              that reflect your personality — from cozy bedrooms to stunning
-              kitchens. Each space, a masterpiece.
+              Each project that we undertake has a story to tell - one that is
+              brought to life through our expertise, refined aesthetics, and
+              attention to detail.
             </p>
 
             <Link
-              href="#consultations"
+              href="/contact"
               className={`
                 ${playfairDisplay.className}
                 mt-3
@@ -116,17 +118,11 @@ const SpaceSection = () => {
                 hover:text-[#F7F2EC]
               `}
             >
-              Consult Now
+              Get Quote
             </Link>
           </motion.div>
 
-          {/* =====================================================
-              WARDROBE
-              x: 534
-              y: 0
-              w: 300.543
-              h: 276.454
-          ====================================================== */}
+          {/* WARDROBE*/}
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -163,13 +159,7 @@ const SpaceSection = () => {
             />
           </motion.div>
 
-          {/* =====================================================
-              TERRACE GARDEN
-              x: right
-              y: 0
-              w: 393
-              h: 904
-          ====================================================== */}
+          {/* TERRACE GARDEN */}
 
           <motion.div
             initial={{ opacity: 0, x: 30 }}
@@ -206,13 +196,7 @@ const SpaceSection = () => {
             />
           </motion.div>
 
-          {/* =====================================================
-              BEDROOM
-              x: 0
-              y: 258px
-              w: 522
-              h: 351
-          ====================================================== */}
+          {/* BEDROOM */}
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -248,18 +232,7 @@ const SpaceSection = () => {
             />
           </motion.div>
 
-          {/* =====================================================
-              CORPORATE
-
-              IMPORTANT:
-              Corporate bottom is aligned with Bedroom bottom.
-
-              Bedroom:
-              top 258 + height 351 = 609
-
-              Corporate:
-              top 300 + height 309 = 609
-          ====================================================== */}
+          {/* CORPORATE */}
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -295,15 +268,7 @@ const SpaceSection = () => {
             />
           </motion.div>
 
-          {/* =====================================================
-              BOTTOM ROW
-
-              Bedroom bottom = 609
-
-              Gap = 15px
-
-              Bottom row = 624px
-          ====================================================== */}
+          {/* BOTTOM ROW*/}
 
           {/* KITCHEN */}
 
@@ -341,10 +306,7 @@ const SpaceSection = () => {
             />
           </motion.div>
 
-          {/* =====================================================
-              LIVING ROOM
-
-          ====================================================== */}
+          {/*LIVING ROOM*/}
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -381,24 +343,21 @@ const SpaceSection = () => {
           </motion.div>
         </div>
 
-        {/* =====================================================
-            MOBILE
-        ====================================================== */}
+        {/* MOBILE*/}
 
-        <div className="flex flex-col gap-3 md:hidden">
-          {/* TEXT */}
-
+        <div className="md:hidden w-full">
+          {/* MOBILE TEXT */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
-            className="w-full"
+            className="w-full text-center"
           >
             <h2
               className={`
                 ${playfairDisplay.className}
                 m-0
-                text-[36px]
+                text-[30px]
                 font-extrabold
                 leading-[0.95]
                 text-[#795547]
@@ -418,17 +377,17 @@ const SpaceSection = () => {
                 text-[#504E4C]
               `}
             >
-              Crafting homes that reflect your personality — from cozy bedrooms
-              to stunning kitchens. Each space, a masterpiece. Crafting homes
-              that reflect your personality — from cozy bedrooms to stunning
-              kitchens. Each space, a masterpiece.
+              Each project that we undertake has a story to tell - one that is
+              brought to life through our expertise, refined aesthetics, and
+              attention to detail.
             </p>
 
             <Link
-              href="/services"
+              href="/contact"
               className={`
                 ${playfairDisplay.className}
-                mt-3
+                mx-auto
+                mt-5
                 flex
                 h-[27px]
                 w-[193px]
@@ -441,153 +400,176 @@ const SpaceSection = () => {
                 text-[#3C2A20]
               `}
             >
-              View All Projects
+              Get Quote
             </Link>
           </motion.div>
 
-          {/* WARDROBE */}
+          {/* MOBILE CAROUSEL */}
+          <div className="mt-5 w-full overflow-hidden">
+            <div
+              className="
+                flex
+                gap-3
+                overflow-x-auto
+                snap-x
+                snap-mandatory
+                pb-1
+                [-ms-overflow-style:none]
+                [scrollbar-width:none]
+                [&::-webkit-scrollbar]:hidden
+              "
+            >
+              {/* WARDROBE */}
+              <motion.div
+                initial={{ opacity: 0, x: 25 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="
+                  relative
+                  h-[300px]
+                  w-[88vw]
+                  min-w-[88vw]
+                  shrink-0
+                  snap-center
+                  overflow-hidden
+                "
+              >
+                <Image
+                  src={warMobile}
+                  alt="Wardrobe"
+                  fill
+                  quality={100}
+                  className="object-cover"
+                  sizes="88vw"
+                />
+              </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="
-            group
-              relative
-              w-full
-              aspect-[300.543/276.454]
-              overflow-hidden
-            "
-          >
-            <Image
-              src={war}
-              alt="Wardrobe"
-              fill
-              quality={100}
-              className="block object-fill transition-transform duration-[1.2s] ease-out group-hover:scale-[1.03]"
-              sizes="100vw"
-            />
-          </motion.div>
+              {/* BEDROOM */}
+              <motion.div
+                initial={{ opacity: 0, x: 25 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.7, delay: 0.15 }}
+                className="
+                  relative
+                  h-[300px]
+                  w-[88vw]
+                  min-w-[88vw]
+                  shrink-0
+                  snap-center
+                  overflow-hidden
+                "
+              >
+                <Image
+                  src={bedMobile}
+                  alt="Bedroom"
+                  fill
+                  quality={100}
+                  className="object-cover"
+                  sizes="88vw"
+                />
+              </motion.div>
 
-          {/* BEDROOM */}
+              {/* CORPORATE */}
+              <motion.div
+                initial={{ opacity: 0, x: 25 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.7, delay: 0.2 }}
+                className="
+                  relative
+                  h-[300px]
+                  w-[88vw]
+                  min-w-[88vw]
+                  shrink-0
+                  snap-center
+                  overflow-hidden
+                "
+              >
+                <Image
+                  src={corMobile}
+                  alt="Corporate"
+                  fill
+                  quality={100}
+                  className="object-cover"
+                  sizes="88vw"
+                />
+              </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="
-            group
-              relative
-              w-full
-              aspect-[522/351]
-              overflow-hidden
-            "
-          >
-            <Image
-              src={bed}
-              alt="Bedroom"
-              fill
-              quality={100}
-              className="block object-fill transition-transform duration-[1.2s] ease-out group-hover:scale-[1.03]"
-              sizes="100vw"
-            />
-          </motion.div>
+              {/* KITCHEN */}
+              <motion.div
+                initial={{ opacity: 0, x: 25 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.7, delay: 0.25 }}
+                className="
+                  relative
+                  h-[300px]
+                  w-[88vw]
+                  min-w-[88vw]
+                  shrink-0
+                  snap-center
+                  overflow-hidden
+                "
+              >
+                <Image
+                  src={kitMobile}
+                  alt="Kitchen"
+                  fill
+                  quality={100}
+                  className="object-cover"
+                  sizes="88vw"
+                />
+              </motion.div>
 
-          {/* CORPORATE */}
+              {/* LIVING ROOM */}
+              <motion.div
+                initial={{ opacity: 0, x: 25 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="
+                  relative
+                  h-[300px]
+                  w-[88vw]
+                  min-w-[88vw]
+                  shrink-0
+                  snap-center
+                  overflow-hidden
+                "
+              >
+                <Image
+                  src={livMobile}
+                  alt="Living Room"
+                  fill
+                  quality={100}
+                  className="object-cover"
+                  sizes="88vw"
+                />
+              </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="
-            group
-              relative
-              w-full
-              aspect-[300.543/309]
-              overflow-hidden
-            "
-          >
-            <Image
-              src={cor}
-              alt="Corporate"
-              fill
-              quality={100}
-              className="block object-fill transition-transform duration-[1.2s] ease-out group-hover:scale-[1.03]"
-              sizes="100vw"
-            />
-          </motion.div>
-
-          {/* KITCHEN */}
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.25 }}
-            className="
-            group
-              relative
-              w-full
-              aspect-[305/275]
-              overflow-hidden
-            "
-          >
-            <Image
-              src={kit}
-              alt="Kitchen"
-              fill
-              quality={100}
-              className="block object-fill transition-transform duration-[1.2s] ease-out group-hover:scale-[1.03]"
-              sizes="100vw"
-            />
-          </motion.div>
-
-          {/* LIVING ROOM */}
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="
-            group
-              relative
-              w-full
-              aspect-[517/275]
-              overflow-hidden
-            "
-          >
-            <Image
-              src={liv}
-              alt="Living Room"
-              fill
-              quality={100}
-              className="block object-fill transition-transform duration-[1.2s] ease-out group-hover:scale-[1.03]"
-              sizes="100vw"
-            />
-          </motion.div>
-
-          {/* TERRACE */}
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.35 }}
-            className="
-            group
-              relative
-              w-full
-              aspect-[393/904]
-              overflow-hidden
-            "
-          >
-            <Image
-              src={ter}
-              alt="Terrace Garden"
-              fill
-              quality={100}
-              className="block object-fill transition-transform duration-[1.2s] ease-out group-hover:scale-[1.03]"
-              sizes="100vw"
-            />
-          </motion.div>
+              {/* TERRACE */}
+              <motion.div
+                initial={{ opacity: 0, x: 25 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.7, delay: 0.35 }}
+                className="
+                  relative
+                  h-[300px]
+                  w-[88vw]
+                  min-w-[88vw]
+                  shrink-0
+                  snap-center
+                  overflow-hidden
+                "
+              >
+                <Image
+                  src={terMobile}
+                  alt="Terrace Garden"
+                  fill
+                  quality={100}
+                  className="object-cover"
+                  sizes="88vw"
+                />
+              </motion.div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Phone } from "lucide-react";
-import { jost } from "@/app/layout";
+import { jost } from "@/lib/fonts";
 
 export default function Navbar() {
   return (

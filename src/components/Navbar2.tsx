@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ChevronDown, Menu, X } from "lucide-react";
 import logo from "../../public/logo2.png";
-import { jost, playfairDisplay } from "@/app/layout";
+import { jost, playfairDisplay } from "@/lib/fonts";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

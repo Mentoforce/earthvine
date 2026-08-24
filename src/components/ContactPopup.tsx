@@ -20,7 +20,7 @@ import {
 
 import { useToast } from "@/hooks/use-toast";
 import { Turnstile } from "@marsidev/react-turnstile";
-import { jost, playfairDisplay } from "@/app/layout";
+import { jost, playfairDisplay } from "@/lib/fonts";
 
 type ContactPopupProps = {
   onClose?: () => void;

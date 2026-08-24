@@ -11,7 +11,7 @@ import {
   Phone,
   Mail,
 } from "lucide-react";
-import { arapey, jost } from "@/app/layout";
+import { arapey, jost } from "@/lib/fonts";
 const socialLinks = [
   { icon: Facebook, href: "https://www.facebook.com/earthvinein" },
   { icon: Instagram, href: "https://www.instagram.com/_earthvine_/" },

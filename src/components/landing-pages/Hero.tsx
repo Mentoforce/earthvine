@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { arapey, jost } from "@/app/layout";
+import { arapey, jost } from "@/lib/fonts";
 // import LeadForm from "./LeadForm";
 import StatsCard from "./StatsCard";
 import LeadForm from "./shared/LeadForm";

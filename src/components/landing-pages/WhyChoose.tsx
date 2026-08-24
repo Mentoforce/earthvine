@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
-import { arapey, jost } from "@/app/layout";
+import { arapey, jost } from "@/lib/fonts";
 
 const features = [
   "Personalized Design Approach",

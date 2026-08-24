@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail } from "lucide-react";
-import { arapey, jost } from "@/app/layout";
+import { arapey, jost } from "@/lib/fonts";
 import { Turnstile } from "@marsidev/react-turnstile";
 
 export default function ContactSection() {

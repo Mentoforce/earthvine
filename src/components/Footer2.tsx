@@ -241,6 +241,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { Facebook, Instagram, Youtube } from "lucide-react";
 import logo from "../../public/new/newlogo2.png";
 
 const Footer = () => {
@@ -284,22 +285,24 @@ const Footer = () => {
               max-sm:pt-[38px]
             "
           >
-            <Image
-              src={logo}
-              alt="Earthvine Design Studio"
-              width={206}
-              height={99}
-              className="
-                h-[99.017px]
-                w-[206px]
-                object-contain
-                object-left
+            <Link href="/">
+              <Image
+                src={logo}
+                alt="Earthvine Design Studio"
+                width={206}
+                height={99}
+                className="
+                  h-[99.017px]
+                  w-[206px]
+                  object-contain
+                  object-left
 
-                /* MOBILE */
-                max-sm:h-auto
-                max-sm:w-[170px]
-              "
-            />
+                  /* MOBILE */
+                  max-sm:h-auto
+                  max-sm:w-[170px]
+                "
+              />
+            </Link>
 
             <p
               className="
@@ -324,6 +327,74 @@ const Footer = () => {
               <br className="max-sm:hidden" />
               <span className="max-sm:inline"> that tell your story.</span>
             </p>
+
+            {/* =================================================
+                SOCIAL LINKS - ADDED ONLY
+            ================================================== */}
+            <div className="mt-5 flex items-center gap-3">
+              <a
+                href="https://www.facebook.com/earthvinein"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Earthvine on Facebook"
+                className="
+                  flex
+                  h-9
+                  w-9
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-white
+                  transition-all
+                  duration-300
+                  hover:bg-[#9b867d]
+                "
+              >
+                <Facebook size={19} strokeWidth={1.8} />
+              </a>
+
+              <a
+                href="https://www.instagram.com/_earthvine_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Earthvine on Instagram"
+                className="
+                  flex
+                  h-9
+                  w-9
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-white
+                  transition-all
+                  duration-300
+                  hover:bg-[#9b867d]
+                "
+              >
+                <Instagram size={19} strokeWidth={1.8} />
+              </a>
+
+              <a
+                href="https://www.youtube.com/@earthvineinteriors"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Earthvine on YouTube"
+                className="
+                  flex
+                  h-9
+                  w-9
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-white
+                  transition-all
+                  duration-300
+                  hover:bg-[#9b867d]
+                "
+              >
+                <Youtube size={19} strokeWidth={1.8} />
+              </a>
+            </div>
           </div>
 
           {/* =================================================
@@ -448,9 +519,19 @@ const Footer = () => {
                 fontFamily: "Jost",
               }}
             >
-              <span className="break-all">infoearthvine@gmail.com</span>
+              <a
+                href="mailto:info@earthvine.in"
+                className="break-all transition-colors duration-300 hover:text-white"
+              >
+                info@earthvine.in
+              </a>
 
-              <span>+91 93103 33265</span>
+              <a
+                href="tel:+919888322220"
+                className="transition-colors duration-300 hover:text-white"
+              >
+                +91 93103 33265
+              </a>
 
               <Link
                 href="/contact"
@@ -523,11 +604,11 @@ const Footer = () => {
           }}
         >
           <p className="m-0">
-            © 2025 Earthvine Design Studio. All rights reserved.
+            © 2026 Earthvine Design Studio. All rights reserved.
           </p>
 
           <p className="m-0">
-            Designed by{" "}
+            Designed and Developed by{" "}
             <a
               href="https://mentoforce.in"
               target="_blank"

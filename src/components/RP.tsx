@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { playfairDisplay, jost } from "@/app/layout";
+import { playfairDisplay, jost } from "@/lib/fonts";
 
 import bedroom from "../../public/new/RP1.png";
 import commercial from "../../public/new/RP4.png";
@@ -85,7 +85,7 @@ const RecentProjects = () => {
               lg:text-[45px]
             `}
           >
-            OUR RECENT PROJECTS
+            Our Recent Projects
           </h2>
 
           <p
@@ -101,9 +101,9 @@ const RecentProjects = () => {
               lg:text-[24px]
             `}
           >
-            Explore Our Recently Completed
+            We handle the details.
             <br />
-            Interior Projects
+            You enjoy the transformation.
           </p>
         </motion.div>
 
@@ -211,19 +211,19 @@ const RecentProjects = () => {
           transition={{
             duration: 0.7,
           }}
-          className="pt-12 text-center"
+          className="pt-3 text-center"
         >
           <h2
             className={`
               ${playfairDisplay.className}
               m-0
-              text-[34px]
+              text-[30px]
               font-bold
               leading-[1.05]
               text-[#795547]
             `}
           >
-            OUR RECENT PROJECTS
+            Our Recent Projects
           </h2>
 
           <p
@@ -237,13 +237,13 @@ const RecentProjects = () => {
               text-[#504E4C]
             `}
           >
-            Explore Our Recently Completed
+            We handle the details.
             <br />
-            Interior Projects
+            You enjoy the transformation.
           </p>
         </motion.div>
 
-        <div className="mt-12 flex flex-col items-center gap-12">
+        <div className="mt-6 flex flex-col items-center gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -266,7 +266,7 @@ const RecentProjects = () => {
               whileTap={{
                 scale: 1.02,
               }}
-              className="w-[88%]"
+              className="w-[98%]"
             >
               <div
                 className="
@@ -300,7 +300,7 @@ const RecentProjects = () => {
               <div
                 className={`
                   ${playfairDisplay.className}
-                  mt-3
+                  mt-1
                   text-center
                   text-[20px]
                   font-bold

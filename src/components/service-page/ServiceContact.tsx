@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { ArrowUpRight, Mail, Phone, User, MessageSquare } from "lucide-react";
 
 import { Turnstile } from "@marsidev/react-turnstile";
-import { jost, playfairDisplay } from "@/app/layout";
+import { jost, playfairDisplay } from "@/lib/fonts";
 
 export default function ServiceContact() {
   const pathname = usePathname();

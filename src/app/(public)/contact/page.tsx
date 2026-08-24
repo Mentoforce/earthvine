@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useToast } from "@/hooks/use-toast";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { PhoneCall, Mail, MapPin } from "lucide-react";
-import { jost, playfairDisplay } from "@/app/layout";
+import { jost, playfairDisplay } from "@/lib/fonts";
 
 import contactHero2 from "../../../../public/contact/contacthero2.png";
 import contactImg from "../../../../public/contact/ContactImg.png";
@@ -283,14 +283,15 @@ const Contact = () => {
         id="contact-section"
         ref={formRef}
         className="
-          relative
-          w-full
-          overflow-hidden
-          bg-[#263D24]
-        "
+  relative
+  w-full
+  overflow-hidden
+  bg-[#F8F4EE]
+  lg:bg-[#263D24]
+"
       >
         {/* BACKGROUND */}
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 hidden overflow-hidden lg:block">
           <Image
             src={contactImg}
             alt="Earthvine contact background"
@@ -722,24 +723,27 @@ const Contact = () => {
               ease: "easeOut",
             }}
             className="
-              flex
-              w-full
-              max-w-[520px]
-              flex-col
-              text-white
-              lg:pt-[30px]
-            "
+  flex
+  w-full
+  max-w-[520px]
+  flex-col
+  text-[#795547]
+  lg:pt-[30px]
+  lg:text-white
+"
           >
             {/* HEADING */}
             <h1
               className={`
-                ${playfairDisplay.className}
-                text-[20px]
-                font-bold
-                leading-[1.1]
-                sm:text-[34px]
-                lg:text-[40x]
-              `}
+  ${playfairDisplay.className}
+  text-[20px]
+  font-bold
+  leading-[1.1]
+  text-[#795547]
+  sm:text-[34px]
+  lg:text-[40px]
+  lg:text-white
+`}
             >
               We'd love to hear from you
             </h1>
@@ -747,16 +751,18 @@ const Contact = () => {
             {/* DESCRIPTION */}
             <p
               className={`
-                ${jost.className}
-                mt-6
-                max-w-[500px]
-                text-[16px]
-                font-normal
-                leading-[1.5]
-                text-white
-                sm:text-[18px]
-                lg:text-[20px]
-              `}
+  ${jost.className}
+  mt-5
+  max-w-[500px]
+  text-[12px]
+  font-normal
+  leading-[1.5]
+  text-[#795547]
+  sm:text-[16px]
+  lg:mt-6
+  lg:text-[20px]
+  lg:text-white
+`}
             >
               Need something cleared up? Here are our most frequently asked
               questions.
@@ -766,13 +772,14 @@ const Contact = () => {
 
             <div
               className="
-                mt-12
-                grid
-                grid-cols-1
-                gap-38
-                sm:grid-cols-2
-                sm:gap-12
-              "
+  mt-7
+  grid
+  grid-cols-1
+  gap-7
+  sm:mt-12
+  sm:grid-cols-2
+  sm:gap-12
+"
             >
               {/* PHONE */}
               <div>
@@ -793,14 +800,15 @@ const Contact = () => {
 
                 <h3
                   className={`
-                    ${playfairDisplay.className}
-                    mt-6
-                    text-[21px]
-                    font-bold
-                    leading-none
-                    text-white
-                    lg:text-[24px]
-                  `}
+  ${jost.className}
+  mt-4
+  text-[16px]
+  font-normal
+  leading-normal
+  text-[#795547]
+  lg:text-[19px]
+  lg:text-white
+`}
                 >
                   Phone
                 </h3>
@@ -808,12 +816,13 @@ const Contact = () => {
                 <p
                   className={`
                     ${jost.className}
-                    mt-4
-                    text-[16px]
-                    font-normal
-                    leading-normal
-                    text-white
-                    lg:text-[19px]
+  mt-4
+  text-[16px]
+  font-normal
+  leading-normal
+  text-[#795547]
+  lg:text-[19px]
+  lg:text-white
                   `}
                 >
                   +91 93103 33265
@@ -840,14 +849,15 @@ const Contact = () => {
 
                 <h3
                   className={`
-                    ${playfairDisplay.className}
-                    mt-6
-                    text-[21px]
-                    font-bold
-                    leading-none
-                    text-white
-                    lg:text-[24px]
-                  `}
+  ${jost.className}
+  mt-4
+  text-[16px]
+  font-normal
+  leading-normal
+  text-[#795547]
+  lg:text-[19px]
+  lg:text-white
+`}
                 >
                   Email
                 </h3>
@@ -855,12 +865,13 @@ const Contact = () => {
                 <p
                   className={`
                     ${jost.className}
-                    mt-4
-                    text-[16px]
-                    font-normal
-                    leading-normal
-                    text-white
-                    lg:text-[19px]
+   mt-4
+  text-[16px]
+  font-normal
+  leading-normal
+  text-[#795547]
+  lg:text-[19px]
+  lg:text-white
                   `}
                 >
                   info@earthvine.in
@@ -870,7 +881,7 @@ const Contact = () => {
 
             {/* OFFICE */}
 
-            <div className="mt-12 sm:mt-14">
+            <div className="mt-7 sm:mt-14">
               <div
                 className="
                   flex
@@ -888,14 +899,15 @@ const Contact = () => {
 
               <h3
                 className={`
-                    ${playfairDisplay.className}
-                    mt-6
-                    text-[21px]
-                    font-bold
-                    leading-none
-                    text-white
-                    lg:text-[24px]
-                `}
+  ${jost.className}
+  mt-4
+  text-[16px]
+  font-normal
+  leading-normal
+  text-[#795547]
+  lg:text-[19px]
+  lg:text-white
+`}
               >
                 Office
               </h3>
@@ -907,8 +919,9 @@ const Contact = () => {
                     text-[16px]
                     font-normal
                     leading-normal
-                    text-white
+                    text-[#795547]
                     lg:text-[19px]
+                    lg:text-white
                 `}
               >
                 G-24, Ground Floor, NDM-2, Netaji Subhash Place, New Delhi

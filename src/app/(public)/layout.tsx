@@ -75,8 +75,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Earthvine",
-  description: "Interiors",
+  title: "Best Interior Designers Company in India | Earthvine Interior",
+  description:
+    "Discover the best interior designers company in India with Earthvine Interior. Get stylish, functional and customised interior design solutions for homes, offices and commercial spaces.",
 };
 
 export default function PublicLayout({

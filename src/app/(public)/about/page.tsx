@@ -12,13 +12,12 @@ import {
 import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { jost, playfairDisplay } from "@/app/layout";
+import { jost, playfairDisplay } from "@/lib/fonts";
 
 export default function About() {
   const storyRef = useRef(null);
   const valuesRef = useRef(null);
   const processRef = useRef(null);
-
   const storyInView = useInView(storyRef, { once: true, margin: "-100px" });
   const valuesInView = useInView(valuesRef, { once: true, margin: "-100px" });
   const processInView = useInView(processRef, { once: true, margin: "-100px" });
@@ -35,7 +34,9 @@ export default function About() {
               lg:grid-cols-[46%_54%]
             "
           >
-            {/*LEFT — HERO CONTENT*/}
+            {/* =====================================================
+          LEFT — HERO CONTENT
+      ====================================================== */}
             <motion.div
               initial={{ opacity: 0, x: -25 }}
               animate={{ opacity: 1, x: 0 }}
@@ -44,23 +45,28 @@ export default function About() {
                 ease: "easeOut",
               }}
               className="
-                flex
-                min-h-[500px]
-                flex-col
-                justify-center
-                px-7
-                py-14
-                sm:min-h-[540px]
-                sm:px-10
-                md:min-h-[580px]
-                md:px-14
-                lg:min-h-[722px]
-                lg:px-[60px]
-                xl:px-[70px]
-              "
+  flex
+  min-h-0
+  flex-col
+  justify-center
+  mt-17
+  lg:mt-0
+  px-7
+  py-8
+  sm:min-h-[540px]
+  sm:px-10
+  sm:py-14
+  md:min-h-[580px]
+  md:px-14
+  lg:min-h-[722px]
+  lg:px-[60px]
+  xl:px-[70px]
+  max-sm:justify-start
+  max-sm:py-7
+"
             >
               <div className="w-full max-w-[540px]">
-                {/* ================= HEADING ================= */}
+                {/* HEADING */}
                 <h1
                   className={`${playfairDisplay.className}
                     font-display
@@ -80,62 +86,64 @@ export default function About() {
                   with Soul
                 </h1>
 
-                {/* ================= DESCRIPTION ================= */}
+                {/* DESCRIPTION */}
                 <p
-                  className={`                  ${jost.className}
-                    mt-6
-                    max-w-[510px]
-                    font-body
-                    text-[14px]
-                    font-medium
-                    leading-[1.6]
-                    text-[#545454]
-                    sm:text-[16px]
-                    md:text-[18px]
-                    lg:text-[25px]
-                    lg:leading-[1.75483]`}
+                  className={`${jost.className}
+              mt-6
+              max-w-[510px]
+              font-body
+              text-[14px]
+              font-medium
+              leading-[1.6]
+              text-[#545454]
+              sm:text-[16px]
+              md:text-[18px]
+              lg:text-[25px]
+              lg:leading-[1.75483]`}
                 >
-                  Over 12 years of transforming spaces into stories - blending
+                  Over 9+ years of transforming spaces into stories - blending
                   craftsmanship with modern sensibility.
                 </p>
 
-                {/* ================= CTA ================= */}
+                {/* CTA */}
                 <Link
                   href="/contact"
-                  type="button"
                   className={`
-                    ${playfairDisplay.className}
-                  mt-8
-                  flex
-                  h-[54px]
-                  w-[190px]
-                  items-center
-                  justify-center
-                  rounded-[3.57px]
-                  bg-[#1F1F1F]
-                  px-6
-                  font-display
-                  text-[15px]
-                  font-semibold
-                  text-white
-                  transition-all
-                  duration-300
-                  hover:bg-[#795547]
-                  active:scale-[0.98]
-                  sm:h-[58px]
-                  sm:w-[220px]
-                  sm:text-[17px]
-                  lg:h-[68.77px]
-                  lg:w-[269.572px]
-                  lg:text-[21.423px]
-                `}
+              ${playfairDisplay.className}
+              mt-7
+              flex
+              h-[54px]
+              w-[190px]
+              items-center
+              justify-center
+              rounded-[3.57px]
+              bg-[#1F1F1F]
+              px-6
+              text-[15px]
+              font-semibold
+              text-white
+              transition-all
+              duration-300
+              hover:bg-[#795547]
+              active:scale-[0.98]
+
+              sm:h-[58px]
+              sm:w-[220px]
+              sm:text-[17px]
+
+              lg:h-[68.77px]
+              lg:w-[269.572px]
+              lg:text-[21.423px]
+            `}
                 >
                   Start Project
                 </Link>
               </div>
             </motion.div>
 
-            {/* RIGHT — IMAGE COLLAGE */}
+            {/* =====================================================
+          RIGHT — IMAGE COLLAGE
+      ====================================================== */}
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -144,62 +152,51 @@ export default function About() {
                 ease: "easeOut",
               }}
               className="
-          w-full
-          px-3
-          pb-3
-
-          sm:px-4
-          sm:pb-4
-
-          lg:px-3
-          lg:pb-3
-        "
+                w-full
+                px-3
+                pb-3
+                sm:px-4
+                sm:pb-4
+                lg:px-3
+                lg:pb-3
+              "
             >
               <div
                 className="
-            grid
-            h-[420px]
-            w-full
-            grid-cols-2
-            gap-3
-
-            sm:h-[500px]
-
-            md:h-[560px]
-
-            lg:h-[722px]
-          "
+                  grid
+                  h-[420px]
+                  w-full
+                  grid-cols-2
+                  gap-3
+                  sm:h-[500px]
+                  md:h-[560px]
+                  lg:h-[722px]
+                "
               >
-                {/* =================================================
-              LEFT IMAGE COLUMN
-          ================================================== */}
+                {/* LEFT COLUMN */}
                 <div
                   className="
-              grid
-              min-h-0
-              grid-rows-[0.72fr_1.28fr]
-              gap-3
-            "
+                    grid
+                    min-h-0
+                    grid-rows-[0.72fr_1.28fr]
+                    gap-3
+                  "
                 >
                   {/* IMAGE 1 */}
                   <div
                     className="
-                relative
-                min-h-0
-                overflow-hidden
-                rounded-[9px]
-              "
+                      relative
+                      min-h-0
+                      overflow-hidden
+                      rounded-[9px]
+                    "
                   >
                     <Image
                       src="/new/ab1.png"
                       alt="Earthvine interior"
                       fill
                       priority
-                      sizes="
-                  (max-width: 640px) 45vw,
-                  (max-width: 1024px) 45vw,
-                  28vw
-                "
+                      sizes="(max-width: 1024px) 45vw, 28vw"
                       className="object-cover"
                     />
                   </div>
@@ -207,57 +204,47 @@ export default function About() {
                   {/* IMAGE 2 */}
                   <div
                     className="
-                relative
-                min-h-0
-                overflow-hidden
-                rounded-[9px]
-              "
+                      relative
+                      min-h-0
+                      overflow-hidden
+                      rounded-[9px]
+                    "
                   >
                     <Image
                       src="/new/ab2.png"
                       alt="Earthvine interior"
                       fill
                       priority
-                      sizes="
-                  (max-width: 640px) 45vw,
-                  (max-width: 1024px) 45vw,
-                  28vw
-                "
+                      sizes="(max-width: 1024px) 45vw, 28vw"
                       className="object-cover"
                     />
                   </div>
                 </div>
 
-                {/* =================================================
-              RIGHT IMAGE COLUMN
-          ================================================== */}
+                {/* RIGHT COLUMN */}
                 <div
                   className="
-              grid
-              min-h-0
-              grid-rows-[1.08fr_0.92fr]
-              gap-3
-            "
+                    grid
+                    min-h-0
+                    grid-rows-[1.08fr_0.92fr]
+                    gap-3
+                  "
                 >
                   {/* IMAGE 3 */}
                   <div
                     className="
-                relative
-                min-h-0
-                overflow-hidden
-                rounded-[9px]
-              "
+                      relative
+                      min-h-0
+                      overflow-hidden
+                      rounded-[9px]
+                    "
                   >
                     <Image
                       src="/new/ab3.png"
                       alt="Earthvine interior"
                       fill
                       priority
-                      sizes="
-                  (max-width: 640px) 45vw,
-                  (max-width: 1024px) 45vw,
-                  28vw
-                "
+                      sizes="(max-width: 1024px) 45vw, 28vw"
                       className="object-cover"
                     />
                   </div>
@@ -265,21 +252,17 @@ export default function About() {
                   {/* IMAGE 4 */}
                   <div
                     className="
-                relative
-                min-h-0
-                overflow-hidden
-                rounded-[9px]
-              "
+                      relative
+                      min-h-0
+                      overflow-hidden
+                      rounded-[9px]
+                    "
                   >
                     <Image
                       src="/new/ab4.png"
                       alt="Earthvine interior"
                       fill
-                      sizes="
-                  (max-width: 640px) 45vw,
-                  (max-width: 1024px) 45vw,
-                  28vw
-                "
+                      sizes="(max-width: 1024px) 45vw, 28vw"
                       className="object-cover"
                     />
                   </div>
@@ -347,7 +330,7 @@ export default function About() {
                   text-[#504E4C]
                 `}
               >
-                <p>
+                {/* <p>
                   Earthvine Interiors was founded with a simple belief — that
                   every space has a story waiting to be told. With over 12 years
                   of experience in residential and commercial design, we&apos;ve
@@ -365,6 +348,19 @@ export default function About() {
                   serene bedrooms to vibrant restaurant interiors — we approach
                   each project with fresh eyes and unwavering attention to
                   detail.
+                </p> */}
+                <p>
+                  Founded by Abhishek Pasari and Chanderkant Pasari in 2017,
+                  Earthvine Design studio is a full-service interior design firm
+                  located in Delhi NCR. Based on solid concepts, design thinking
+                  and execution excellence, we provide stunning visuals coupled
+                  with deeply functional, personalised interiors.
+                </p>
+                <p>
+                  We respect great design—shape, colour, texture and all—but it
+                  should do more than just lift the eye. We combine artistic
+                  vision with technical expertise and functionality to deliver
+                  timeless, efficient and elegant spaces.
                 </p>
               </div>
             </motion.div>
@@ -386,32 +382,30 @@ export default function About() {
             >
               <h2
                 className={`
-            ${playfairDisplay.className}
-            text-[34px]
-            font-normal
-            leading-[1.15]
-            text-[#3C2A20]
-
-            sm:text-[40px]
-          `}
+                  ${playfairDisplay.className}
+                  text-[34px]
+                  font-normal
+                  leading-[1.15]
+                  text-[#3C2A20]
+                  sm:text-[40px]
+                `}
               >
                 Where Vision Meets Craft
               </h2>
 
               <div
                 className={`
-            ${jost.className}
-            mt-5
-            space-y-6
-            text-[16px]
-            font-normal
-            leading-[160.2%]
-            text-[#504E4C]
-
-            sm:text-[18px]
-          `}
+                  ${jost.className}
+                  mt-5
+                  space-y-6
+                  text-[16px]
+                  font-normal
+                  leading-[160.2%]
+                  text-[#504E4C]
+                  sm:text-[18px]
+                `}
               >
-                <p>
+                {/* <p>
                   Earthvine Interiors was founded with a simple belief — that
                   every space has a story waiting to be told. With over 12 years
                   of experience in residential and commercial design, we&apos;ve
@@ -429,6 +423,19 @@ export default function About() {
                   serene bedrooms to vibrant restaurant interiors — we approach
                   each project with fresh eyes and unwavering attention to
                   detail.
+                </p> */}
+                <p>
+                  Founded by Abhishek Pasari and Chanderkant Pasari in 2017,
+                  Earthvine Design studio is a full-service interior design firm
+                  located in Delhi NCR. Based on solid concepts, design thinking
+                  and execution excellence, we provide stunning visuals coupled
+                  with deeply functional, personalised interiors.
+                </p>
+                <p>
+                  We respect great design—shape, colour, texture and all—but it
+                  should do more than just lift the eye. We combine artistic
+                  vision with technical expertise and functionality to deliver
+                  timeless, efficient and elegant spaces.
                 </p>
               </div>
             </motion.div>
@@ -443,22 +450,22 @@ export default function About() {
                 ease: "easeOut",
               }}
               className="
-          relative
-          mt-10
-          aspect-square
-          w-full
-          overflow-hidden
-          rounded-[4px]
-        "
+                relative
+                mt-10
+                aspect-square
+                w-full
+                overflow-hidden
+                rounded-[4px]
+              "
             >
               <Image
                 src="/new/ab6.png"
                 alt="Earthvine Interior Design"
                 fill
                 sizes="
-            (max-width: 640px) calc(100vw - 48px),
-            calc(100vw - 80px)
-          "
+                  (max-width: 640px) calc(100vw - 48px),
+                  calc(100vw - 80px)
+                "
                 className="object-cover"
               />
             </motion.div>
@@ -466,7 +473,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ================= SERVICES ================= */}
+      {/* SERVICES */}
       <section className="w-full bg-[#F8F4EE]">
         <div
           className="
@@ -649,7 +656,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ================= VALUES ================= */}
+      {/* VALUES */}
       <section className="w-full bg-[#F5F5F5] lg:py-10">
         <div
           className="
@@ -881,9 +888,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* =========================================================
-        FROM CONCEPT TO REALITY
-    ========================================================= */}
+      {/* FROM CONCEPT TO REALITY */}
       <section className="w-full overflow-hidden bg-[#F7F2EC]">
         <div
           className="
@@ -1379,19 +1384,201 @@ export default function About() {
             </motion.div>
           </div>
 
-          {/* =====================================================
-        MOBILE / TABLET
-        Stacked layout — no forced desktop positioning
-    ====================================================== */}
-          <div className="mt-10 space-y-6 lg:hidden">
-            {/* MOBILE IMAGE */}
+          {/* MOBILE / TABLET - Alternating process layout*/}
+          <div className="mt-5 lg:hidden">
+            {/*DISCOVER*/}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6 }}
+              className="
+                  relative
+                  ml-[5%]
+                  flex
+                  min-h-[82px]
+                  w-[75%]
+                  items-center
+                  rounded-r-[70px]
+                  bg-[#FEF2E0]
+                  pl-[68px]
+                  pr-5
+                  py-6
+                  sm:min-h-[100px]
+                  sm:ml-[5%]
+                  sm:pl-[82px]
+                  sm:pr-5
+                "
+            >
+              {/* NUMBER */}
+              <div
+                className="
+                  absolute
+                  left-0
+                  top-1/2
+                  z-10
+                  flex
+                  h-[64px]
+                  w-[64px]
+                  -translate-y-1/2
+                  items-center
+                  justify-center
+                  rounded-full
+                  border-[9px]
+                  border-[#FFFBF3]
+                  bg-[#795547]
+                  sm:h-[78px]
+                  sm:w-[78px]
+                  sm:border-[11px]
+                "
+              >
+                <span
+                  className={`
+                    ${playfairDisplay.className}
+                    text-[26px]
+                    font-medium
+                    leading-none
+                    text-white
+                    sm:text-[29px]
+                  `}
+                >
+                  1
+                </span>
+              </div>
+
+              <div className="min-w-0">
+                <h3
+                  className={`
+                    ${playfairDisplay.className}
+                    text-[20px]
+                    font-medium
+                    leading-none
+                    text-[#000]
+                    sm:text-[22px]
+                  `}
+                >
+                  Discover
+                </h3>
+
+                <p
+                  className={`
+                    ${jost.className}
+                    mt-2
+                    text-[13px]
+                    font-normal
+                    leading-[1.35]
+                    text-[#717171]
+                    sm:text-[11px]
+                  `}
+                >
+                  We listen to your vision, understand your lifestyle, and study
+                  the space.
+                </p>
+              </div>
+            </motion.div>
+
+            {/*DESIGN*/}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6 }}
+              className="
+                relative
+                ml-auto
+                mr-[5%]
+                mt-2
+                flex
+                min-h-[82px]
+                w-[75%]
+                items-center
+                rounded-l-[70px]
+                bg-[#FEF2E0]
+                pl-10
+                pr-[68px]
+                py-6
+                sm:mr-[5%]
+                sm:min-h-[100px]
+                sm:pr-[82px]
+              "
+            >
+              <div className="min-w-0">
+                <h3
+                  className={`
+                    ${playfairDisplay.className}
+                    text-[20px]
+                    font-medium
+                    leading-none
+                    text-[#000]
+                    sm:text-[22px]
+                  `}
+                >
+                  Design
+                </h3>
+
+                <p
+                  className={`
+                    ${jost.className}
+                    mt-2
+                    text-[13px]
+                    font-normal
+                    leading-[1.35]
+                    text-[#717171]
+                    sm:text-[11px]
+                  `}
+                >
+                  Our team creates detailed 3D visualizations and mood boards
+                  for your approval.
+                </p>
+              </div>
+
+              {/* NUMBER */}
+              <div
+                className="
+                  absolute
+                  right-0
+                  top-1/2
+                  z-10
+                  flex
+                  h-[64px]
+                  w-[64px]
+                  -translate-y-1/2
+                  items-center
+                  justify-center
+                  rounded-full
+                  border-[9px]
+                  border-[#FFFBF3]
+                  bg-[#795547]
+                  sm:h-[78px]
+                  sm:w-[78px]
+                  sm:border-[11px]
+                "
+              >
+                <span
+                  className={`
+                    ${playfairDisplay.className}
+                    text-[26px]
+                    font-medium
+                    leading-none
+                    text-white
+                    sm:text-[29px]
+                  `}
+                >
+                  2
+                </span>
+              </div>
+            </motion.div>
+
+            {/*FLOOR PLAN*/}
             <motion.div
               initial={{
                 opacity: 0,
+                y: 15,
                 scale: 0.97,
               }}
               whileInView={{
                 opacity: 1,
+                y: 0,
                 scale: 1,
               }}
               viewport={{
@@ -1402,149 +1589,212 @@ export default function About() {
                 duration: 0.7,
               }}
               className="
-          relative
-          mx-auto
-          h-[560px]
-          w-[275px]
-
-          sm:h-[650px]
-          sm:w-[320px]
-
-          md:h-[720px]
-          md:w-[350px]
-        "
+                  relative
+                  mx-auto
+                  my-2
+                  h-[320px]
+                  w-[145px]
+                  sm:my-3
+                  sm:h-[390px]
+                  sm:w-[190px]
+                  md:h-[470px]
+                  md:w-[225px]
+                "
             >
               <Image
                 src="/new/ab7.png"
                 alt="Earthvine interior design floor plan"
                 fill
                 sizes="
-                  (max-width: 640px) 275px,
-                  (max-width: 768px) 320px,
-                  350px
+                  (max-width: 640px) 145px,
+                  (max-width: 768px) 190px,
+                  225px
                 "
-                className="object-contain"
+                className="object-fill"
               />
             </motion.div>
 
-            {/* MOBILE PROCESS CARDS */}
-            <div className="mx-auto grid w-full max-w-[620px] gap-5">
-              {[
-                {
-                  number: "1",
-                  title: "Discover",
-                  desc: "We listen to your vision, understand your lifestyle, and study the space.",
-                },
-                {
-                  number: "2",
-                  title: "Design",
-                  desc: "Our team creates detailed 3D visualizations and mood boards for your approval.",
-                },
-                {
-                  number: "3",
-                  title: "Develop",
-                  desc: "Your space is revealed - on time, on budget, beyond expectations.",
-                },
-                {
-                  number: "4",
-                  title: "Deliver",
-                  desc: "Your space is revealed - on time, on budget, beyond expectations.",
-                },
-              ].map((item, index) => (
-                <motion.div
-                  key={item.number}
-                  initial={{
-                    opacity: 0,
-                    y: 20,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  viewport={{
-                    once: true,
-                    amount: 0.2,
-                  }}
-                  transition={{
-                    duration: 0.6,
-                    delay: index * 0.08,
-                  }}
-                  className="
-                    flex
-                    min-h-[145px]
-                    items-center
-                    gap-5
-                    rounded-[80px]
-                    bg-[#FEF2E0]
-                    px-5
-                    py-5
-                    sm:min-h-[165px]
-                    sm:px-7
-                  "
+            {/*DEVELOP */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6 }}
+              className="
+                relative
+                ml-[5%]
+                flex
+                min-h-[82px]
+                w-[75%]
+                items-center
+                rounded-r-[70px]
+                bg-[#FEF2E0]
+                pl-[68px]
+                pr-4
+                py-6
+                sm:ml-[5%]
+                sm:min-h-[100px]
+                sm:pl-[82px]
+              "
+            >
+              {/* NUMBER */}
+              <div
+                className="
+                  absolute
+                  left-0
+                  top-1/2
+                  z-10
+                  flex
+                  h-[64px]
+                  w-[64px]
+                  -translate-y-1/2
+                  items-center
+                  justify-center
+                  rounded-full
+                  border-[9px]
+                  border-[#FFFBF3]
+                  bg-[#795547]
+                  sm:h-[78px]
+                  sm:w-[78px]
+                  sm:border-[11px]
+                "
+              >
+                <span
+                  className={`
+                    ${playfairDisplay.className}
+                    text-[26px]
+                    font-medium
+                    leading-none
+                    text-white
+                    sm:text-[29px]
+                  `}
                 >
-                  {/* CIRCLE */}
-                  <div
-                    className="
-                      flex
-                      h-[82px]
-                      w-[82px]
-                      shrink-0
-                      items-center
-                      justify-center
-                      rounded-full
-                      border-[11px]
-                      border-[#FFFBF3]
-                      bg-[#795547]
-                      sm:h-[95px]
-                      sm:w-[95px]
-                    "
-                  >
-                    <span
-                      className={`
-                        ${playfairDisplay.className}
-                        text-[30px]
-                        font-medium
-                        leading-none
-                        text-white
-                        sm:text-[34px]
-                      `}
-                    >
-                      {item.number}
-                    </span>
-                  </div>
+                  3
+                </span>
+              </div>
 
-                  {/* CONTENT */}
-                  <div className="min-w-0">
-                    <h3
-                      className={`
-                        ${playfairDisplay.className}
-                        text-[23px]
-                        font-medium
-                        leading-[1.1]
-                        text-[#000]
-                        sm:text-[26px]
-                      `}
-                    >
-                      {item.title}
-                    </h3>
+              <div className="min-w-0">
+                <h3
+                  className={`
+                    ${playfairDisplay.className}
+                    text-[20px]
+                    font-medium
+                    leading-none
+                    text-[#000]
+                    sm:text-[22px]
+                  `}
+                >
+                  Develop
+                </h3>
 
-                    <p
-                      className={`
-                        ${jost.className}
-                        mt-2
-                        text-[14px]
-                        font-normal
-                        leading-[1.5]
-                        text-[#717171]
-                        sm:text-[16px]
-                      `}
-                    >
-                      {item.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                <p
+                  className={`
+                    ${jost.className}
+                    mt-2
+                    text-[13px]
+                    font-normal
+                    leading-[1.35]
+                    text-[#717171]
+                    sm:text-[11px]
+                  `}
+                >
+                  Your space is revealed - on time, on budget, beyond
+                  expectations.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* DELIVER*/}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6 }}
+              className="
+                relative
+                ml-auto
+                mr-[5%]
+                mt-2
+                flex
+                min-h-[82px]
+                w-[75%]
+                items-center
+                rounded-l-[70px]
+                bg-[#FEF2E0]
+                pl-4
+                pr-[68px]
+                py-6
+                sm:mr-[5%]
+                sm:min-h-[100px]
+                sm:pr-[82px]
+              "
+            >
+              <div className="min-w-0">
+                <h3
+                  className={`
+                    ${playfairDisplay.className}
+                    text-[20px]
+                    font-medium
+                    leading-none
+                    text-[#000]
+                    sm:text-[22px]
+                  `}
+                >
+                  Deliver
+                </h3>
+
+                <p
+                  className={`
+                    ${jost.className}
+                    mt-2
+                    text-[13px]
+                    font-normal
+                    leading-[1.35]
+                    text-[#717171]
+                    sm:text-[11px]
+                  `}
+                >
+                  Your space is revealed - on time, on budget, beyond
+                  expectations.
+                </p>
+              </div>
+
+              {/* NUMBER */}
+              <div
+                className="
+                  absolute
+                  right-0
+                  top-1/2
+                  z-10
+                  flex
+                  h-[64px]
+                  w-[64px]
+                  -translate-y-1/2
+                  items-center
+                  justify-center
+                  rounded-full
+                  border-[9px]
+                  border-[#FFFBF3]
+                  bg-[#795547]
+                  sm:h-[78px]
+                  sm:w-[78px]
+                  sm:border-[11px]
+                "
+              >
+                <span
+                  className={`
+                    ${playfairDisplay.className}
+                    text-[26px]
+                    font-medium
+                    leading-none
+                    text-white
+                    sm:text-[29px]
+                  `}
+                >
+                  4
+                </span>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
