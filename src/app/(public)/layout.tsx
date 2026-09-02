@@ -49,7 +49,12 @@
 // }
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Playfair_Display,
+  Frank_Ruhl_Libre,
+} from "next/font/google";
 import Navbar from "@/components/Navbar2";
 import Footer from "@/components/Footer2";
 import { Toaster } from "@/components/ui/Toaster";
@@ -74,6 +79,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const frankRuhl = Frank_Ruhl_Libre({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-frank-ruhl",
+});
+
 export const metadata: Metadata = {
   title: "Best Interior Designers Company in India | Earthvine Interior",
   description:
@@ -88,11 +100,11 @@ export default function PublicLayout({
   return (
     <>
       <div
-        className={`antialiased bg-[hsl(var(--background))] text-[hsl(var(--foreground))] ${geistSans.variable} ${geistMono.variable} ${playfair.variable}`}
+        className={`antialiased bg-[hsl(var(--background))] text-[hsl(var(--foreground))] ${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${frankRuhl.variable}`}
       >
         <Navbar />
         {children}
-        <ContactPopup />
+        {/* <ContactPopup /> */}
         <Toaster />
         <Footer />
       </div>

@@ -356,6 +356,7 @@ export default function EditServicePage() {
             <div>
               <input
                 type="file"
+                accept="image/jpeg,image/png,image/webp,image/gif"
                 onChange={async (e) => {
                   const file = e.target.files?.[0];
                   if (!file) return;
@@ -403,67 +404,6 @@ export default function EditServicePage() {
                 onEditorChange={(content) =>
                   updateField("intro", "content", content)
                 }
-                //               init={{
-                //                 height: 500,
-
-                //                 menubar: true,
-
-                //                 plugins: [
-                //                   "advlist",
-                //                   "autolink",
-                //                   "lists",
-                //                   "link",
-                //                   "image",
-                //                   "table",
-                //                   "media",
-                //                   "searchreplace",
-                //                   "code",
-                //                   "fullscreen",
-                //                   "preview",
-                //                   "wordcount",
-                //                   "visualblocks",
-                //                   "anchor",
-                //                 ],
-
-                //                 toolbar:
-                //                   "undo redo | " +
-                //                   "blocks | " +
-                //                   "bold italic underline | " +
-                //                   "alignleft aligncenter alignright alignjustify | " +
-                //                   "bullist numlist | " +
-                //                   "link image table | " +
-                //                   "removeformat | " +
-                //                   "code fullscreen preview",
-
-                //                 branding: false,
-
-                //                 statusbar: false,
-
-                //                 content_style: `
-                //   body{
-                //     font-family: Raleway, sans-serif;
-                //     font-size:18px;
-                //     line-height:1.8;
-                //     color:#444;
-                //     padding:20px;
-                //   }
-
-                //   h1,h2,h3,h4,h5,h6{
-                //     font-family: Playfair Display, serif;
-                //     color:#222;
-                //     font-weight:600;
-                //   }
-
-                //   p{
-                //     margin-bottom:18px;
-                //   }
-
-                //   ul,ol{
-                //     margin:16px 0;
-                //     padding-left:22px;
-                //   }
-                // `,
-                //               }}
                 init={serviceTinyMCEConfig}
               />
             </div>
@@ -556,6 +496,7 @@ export default function EditServicePage() {
               <div key={index} className="border p-4 rounded space-y-3">
                 <input
                   type="file"
+                  accept="image/jpeg,image/png,image/webp,image/gif"
                   onChange={async (e) => {
                     const file = e.target.files?.[0];
                     if (!file) return;
@@ -754,6 +695,7 @@ export default function EditServicePage() {
                 {/* Image Upload */}
                 <input
                   type="file"
+                  accept="image/jpeg,image/png,image/webp,image/gif"
                   onChange={async (e) => {
                     const file = e.target.files?.[0];
                     if (!file) return;

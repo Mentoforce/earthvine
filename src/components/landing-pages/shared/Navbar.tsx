@@ -52,7 +52,7 @@ export default function Navbar() {
           "
         >
           <Image
-            src="/logo2.png"
+            src="/changedlogo.png"
             alt="Earthvine"
             fill
             priority

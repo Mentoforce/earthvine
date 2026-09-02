@@ -9,13 +9,10 @@ import { arapey, jost } from "@/lib/fonts";
 
 const ConsultationSection = () => {
   const { toast } = useToast();
-
   const [loading, setLoading] = useState(false);
   const [captchaToken, setCaptchaToken] = useState("");
   const [turnstileKey, setTurnstileKey] = useState(0);
-
   const [honeypot, setHoneypot] = useState("");
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,7 +24,6 @@ const ConsultationSection = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     const { name, value } = e.target;
-
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -36,7 +32,6 @@ const ConsultationSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     if (honeypot.trim()) {
       return;
     }
@@ -64,7 +59,6 @@ const ConsultationSection = () => {
 
     try {
       setLoading(true);
-
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/api/leads`,
         {
@@ -288,24 +282,24 @@ const ConsultationSection = () => {
                 onChange={handleChange}
                 autoComplete="tel"
                 className={`
-    ${jost.className}
-    w-full
-    border-0
-    border-b-2
-    border-white/60
-    bg-transparent
-    pb-2
-    text-[13px]
-    font-medium
-    leading-normal
-    text-white
-    placeholder:text-white/60
-    outline-none
-    transition-colors
-    duration-200
-    focus:border-white
-    focus:placeholder:text-white
-  `}
+                  ${jost.className}
+                  w-full
+                  border-0
+                  border-b-2
+                  border-white/60
+                  bg-transparent
+                  pb-2
+                  text-[13px]
+                  font-medium
+                  leading-normal
+                  text-white
+                  placeholder:text-white/60
+                  outline-none
+                  transition-colors
+                  duration-200
+                  focus:border-white
+                  focus:placeholder:text-white
+                `}
               />
 
               {/* =================================================

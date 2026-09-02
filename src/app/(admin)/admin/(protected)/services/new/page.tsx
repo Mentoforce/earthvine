@@ -329,6 +329,7 @@ export default function NewServicePage() {
             <div>
               <input
                 type="file"
+                accept="image/jpeg,image/png,image/webp,image/gif"
                 onChange={async (e) => {
                   const file = e.target.files?.[0];
                   if (!file) return;
@@ -541,6 +542,7 @@ export default function NewServicePage() {
                 {/* Image URL */}
                 <input
                   type="file"
+                  accept="image/jpeg,image/png,image/webp,image/gif"
                   onChange={async (e) => {
                     const file = e.target.files?.[0];
                     if (!file) return;
@@ -739,6 +741,7 @@ export default function NewServicePage() {
                 {/* Image Upload */}
                 <input
                   type="file"
+                  accept="image/jpeg,image/png,image/webp,image/gif"
                   onChange={async (e) => {
                     const file = e.target.files?.[0];
                     if (!file) return;

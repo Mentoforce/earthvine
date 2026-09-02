@@ -237,12 +237,13 @@
 // };
 
 // export default Footer;
+
 "use client";
 
 import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Instagram, Youtube } from "lucide-react";
-import logo from "../../public/new/newlogo2.png";
+import logo from "../../public/changedlogo2.png";
 
 const Footer = () => {
   return (
@@ -459,10 +460,10 @@ const Footer = () => {
               </Link>
 
               <Link
-                href="/services"
+                href="/blogs"
                 className="transition-colors duration-300 hover:text-white"
               >
-                Services
+                Blog
               </Link>
 
               <Link
@@ -527,7 +528,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="tel:+919888322220"
+                href="tel:+919310333265"
                 className="transition-colors duration-300 hover:text-white"
               >
                 +91 93103 33265

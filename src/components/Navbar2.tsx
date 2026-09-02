@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ChevronDown, Menu, X } from "lucide-react";
-import logo from "../../public/logo2.png";
+import logo from "../../public/changedlogo.png";
 import { jost, playfairDisplay } from "@/lib/fonts";
 
 export default function Navbar() {
@@ -342,6 +342,30 @@ export default function Navbar() {
             </div>
           </div>
 
+          {/* BLOG */}
+          <Link
+            href="/blogs"
+            className={`
+    ${jost.className}
+    flex
+    w-[100px]
+    shrink-0
+    items-center
+    justify-center
+    text-[20px]
+    leading-[120%]
+    transition-colors
+    duration-200
+    ${
+      isActive("/blogs")
+        ? "font-bold text-[#1C1410]"
+        : "font-normal text-[#504E4C] hover:text-[#1C1410]"
+    }
+  `}
+          >
+            Blog
+          </Link>
+
           {/* CONTACT */}
 
           <Link
@@ -598,7 +622,21 @@ export default function Navbar() {
                   </div>
                 )}
               </div>
-
+              {/* BLOG */}
+              <Link
+                href="/blogs"
+                className={`
+                  text-[19px]
+                  leading-[120%]
+                  ${
+                    isActive("/blogs")
+                      ? "font-bold text-[#1C1410]"
+                      : "font-normal text-[#504E4C]"
+                  }
+                `}
+              >
+                Blog
+              </Link>
               {/* CONTACT */}
 
               <Link

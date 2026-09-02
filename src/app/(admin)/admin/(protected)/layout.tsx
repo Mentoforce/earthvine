@@ -106,6 +106,7 @@ export default function AdminLayout({ children }: any) {
     // { name: "Pages", path: "/admin/pages" },
     { name: "About", path: "/admin/about" },
     { name: "Contact Form leads", path: "/admin/leads" },
+    { name: "Blogs", path: "/admin/blogs" },
     // { name: "Footer", path: "/admin/footer" },
   ];
 
