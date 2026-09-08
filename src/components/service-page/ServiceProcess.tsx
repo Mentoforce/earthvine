@@ -31,8 +31,8 @@ export default function ServiceProcess({ title, steps }: any) {
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Heading */}
         <div className="flex items-center gap-4 mb-4">
-          <div className="w-8 h-px bg-[hsl(var(--secondary))]" />
-          <span className="text-[11px] tracking-[0.4em] uppercase text-[hsl(var(--secondary))] font-medium">
+          <div className="w-8 h-px bg-[#3C2A20]" />
+          <span className="text-[13px] tracking-[0.4em] uppercase text-[#3C2A20] font-medium">
             Our Process
           </span>
         </div>

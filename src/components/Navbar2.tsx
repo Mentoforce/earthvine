@@ -56,6 +56,8 @@ export default function Navbar() {
     setMobileOpen(false);
   }, [pathname]);
 
+  const isServiceActive = pathname.startsWith("/services/");
+
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -66,7 +68,7 @@ export default function Navbar() {
         top-0
         left-0
         right-0
-        z-50
+        z-[9999]
         w-full
         h-20
         border-2
@@ -141,7 +143,6 @@ export default function Navbar() {
           `}
         >
           {/* HOME */}
-
           <Link
             href="/"
             className={`
@@ -163,9 +164,7 @@ export default function Navbar() {
           >
             Home
           </Link>
-
           {/* ABOUT US */}
-
           <Link
             href="/about"
             className={`
@@ -188,43 +187,45 @@ export default function Navbar() {
           >
             About Us
           </Link>
-
           {/* =======================================================
               SERVICES - DYNAMIC
           ======================================================= */}
-
+          {/* =======================================================
+    SERVICES - DYNAMIC
+======================================================= */}
           <div className="relative group">
             <div className="flex items-center gap-1">
-              <Link
-                href="/services"
+              {/* SERVICES LABEL - NOT CLICKABLE */}
+              <span
                 className={`
-                  ${jost.className}
-                  flex
-                  items-center
-                  text-[20px]
-                  leading-[120%]
-                  transition-colors
-                  duration-200
-                  ${
-                    isActive("/services")
-                      ? "font-bold text-[#1C1410]"
-                      : "font-normal text-[#504E4C] hover:text-[#1C1410]"
-                  }
-                `}
+        ${jost.className}
+        flex
+        items-center
+        text-[20px]
+        leading-[120%]
+        transition-colors
+        duration-200
+        ${
+          isServiceActive
+            ? "font-bold text-[#1C1410]"
+            : "font-normal text-[#504E4C] group-hover:text-[#1C1410]"
+        }
+      `}
               >
                 Services
-              </Link>
+              </span>
 
+              {/* ARROW */}
               <ChevronDown
                 size={16}
                 strokeWidth={1.8}
                 className={`
-                  ml-1
-                  text-[#504E4C]
-                  transition-transform
-                  duration-300
-                  group-hover:rotate-180
-                `}
+        ml-1
+        transition-all
+        duration-300
+        ${isServiceActive ? "text-[#1C1410]" : "text-[#504E4C]"}
+        group-hover:rotate-180
+      `}
               />
             </div>
 
@@ -232,26 +233,26 @@ export default function Navbar() {
 
             <div
               className="
-                absolute
-                left-1/2
-                top-full
-                mt-5
-                w-64
-                -translate-x-1/2
-                invisible
-                rounded-xl
-                border
-                border-[#795547]/15
-                bg-[#FFF8EE]/95
-                py-3
-                opacity-0
-                shadow-[0_20px_50px_rgba(60,42,32,0.15)]
-                backdrop-blur-xl
-                transition-all
-                duration-300
-                group-hover:visible
-                group-hover:opacity-100
-              "
+      absolute
+      left-1/2
+      top-full
+      mt-5
+      w-64
+      -translate-x-1/2
+      invisible
+      rounded-xl
+      border
+      border-[#795547]/15
+      bg-[#FFF8EE]/95
+      py-3
+      opacity-0
+      shadow-[0_20px_50px_rgba(60,42,32,0.15)]
+      backdrop-blur-xl
+      transition-all
+      duration-300
+      group-hover:visible
+      group-hover:opacity-100
+    "
             >
               {services.map((cat: any) => (
                 <div key={cat._id} className="relative group/sub">
@@ -260,20 +261,20 @@ export default function Navbar() {
                   <Link
                     href={`/services/${cat.slug}`}
                     className="
-                      flex
-                      items-center
-                      justify-between
-                      rounded-lg
-                      px-5
-                      py-3
-                      text-[15px]
-                      font-normal
-                      text-[#504E4C]
-                      transition-all
-                      duration-200
-                      hover:bg-[#FEE6C3]/50
-                      hover:text-[#1C1410]
-                    "
+            flex
+            items-center
+            justify-between
+            rounded-lg
+            px-5
+            py-3
+            text-[15px]
+            font-normal
+            text-[#504E4C]
+            transition-all
+            duration-200
+            hover:bg-[#FEE6C3]/50
+            hover:text-[#1C1410]
+          "
                   >
                     {cat.title}
 
@@ -282,9 +283,9 @@ export default function Navbar() {
                         size={14}
                         strokeWidth={1.8}
                         className="
-                          -rotate-90
-                          text-[#795547]
-                        "
+                -rotate-90
+                text-[#795547]
+              "
                       />
                     )}
                   </Link>
@@ -294,43 +295,43 @@ export default function Navbar() {
                   {cat.children?.length > 0 && (
                     <div
                       className="
-                        absolute
-                        left-[100%]
-                        top-0
-                        ml-2
-                        w-56
-                        invisible
-                        rounded-xl
-                        border
-                        border-[#795547]/15
-                        bg-[#FFF8EE]/95
-                        py-2
-                        opacity-0
-                        shadow-[0_20px_50px_rgba(60,42,32,0.15)]
-                        backdrop-blur-xl
-                        transition-all
-                        duration-300
-                        group-hover/sub:visible
-                        group-hover/sub:opacity-100
-                      "
+              absolute
+              left-[100%]
+              top-0
+              ml-2
+              w-56
+              invisible
+              rounded-xl
+              border
+              border-[#795547]/15
+              bg-[#FFF8EE]/95
+              py-2
+              opacity-0
+              shadow-[0_20px_50px_rgba(60,42,32,0.15)]
+              backdrop-blur-xl
+              transition-all
+              duration-300
+              group-hover/sub:visible
+              group-hover/sub:opacity-100
+            "
                     >
                       {cat.children.map((child: any) => (
                         <Link
                           key={child._id}
                           href={`/services/${child.slug}`}
                           className="
-                            block
-                            rounded-lg
-                            px-5
-                            py-3
-                            text-[15px]
-                            font-normal
-                            text-[#504E4C]
-                            transition-all
-                            duration-200
-                            hover:bg-[#FEE6C3]/50
-                            hover:text-[#1C1410]
-                          "
+                  block
+                  rounded-lg
+                  px-5
+                  py-3
+                  text-[15px]
+                  font-normal
+                  text-[#504E4C]
+                  transition-all
+                  duration-200
+                  hover:bg-[#FEE6C3]/50
+                  hover:text-[#1C1410]
+                "
                         >
                           {child.title}
                         </Link>
@@ -346,28 +347,26 @@ export default function Navbar() {
           <Link
             href="/blogs"
             className={`
-    ${jost.className}
-    flex
-    w-[100px]
-    shrink-0
-    items-center
-    justify-center
-    text-[20px]
-    leading-[120%]
-    transition-colors
-    duration-200
-    ${
-      isActive("/blogs")
-        ? "font-bold text-[#1C1410]"
-        : "font-normal text-[#504E4C] hover:text-[#1C1410]"
-    }
-  `}
+            ${jost.className}
+            flex
+            w-[55px]
+            shrink-0
+            items-center
+            justify-center
+            text-[20px]
+            leading-[120%]
+            transition-colors
+            duration-200
+            ${
+              isActive("/blogs")
+                ? "font-bold text-[#1C1410]"
+                : "font-normal text-[#504E4C] hover:text-[#1C1410]"
+            }
+          `}
           >
             Blog
           </Link>
-
           {/* CONTACT */}
-
           <Link
             href="/contact"
             className={`
@@ -388,9 +387,7 @@ export default function Navbar() {
           >
             Contact Us
           </Link>
-
           {/* GET QUOTE */}
-
           <Link
             href="/contact"
             className={`
@@ -513,20 +510,19 @@ export default function Navbar() {
 
               <div>
                 <div className="flex items-center justify-between">
-                  <Link
-                    href="/services"
+                  <span
                     className={`
-                      text-[19px]
-                      leading-[120%]
-                      ${
-                        isActive("/services")
-                          ? "font-bold text-[#1C1410]"
-                          : "font-normal text-[#504E4C]"
-                      }
-                    `}
+    text-[19px]
+    leading-[120%]
+    ${
+      isServiceActive
+        ? "font-bold text-[#1C1410]"
+        : "font-normal text-[#504E4C]"
+    }
+  `}
                   >
                     Services
-                  </Link>
+                  </span>
 
                   <button
                     type="button"

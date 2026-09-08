@@ -54,7 +54,6 @@ const HeroSection = () => {
           from-black/5
           via-black/5
           to-black/55
-
           lg:hidden
         "
       />
@@ -85,13 +84,10 @@ const HeroSection = () => {
           items-end
           px-5
           pb-[368px]
-
           sm:px-8
           sm:pb-[65px]
-
           md:px-[60px]
           md:pb-[75px]
-
           lg:items-start
           lg:px-[96px]
           lg:pb-0
@@ -104,7 +100,6 @@ const HeroSection = () => {
             w-full
             flex-col
             items-center
-
             md:items-start
             lg:w-auto
           "
@@ -113,43 +108,21 @@ const HeroSection = () => {
               HEADING
           ================================================== */}
           <div className="overflow-hidden">
+            {" "}
             <motion.h1
-              initial={{ y: 150 }}
-              animate={{ y: 0 }}
+              initial={{ opacity: 0, y: 35, filter: "blur(6px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{
-                duration: 1,
-                delay: 0.5,
+                duration: 0.8,
+                delay: 0.25,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className={`
-                ${playfairDisplay.className}
-                m-0
-                max-w-[350px]
-                text-center
-                text-[40px]
-                font-bold
-                leading-[112%]
-                tracking-normal
-                text-white
-
-                sm:max-w-[470px]
-                sm:text-[44px]
-                sm:leading-[115%]
-
-                md:max-w-[600px]
-                md:text-left
-                md:text-[60px]
-
-                lg:max-w-[660px]
-                lg:text-left
-                lg:text-[77px]
-                lg:leading-[135%]
-              `}
+              className={` ${playfairDisplay.className} m-0 max-w-[350px] text-center text-[40px] font-bold leading-[112%] tracking-normal text-white sm:max-w-[470px] sm:text-[44px] sm:leading-[115%] md:max-w-[600px] md:text-left md:text-[60px] lg:max-w-[660px] lg:text-left lg:text-[77px] lg:leading-[135%] `}
             >
-              From <span className="italic">Blueprint</span> to
-              <br />
-              <span className="italic">Beautiful Reality</span>
-            </motion.h1>
+              {" "}
+              From <span className="italic">Blueprint</span> to <br />{" "}
+              <span className="italic">Beautiful Reality</span>{" "}
+            </motion.h1>{" "}
           </div>
 
           {/* =================================================
@@ -169,13 +142,10 @@ const HeroSection = () => {
               items-center
               justify-center
               gap-[8px]
-
               sm:mt-[26px]
               sm:gap-[10px]
-
               md:mt-[30px]
               md:justify-start
-
               lg:mt-[28px]
               lg:gap-[8px]
             "
@@ -187,43 +157,34 @@ const HeroSection = () => {
               href="/contact"
               className={`
                 ${playfairDisplay.className}
-
                 flex
                 h-[48px]
                 w-[132px]
                 shrink-0
                 items-center
                 justify-center
-
                 border
                 border-white
                 bg-[#3C2A20]
-
                 px-2
                 text-center
                 text-[14px]
                 leading-[120%]
                 text-white
-
                 transition-all
                 duration-300
-
                 hover:bg-[#F7F2EC]
                 hover:text-[#3C2A20]
-
                 sm:h-[52px]
                 sm:w-[145px]
                 sm:text-[15px]
-
                 md:h-[57px]
                 md:w-[160px]
                 md:text-[16px]
-
                 lg:h-[52px]
                 lg:w-[145px]
                 lg:px-3
                 lg:text-[15px]
-
                 xl:h-[59px]
                 xl:w-[168px]
                 xl:text-[17px]
@@ -239,43 +200,34 @@ const HeroSection = () => {
               href="#consultation"
               className={`
                 ${playfairDisplay.className}
-
                 flex
                 h-[48px]
                 w-[132px]
                 shrink-0
                 items-center
                 justify-center
-
                 border
                 border-[#3C2A20]
                 bg-[#F7F2EC]
-
                 px-2
                 text-center
                 text-[14px]
                 leading-[120%]
                 text-[#3C2A20]
-
                 transition-all
                 duration-300
-
                 hover:bg-[#3C2A20]
                 hover:text-white
-
                 sm:h-[52px]
                 sm:w-[145px]
                 sm:text-[15px]
-
                 md:h-[57px]
                 md:w-[160px]
                 md:text-[16px]
-
                 lg:h-[52px]
                 lg:w-[145px]
                 lg:px-3
                 lg:text-[15px]
-
                 xl:h-[59px]
                 xl:w-[163px]
                 xl:text-[17px]
@@ -291,6 +243,7 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
 // "use client";
 
 // import { motion } from "framer-motion";

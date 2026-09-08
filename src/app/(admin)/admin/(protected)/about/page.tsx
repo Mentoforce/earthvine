@@ -613,13 +613,10 @@ export default function AdminAbout() {
               onChange={async (e) => {
                 const file = e.target.files?.[0];
                 if (!file) return;
-
                 setUploading(true);
                 const url = await uploadFile(file, "about/hero");
                 setUploading(false);
-
                 if (!url) return;
-
                 setForm((p: any) => ({
                   ...p,
                   hero: { ...p.hero, image: url },

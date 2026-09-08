@@ -6,13 +6,13 @@ import { motion } from "framer-motion";
 export default function ServiceIntro({ alt, image, content }: any) {
   return (
     <section className="section-padding">
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12">
+      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="lg:col-span-5"
+          className="col-span-1 lg:col-span-5"
         >
-          <div className="aspect-3/4 relative overflow-hidden">
+          <div className="aspect-[3/4] relative overflow-hidden">
             <Image
               src={image}
               alt={alt || "service image"}
@@ -27,18 +27,18 @@ export default function ServiceIntro({ alt, image, content }: any) {
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          className="lg:col-span-6 lg:col-start-7 flex flex-col "
+          className="col-span-1 lg:col-span-7 min-w-0"
         >
           <div className="flex items-center mt-0 gap-4 mb-4">
-            <div className="w-8 h-px bg-[hsl(var(--gold))]" />
-            <span className="text-[11px] tracking-[0.4em] uppercase text-[hsl(var(--secondary))]">
+            <div className="w-8 h-px bg-[#3C2A20]" />
+            <span className="text-[13px] tracking-[0.4em] uppercase text-[#3C2A20]">
               Overview
             </span>
           </div>
-          <div className="lg:col-span-6 lg:col-start-7">
+
+          <div>
             <div
-              // className="prose max-w-none"
-              className="prose max-w-none earthvine-prose"
+              className="prose max-w-none earthvine-prose break-words"
               dangerouslySetInnerHTML={{ __html: content }}
             />
           </div>
@@ -47,6 +47,58 @@ export default function ServiceIntro({ alt, image, content }: any) {
     </section>
   );
 }
+//LATEST CODE->
+// "use client";
+
+// import Image from "next/image";
+// import { motion } from "framer-motion";
+
+// export default function ServiceIntro({ alt, image, content }: any) {
+//   return (
+//     <section className="section-padding">
+//       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12">
+//         <motion.div
+//           initial={{ opacity: 0, y: 40 }}
+//           whileInView={{ opacity: 1, y: 0 }}
+//           className="lg:col-span-5"
+//         >
+//           <div className="aspect-3/4 relative overflow-hidden">
+//             <Image
+//               src={image}
+//               alt={alt || "service image"}
+//               fill
+//               sizes="(max-width: 1024px) 100vw, 40vw"
+//               quality={80}
+//               className="rounded-lg object-cover"
+//             />
+//           </div>
+//         </motion.div>
+
+//         <motion.div
+//           initial={{ opacity: 0, x: 40 }}
+//           whileInView={{ opacity: 1, x: 0 }}
+//           className="lg:col-span-6 lg:col-start-7 flex flex-col "
+//         >
+//           <div className="flex items-center mt-0 gap-4 mb-4">
+//             <div className="w-8 h-px bg-[#3C2A20]" />
+//             <span className="text-[13px] tracking-[0.4em] uppercase text-[#3C2A20]">
+//               Overview
+//             </span>
+//           </div>
+//           <div className="lg:col-span-6 lg:col-start-7">
+//             <div
+//               // className="prose max-w-none"
+//               className="prose max-w-none earthvine-prose"
+//               dangerouslySetInnerHTML={{ __html: content }}
+//             />
+//           </div>
+//         </motion.div>
+//       </div>
+//     </section>
+//   );
+// }
+
+//----------------------------------------------------------------------------------------------------------------------------------------
 // export default function ServiceIntro({ heading, description }: any) {
 //   return (
 //     <section className="py-24 bg-[hsl(var(--charcoal))] text-center">

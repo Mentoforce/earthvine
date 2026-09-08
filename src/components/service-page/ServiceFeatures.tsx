@@ -59,15 +59,15 @@ export default function ServiceFeatures({ title, items }: any) {
     <section className="section-padding bg-[#F7F2EC]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center gap-4 mb-4">
-          <div className="w-8 h-px bg-[#A96D5A]" />
+          <div className="w-8 h-px bg-[#3C2A20]" />
 
           <span
             className="
               font-sans
-              text-[11px]
+              text-[13px]
               tracking-[0.4em]
               uppercase
-              text-[#8F6554]
+              text-[#3C2A20]
             "
           >
             Features

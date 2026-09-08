@@ -95,28 +95,27 @@ const SpaceSection = () => {
             <Link
               href="/contact"
               className={`
-                ${playfairDisplay.className}
-                mt-3
-                flex
-                h-[27px]
-                w-[193px]
-                items-center
-                justify-center
-                border-[0.642px]
-                border-[#3C2A20]
-                bg-[#F7F2EC]
-                px-[15.415px]
-                py-[6.423px]
-                text-center
-                text-[11px]
-                font-normal
-                leading-none
-                text-[#3C2A20]
-                transition-colors
-                duration-300
-                hover:bg-[#3C2A20]
-                hover:text-[#F7F2EC]
-              `}
+    ${playfairDisplay.className}
+    mt-3
+    inline-flex
+    h-9
+    w-auto
+    items-center
+    justify-center
+    border-[0.642px]
+    border-[#3C2A20]
+    bg-[#F7F2EC]
+    px-5
+    text-center
+    text-[12px]
+    font-normal
+    leading-none
+    text-[#3C2A20]
+    transition-colors
+    duration-300
+    hover:bg-[#3C2A20]
+    hover:text-[#F7F2EC]
+  `}
             >
               Get Quote
             </Link>
