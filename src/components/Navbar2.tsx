@@ -71,15 +71,13 @@ export default function Navbar() {
         z-[9999]
         w-full
         h-20
-        border-2
-        border-white/80
         transition-all
         duration-700
         ${scrolled ? "shadow-[0_4px_30px_rgba(60,42,32,0.12)]" : ""}
       `}
       style={{
-        background:
-          "radial-gradient(326.52% 125.18% at 12.61% 176.25%, #FFFFFF 0%, #FEE6C3 100%)",
+        background: "#FEE6C3",
+        boxShadow: "0 4px 20px rgba(60, 42, 32, 0.3)",
       }}
     >
       <nav
