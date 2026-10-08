@@ -574,30 +574,37 @@ const Contact = () => {
                   type="tel"
                   name="phone"
                   value={form.phone}
-                  onChange={(e) =>
+                  inputMode="numeric"
+                  maxLength={10}
+                  pattern="[0-9]{10}"
+                  onChange={(e) => {
+                    const value = e.target.value
+                      .replace(/\D/g, "")
+                      .slice(0, 10);
+
                     setForm((p) => ({
                       ...p,
-                      phone: e.target.value,
-                    }))
-                  }
-                  placeholder="+91   000-000-0000"
+                      phone: value,
+                    }));
+                  }}
+                  placeholder="0000000000"
                   className={`
-                    ${jost.className}
-                    h-[46px]
-                    w-full
-                    rounded-[7px]
-                    border
-                    border-[#D8D5D3]
-                    bg-white
-                    px-3
-                    text-[14px]
-                    font-normal
-                    text-[#53627A]
-                    outline-none
-                    transition-colors
-                    placeholder:text-[#68758A]
-                    focus:border-[#A96D5A]
-                  `}
+    ${jost.className}
+    h-[46px]
+    w-full
+    rounded-[7px]
+    border
+    border-[#D8D5D3]
+    bg-white
+    px-3
+    text-[14px]
+    font-normal
+    text-[#53627A]
+    outline-none
+    transition-colors
+    placeholder:text-[#68758A]
+    focus:border-[#A96D5A]
+  `}
                 />
               </div>
 

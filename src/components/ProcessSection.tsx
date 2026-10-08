@@ -165,7 +165,6 @@ export default function ProcessSection() {
                 w-full
                 overflow-hidden
                 bg-[#F7F2EC]
-
                 md:hidden
               "
             >
@@ -253,7 +252,6 @@ export default function ProcessSection() {
                       leading-[1.35]
                       text-[#504E4C]
                       text-[13px]
-
                       ${step.side === "right" ? "text-left" : "text-right"}
                     `}
                   >
@@ -277,9 +275,7 @@ export default function ProcessSection() {
                 overflow-hidden
                 bg-[#F7F2EC]
                 shadow-[0_-1px_0_rgba(121,85,71,0.05)]
-
                 md:block
-
                 lg:h-[680px]
               "
             >
@@ -318,9 +314,7 @@ export default function ProcessSection() {
                     absolute
                     inset-y-0
                     w-[30%]
-
                     ${step.side === "right" ? "right-0" : "left-0"}
-
                     ${
                       step.side === "right"
                         ? "bg-gradient-to-r from-transparent to-[#F7F2EC]"
@@ -342,11 +336,8 @@ export default function ProcessSection() {
                   w-[43%]
                   items-center
                   px-[40px]
-
                   lg:px-[55px]
-
                   xl:px-[70px]
-
                   ${
                     step.side === "right"
                       ? "right-0 justify-end"

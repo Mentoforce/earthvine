@@ -56,7 +56,8 @@ import {
   Frank_Ruhl_Libre,
 } from "next/font/google";
 import Navbar from "@/components/Navbar2";
-import Footer from "@/components/Footer2";
+// import Footer from "@/components/Footer2";
+import PublicFooter from "@/components/PublicFooter";
 import { Toaster } from "@/components/ui/Toaster";
 import ContactPopup from "@/components/ContactPopup";
 // import "../globals.css"
@@ -106,7 +107,8 @@ export default function PublicLayout({
         {children}
         {/* <ContactPopup /> */}
         <Toaster />
-        <Footer />
+        {/* <Footer /> */}
+        <PublicFooter />
       </div>
     </>
   );

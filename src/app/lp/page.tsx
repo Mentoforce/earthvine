@@ -15,9 +15,7 @@ export default function LandingPage() {
   return (
     <>
       <StickyBackground />
-
       <Navbar />
-
       <main className="relative z-10">
         <Hero />
         <USPSection />
@@ -33,6 +31,7 @@ export default function LandingPage() {
     </>
   );
 }
+
 // import Navbar from "@/components/landing-pages/shared/Navbar";
 // // import Hero from "@/components/landing-pages/Hero";
 // // import Stats from "@/components/landing-pages/Stats";
